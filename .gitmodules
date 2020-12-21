@@ -1,0 +1,9 @@
+[submodule "entropy/kitty/kitty-themes"]
+	path = entropy/kitty/kitty-themes
+	url = git@github.com:dexpota/kitty-themes.git
+[submodule "entropy/mail/neomutt/themes/powerline"]
+	path = entropy/mail/neomutt/themes/powerline
+	url = git@github.com:sheoak/neomutt-powerline-nerdfonts.git
+[submodule "entropy/mail/neomutt/themes/dracula"]
+	path = entropy/mail/neomutt/themes/dracula
+	url = https://github.com/dracula/mutt.git

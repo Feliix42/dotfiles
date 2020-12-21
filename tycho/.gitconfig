@@ -1,0 +1,26 @@
+[user]
+	name = Felix Wittwer
+	email = dev@felixwittwer.de
+	signingkey = EA0E8A99
+[push]
+	default = simple
+[commit]
+	gpgsign = true
+    template = ~/.gitcommit_template
+[core]
+	excludesfile = /Users/felix/.global_gitignore
+	pager = delta
+[pull]
+	rebase = true
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    features = side-by-side line-numbers decorations
+    whitespace-error-style = 22 reverse
+
+[delta "decorations"]
+    commit-decoration-style = bold yellow box ul
+    file-style = bold yellow ul
+    file-decoration-style = none

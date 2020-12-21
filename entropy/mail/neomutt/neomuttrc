@@ -1,0 +1,166 @@
+# vim: syntax=muttrc textwidth=100
+
+## Storage Setup
+set header_cache = ~/.cache/neomutt/
+set message_cachedir = ~/.cache/neomutt/
+set tmpdir = ~/.cache/neomutt/
+set virtual_spoolfile
+
+
+
+## Notmuch configuration
+set nm_default_uri = "notmuch:///home/felix/.mail"
+virtual-mailboxes "Combined Inbox" "notmuch://?query=tag:inbox"
+virtual-mailboxes "All Unread Messages" "notmuch://?query=tag:unread"
+virtual-mailboxes "Archive" "notmuch://?query=tag:archive"
+virtual-mailboxes "Sent" "notmuch://?query=tag:sent"
+
+macro index A "<modify-labels>+archive -unread -inbox\\n" "Archive message"
+macro index c "<change-vfolder>?" "Change to vfolder overview"
+macro index \\\\ "<vfolder-from-query>" "Search mailbox"
+
+# # open a different virtual folder
+#bind index,pager X change-vfolder
+# # read entire thread of the current message
+# bind index,pager + entire-thread
+# # generate virtual folder from query
+#bind index,pager \CX vfolder-from-query
+# generate virtual folder from query with time window
+bind index < vfolder-window-backward
+bind index > vfolder-window-forward
+
+
+
+## Displaying Options -> How should the UI look?
+set index_format        = "%Z⌈%D⌋ %-20.20F ⌜%s⌟"    # Switch format of index
+set date_format         = "%d.%m.%y"                # use german date format for sanity reasons
+set folder_format       = '%N %4C %4s bytes %2F %2f'
+#set reply_regexp        = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
+auto_view text/html
+alternative_order text/plain text/enriched text/html
+
+# uncollapse mail threads as necessary
+set uncollapse_jump
+set uncollapse_new
+
+# Sorting options:
+set sort_re
+set sort = reverse-threads
+set sort_aux = last-date-received
+
+
+
+## Set of sane defaults for handling and displaying mail
+set nomark_old              # stop marking my mail as old
+set smart_wrap              # wrap words instead of cutting them half
+set reflow_text             # automatically reflow text if the mail allows it
+set menu_scroll             # scroll only a line instead of a page
+
+# Mail Displaying:
+unset markers               # remove + signs on line wrap
+set smart_wrap              # only wrap full words
+set reflow_text             # reflow text if the mail allows it
+set reflow_wrap         = 120
+set wrap                = 120
+set pager_index_lines   = 5
+set pager_context       = 5
+set pager_stop              # Jesus Christ. Stop moving on to the next mail!
+
+# Mail editing:
+set include             # the next 3 set's are to
+set edit_headers        # go right to vim and edit through that composition
+set autoedit            # window, rather than mutt giving me 21 questions
+set forward_quote
+set forward_format      = "Fwd: %s"
+
+
+
+## Set mail editor to vim & setup aspell
+set editor  = 'vim -c "set fo+=aw" -c "set nosmartindent" -c "set nojs" -c "set filetype=mail" -c "normal }"'
+set text_flowed = yes
+set ispell = 'aspell -e -c'
+
+
+
+## h e a d e r s
+ignore *
+unignore from: to: subject: Cc:
+hdr_order From: To: Cc: Date:
+set user_agent
+
+
+
+## Keep me from sending mails w/o attachments
+set abort_noattach = ask-yes
+set attach_keyword = "\\<(anhängen|angehängt|anhang|anhänge|hängt an|anhängig|attached|attachments?|anbei)\\>"
+
+
+
+## Sidebar
+source ~/.config/neomutt/sidebar.muttrc
+bind index,pager \CO sidebar-open
+bind index,pager \CN sidebar-next
+bind index,pager \CP sidebar-prev
+bind index,pager B sidebar-toggle-visible
+
+
+
+## Theme
+source ~/.config/neomutt/themes/powerline/colors/gruvbox-powerline.neomuttrc
+source ~/.config/neomutt/themes/powerline/powerline.neomuttrc
+
+
+
+## Basic Sending Options
+set sendmail = "msmtp"
+set use_from = yes
+set realname = "Felix Wittwer"
+set reverse_name        # set the sender mail address to whomever it was originally sent
+set envelope_from = yes
+
+
+## Use GPG
+source ~/.config/neomutt/gpg.rc
+set pgp_use_gpg_agent = yes
+
+## Set up S/MIME
+set crypt_use_gpgme = yes
+set crypt_autosmime = yes
+set crypt_autosign = yes
+# automatically encrypt when possible
+set crypt_opportunistic_encrypt = yes
+set crypt_replyencrypt = yes
+set crypt_replysign = yes
+set crypt_replysignencrypted = yes
+# set default key and encrypt to self
+set smime_default_key = 0x39DDEFF5
+set smime_self_encrypt = yes
+
+
+
+## What is SPAM? Baby don't annoy me ~ annoy me, no more!
+spam "X-Spam-Status: Yes"                     "90+/SA"
+spam "X-Spam-Flag: YES"                       "90+/SA"
+spam "X-TUD-Spam-Status: Yes"                 "90+/SA"
+
+
+
+## VIM Keybindings
+bind pager j next-line
+bind pager k previous-line
+bind attach,index,pager \CD next-page
+bind attach,index,pager \CU previous-page
+bind pager g top
+bind pager G bottom
+bind attach,index g first-entry
+bind attach,index G last-entry
+bind index,pager X group-reply
+bind index,pager S group-chat-reply
+
+
+# configure aliases and mailboxes
+source ~/.config/neomutt/whoami.muttrc
+
+#### Mailbox switching
+
+source ~/.config/neomutt/accounts/tudresden.muttrc

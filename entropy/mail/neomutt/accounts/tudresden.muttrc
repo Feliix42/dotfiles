@@ -1,0 +1,24 @@
+# vim: syntax=muttrc textwidth=100
+
+# felix.wittwer1@tu-dresden.de
+
+set from                = felix.wittwer1@tu-dresden.de
+set folder              = "~/.mail/tu-dresden/"
+set spoolfile           = "~/.mail/tu-dresden/Inbox"
+set postponed           = =Drafts
+set trash               = =Trash
+set record              = =Sent
+
+# NOTE: disabled for notmuch
+# mailboxes "=Inbox" "=Trash" "=Sent" "=Drafts" 
+
+macro index \CS "<shell-escape>mbsync tu-dresden<enter>"
+
+set signature           = "~/.config/neomutt/signature.txt"
+
+# folder hooks to avoid long folder paths
+# folder-hook =Inbox 'set status_format       = "[tu dresden] [inbox]%> %u unread %m total %p postponed"'
+# folder-hook =Sent 'set status_format        = "[tu dresden] [sent]%> %m total"'
+# folder-hook =Drafts 'set status_format      = "[tu dresden] [drafts]%>  %m total"'
+# folder-hook =Trash 'set status_format       = "[tu dresden] [trash] %> %m total"'
+

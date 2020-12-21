@@ -1,0 +1,20 @@
+# Set default values for all following accounts.
+defaults
+auth           on
+tls            on
+# tls_trust_file /etc/ssl/certs/ca-certificates.crt
+logfile        ~/.msmtp.log
+
+#
+# TU Dresden
+account        tud
+host           msx.tu-dresden.de
+port           587
+auth           login
+from           felix.wittwer1@tu-dresden.de
+user           {{USER}}
+passwordeval   "pass mail/tud | head -1"
+
+
+# Set a default account
+account default : tud

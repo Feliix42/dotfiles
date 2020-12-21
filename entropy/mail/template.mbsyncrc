@@ -1,0 +1,26 @@
+# ---- TU Dresden ----
+IMAPAccount tu-dresden
+Host msx.tu-dresden.de
+User {{USER}}
+#PassCmd "pass mail/tud | head -1"
+Pass "{{PASSWORD}}"
+SSLType IMAPS
+AuthMechs LOGIN
+# because exchange apparently can't handle parallel accesses:
+PipelineDepth 1
+
+IMAPStore tu-dresden-remote
+Account tu-dresden
+
+MaildirStore tu-dresden-local
+Subfolders Verbatim
+Path ~/.mail/tu-dresden/
+Inbox ~/.mail/tu-dresden/Inbox
+
+Channel tu-dresden
+Master :tu-dresden-remote:
+Slave :tu-dresden-local:
+Patterns *
+Create Both
+SyncState *
+

@@ -1,0 +1,13 @@
+# Images
+image/jpeg; feh %s
+image/pjpeg; feh %s
+image/png; feh %s
+image/gif; firefox %s
+
+# PDF
+application/pdf; zathura %s
+
+# HTML
+# -- always use w3m; it's gay to use firefox for this
+# text/html; elinks -force-html %s
+text/html; w3m -I %{charset} -T text/html; copiousoutput;
