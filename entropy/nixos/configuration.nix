@@ -57,6 +57,20 @@
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
+  # enable hardware-accelerated graphics
+  nixpkgs.config.packageOverrides = pkgs: {
+    vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
+  };
+  hardware.opengl = {
+    enable = true;
+    extraPackages = with pkgs; [
+      intel-media-driver # LIBVA_DRIVER_NAME=iHD
+      vaapiIntel         # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
+      vaapiVdpau
+      libvdpau-va-gl
+    ];
+  };
+
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
   console = {
@@ -146,7 +160,27 @@
 
   # Enable sound.
   sound.enable = true;
-  hardware.pulseaudio.enable = true;
+  # configure pulseaudio to work with bluetooth headsets using aptx
+  hardware.pulseaudio = {
+    enable = true;
+    extraModules = [ pkgs.pulseaudio-modules-bt ];
+    # the full package is necessary for BT support
+    package = pkgs.pulseaudioFull;
+    # switch to bluetooth automatically if they are connected
+    extraConfig = "
+      load-module module-switch-on-connect
+    ";
+  };
+
+  # enable bluetooth in general and add a simple tool for connecting devices
+  hardware.bluetooth = {
+    enable = true;
+    # enable A2DP
+    config.General = {
+      Enable = "Source,Sink,Media,Socket";
+    };
+  };
+  services.blueman.enable = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -193,6 +227,9 @@
     scrot
     tldr
     unzip
+    ncat
+    inetutils
+    screen
     # automatic detection of display changes
     autorandr
     # password management
@@ -239,6 +276,16 @@
     ffmpeg-full
     # messenger
     tdesktop
+    signal-desktop
+    (weechat.override {
+      configure = { availablePlugins, ... }: {
+        scripts = with pkgs.weechatScripts; [
+          wee-slack
+          weechat-matrix
+        ];
+      };
+      # extraBuildInputs = [ python38Packages.Logbook ];
+    })
     # networking
     openconnect
   ];
