@@ -13,4 +13,4 @@ Feel free to re-use and copy this if something catches your eye!
 
 ## License
 
-All work in this repository, with the exception of images made by Simon Stålenhag are licenced under the [MIT license](./LICENCE).
+All work in this repository is licenced under the [MIT license](./LICENCE).
