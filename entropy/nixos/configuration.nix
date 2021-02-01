@@ -169,15 +169,17 @@
     # switch to bluetooth automatically if they are connected
     extraConfig = "
       load-module module-switch-on-connect
+      load-module module-bluetooth-policy auto_switch=2
     ";
   };
 
   # enable bluetooth in general and add a simple tool for connecting devices
   hardware.bluetooth = {
     enable = true;
+    package = pkgs.bluezFull;
     # enable A2DP
-    config.General = {
-      Enable = "Source,Sink,Media,Socket";
+    config = {
+      General = { Enable = "Source,Sink,Media,Socket"; };
     };
   };
   services.blueman.enable = true;
@@ -232,6 +234,8 @@
     screen
     # automatic detection of display changes
     autorandr
+    # audio management
+    pavucontrol
     # password management
     pass
     pinentry-curses
@@ -266,13 +270,19 @@
     mupdf
     pdfpc
     zathura
+    # PDF manipulation
+    podofo
+    poppler_utils
     # LaTeX
     texlive.combined.scheme-full
     # the eternal pain continues
     libreoffice-fresh
     # video and media applications
     zoom-us
+    teams
     youtube-dl
+    mpv
+    streamlink
     ffmpeg-full
     # messenger
     tdesktop
