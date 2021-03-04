@@ -191,7 +191,7 @@
   users.users.felix = {
     createHome = true;
     isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "video" "audio" "dialout" ]; # wheel: Enable ‘sudo’ for the user.
     group = "users";
     home = "/home/felix";
     shell = pkgs.fish;
@@ -231,6 +231,7 @@
     unzip
     ncat
     inetutils
+    usbutils
     screen
     # automatic detection of display changes
     autorandr
@@ -246,10 +247,13 @@
     notmuch
     # programming languages and compilers
     rustup
+    cargo-flamegraph
+    cargo-watch
     # python3
     stack
     gcc
     gnumake
+    cmake
     # I heard you like man pages?
     man-pages
     # git and friends
@@ -259,6 +263,7 @@
     # terminal, browsers, text editing
     kitty
     vscodium
+    eclipses.eclipse-platform
     typora
     firefox
     # time tracking
@@ -273,6 +278,10 @@
     # PDF manipulation
     podofo
     poppler_utils
+    # image manipulation
+    gimp
+    inkscape
+    libheif
     # LaTeX
     texlive.combined.scheme-full
     # the eternal pain continues
@@ -308,6 +317,7 @@
     roboto
     roboto-mono
     roboto-slab
+    open-sans
     overpass
     (nerdfonts.override {
       fonts = [ "FiraCode" "DroidSansMono" "Hack" "SourceCodePro" "RobotoMono" ];
