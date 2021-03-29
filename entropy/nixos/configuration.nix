@@ -19,7 +19,8 @@
 
   # make the screen usable
   #hardware.video.hidpi.enable = true;
-  services.xserver.dpi = 180;
+  #services.xserver.dpi = 180;
+  services.xserver.dpi = 192;
   environment.variables = {
     GDK_SCALE = "2";
     GDK_DPI_SCALE = "0.5";
@@ -51,6 +52,8 @@
   # replicates the default behaviour.
   networking.useDHCP = false;
   networking.interfaces.enp0s31f6.useDHCP = true;
+  # USB-C dock
+  networking.interfaces.enp0s20f0u2u1.useDHCP = true;
   networking.interfaces.wlp0s20f3.useDHCP = true;
 
   # Configure network proxy if necessary
@@ -179,7 +182,10 @@
     package = pkgs.bluezFull;
     # enable A2DP
     config = {
-      General = { Enable = "Source,Sink,Media,Socket"; };
+      General = {
+        Enable = "Source,Sink,Media"; 
+        Disable = "Socket";
+      };
     };
   };
   services.blueman.enable = true;
@@ -216,7 +222,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    # basic command line tooling
+    ## basic command line tooling
     wget
     vim
     w3m
@@ -233,67 +239,72 @@
     inetutils
     usbutils
     screen
-    # automatic detection of display changes
+    ## automatic detection of display changes
     autorandr
-    # audio management
+    ## audio management
     pavucontrol
-    # password management
+    ## password management
     pass
     pinentry-curses
-    # mail
+    ## mail
     isync
     msmtp
     neomutt urlview
     notmuch
-    # programming languages and compilers
+    ## programming languages and compilers
     rustup
     cargo-flamegraph
     cargo-watch
     # python3
     stack
     gcc
+    binutils-unwrapped
     gnumake
     cmake
-    # I heard you like man pages?
+    gdb
+    valgrind
+    heaptrack
+    ## I heard you like man pages?
     man-pages
-    # git and friends
+    ## git and friends
     git
     gitAndTools.delta
     gitAndTools.gitui
-    # terminal, browsers, text editing
+    ## terminal, browsers, text editing
     kitty
     vscodium
     eclipses.eclipse-platform
     typora
     firefox
-    # time tracking
+    next
+    ## time tracking
     watson
-    # file managers
+    ## file managers
     ranger
     xfce.thunar
-    # document viewers
+    ## document viewers
     mupdf
     pdfpc
     zathura
-    # PDF manipulation
+    ## PDF manipulation
     podofo
     poppler_utils
-    # image manipulation
+    ## image manipulation
     gimp
     inkscape
     libheif
-    # LaTeX
+    ## LaTeX
     texlive.combined.scheme-full
-    # the eternal pain continues
+    ## the eternal pain continues
     libreoffice-fresh
-    # video and media applications
+    ## video and media applications
     zoom-us
     teams
     youtube-dl
     mpv
     streamlink
     ffmpeg-full
-    # messenger
+    ## messenger
     tdesktop
     signal-desktop
     (weechat.override {
@@ -305,7 +316,7 @@
       };
       # extraBuildInputs = [ python38Packages.Logbook ];
     })
-    # networking
+    ## networking
     openconnect
   ];
 
@@ -350,6 +361,7 @@
 
   # use redshift
   services.redshift.enable = true;
+  services.redshift.temperature.night = 3500;
 
   # allow brightness control
   services.illum.enable = true;
