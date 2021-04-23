@@ -76,6 +76,9 @@ set wildignore=*.o,*~,*.pyc,*.aux,*.bbl,*.blg,*-blx.bib,*.log,*.out,*.run.xml,
     \*.toc,*.nav,*.snm  " ignore auxiliary files
 " set completeopt-=preview
 
+" automatically reload files changed on disk but not in buffer
+set autoread
+
 " tex configuration
 let g:tex_flavor='latex'
 " Optics

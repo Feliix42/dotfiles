@@ -236,9 +236,12 @@
     tldr
     unzip
     ncat
+    bind
     inetutils
     usbutils
     screen
+    moreutils
+    file
     ## automatic detection of display changes
     autorandr
     ## audio management
@@ -277,6 +280,7 @@
     typora
     firefox
     next
+    rstudio
     ## time tracking
     watson
     ## file managers
