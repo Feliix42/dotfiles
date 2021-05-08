@@ -29,7 +29,7 @@ alias code="codium"
 alias fsrpass="env PASSWORD_STORE_DIR=/Users/felix/fsr/passwords pass"
 
 ## some aliases taken from old zshrc
-alias full-update="brew update; brew upgrade; brew cask upgrade; brew cleanup; apm update --confirm false; rustup self update; rustup update"
+alias full-update="brew update; brew upgrade; brew cleanup; apm update --confirm false; rustup self update; rustup update"
 alias l="lsd -la"
 alias calculator="python3 -i -c 'from math import *'"
 alias music="screen -dR music cmus"
