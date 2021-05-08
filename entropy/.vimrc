@@ -18,22 +18,24 @@ Plug 'morhetz/gruvbox'
 " Any valid git URL is allowed
 Plug 'https://github.com/scrooloose/nerdcommenter.git'
 
-" On-demand loading
+" On-demand loading for languages
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
+Plug 'cespare/vim-toml', { 'for': 'toml' }
+Plug 'keith/swift.vim', { 'for': 'swift' }
 
 Plug 'vim-syntastic/syntastic'
-Plug 'cespare/vim-toml', { 'for': 'toml' }
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
-Plug 'keith/swift.vim', { 'for': 'swift' }
 Plug 'justinmk/vim-sneak'
 Plug 'lervag/vimtex'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'LnL7/vim-nix'
+Plug 'preservim/nerdtree'
 
 " Plugin outside ~/.vim/plugged with post-update hook
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 " ale language server client
 Plug 'dense-analysis/ale'
