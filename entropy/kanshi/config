@@ -1,0 +1,10 @@
+profile office {
+    output eDP-1 mode 3840x2160 position 0,0 scale 2
+    output "Dell Inc. DELL U2419HC 6Z7JSS2" mode 1920x1080 position 1920,0
+    output "Dell Inc. DELL U2419HC 879JSS2" mode 1920x1080 position 3840,0
+}
+
+profile home {
+    output eDP-1 mode 3840x2160 position 1920,0 scale 2
+    output "Acer Technologies V233H LGT0C0224020" mode 1920x1080 position 0,0
+}

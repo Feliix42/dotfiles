@@ -138,6 +138,7 @@
       load-module module-bluetooth-policy auto_switch=2
     ";
   };
+  nixpkgs.config.pulseaudio = true;
 
   # enable bluetooth in general and add a simple tool for connecting devices
   hardware.bluetooth = {
@@ -294,6 +295,7 @@
   # install fonts
   fonts.fonts = with pkgs; [
     font-awesome
+    fira
     fira-code
     fira-code-symbols
     roboto
@@ -302,7 +304,7 @@
     open-sans
     overpass
     (nerdfonts.override {
-      fonts = [ "FiraCode" "DroidSansMono" "Hack" "SourceCodePro" "RobotoMono" ];
+      fonts = [ "FiraCode" "DroidSansMono" "Hack" "SourceCodePro" "RobotoMono" "Ubuntu" "UbuntuMono" ];
     })
   ];
 

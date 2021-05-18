@@ -77,15 +77,23 @@ ln -s $PWD/vpn ~/.config/vpn
 # link other dotfiles
 printf "\033[33m[info] Linking config files\033[39m"
 ln -s $PWD/kitty/ ~/.config/kitty
+ln -s $PWD/alacritty ~/.config/alacritty
 ln -s $PWD/nyxt/ ~/.config/next
 ln -s $PWD/.urlview ~/.urlview
 ln -s $PWD/.gitconfig ~/.gitconfig
 ln -s $PWD/git-commit-template.txt ~/.gitcommit_template
 mkdir -p ~/.config/fish/
 ln -s $PWD/config.fish ~/.config/fish/config.fish
+## i3 things
 ln -s $PWD/i3 ~/.config/i3
 ln -s $PWD/i3status-rust ~/.config/i3status-rust
 ln -s $PWD/dunst ~/.config/dunst
+## sway things
+ln -s $PWD/sway ~/.config/sway
+ln -s $PWD/kanshi ~/.config/kanshi
+
+ln -s $PWD/mpv ~/.config/mpv
+ln -s $PWD/waybar ~/.config/waybar
 
 
 
