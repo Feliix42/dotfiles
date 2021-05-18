@@ -12,6 +12,10 @@
       ./modules/r.nix
       # python with modules
       ./modules/python.nix
+      # Wayland
+      ./modules/sway.nix
+      # old i3 compositor
+      # ./modules/i3.nix
     ];
 
   # set up LUKS discovery
@@ -20,12 +24,6 @@
   # make the screen usable
   #hardware.video.hidpi.enable = true;
   #services.xserver.dpi = 180;
-  services.xserver.dpi = 192;
-  environment.variables = {
-    GDK_SCALE = "2";
-    GDK_DPI_SCALE = "0.5";
-    _JAVA_OPTIONS = "-Dsun.java2d.uiScale=2";
-  };
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -84,45 +82,10 @@
   # use the xkb-config from the X server
   console.useXkbConfig = true;
 
-  # Configure X Server
-  services.xserver.enable = true;
-  services.xserver.windowManager.i3 = {
-    enable = true;
-    package = pkgs.i3-gaps;
-    extraPackages = with pkgs; [
-      dmenu
-      #(i3status-rust.overrideAttrs ( oldAttrs: { cargoBuildFlags = [ "--features=notmuch" ]; }))
-      i3status-rust
-      i3lock-fancy
-      libnotify
-      dunst
-      feh
-    ];
-    # extraSessionCommands = "feh --bg-scale /home/felix/wall.jpg";
-  };
-  # login window options
-  services.xserver.displayManager.lightdm = {
-    background = "/etc/nixos/extra/login.jpg";
-    # should be enabled by selecting i3
-    # enable = true;
-    greeters.gtk = {
-      cursorTheme.name = "Adwaita-dark";
-      iconTheme.name = "Adwaita-dark";
-      theme.name = "Adwaita-dark";
-    };
-  };
-
-  services.xserver.xautolock = {
-    enable = true;
-    extraOptions = [ "-detectsleep" ];
-    locker = "${pkgs.i3lock-fancy}/bin/i3lock-fancy";
-    nowlocker = "${pkgs.i3lock-fancy}/bin/i3lock-fancy";
-    time = 10;
-  };
   # Configure keymap in X11
   services.xserver.layout = "gb";
   services.xserver.xkbOptions = "eurosign:e,ctrl:nocaps,compose:prsc";
-  # enable touchpas support
+  # enable touchpad support
   services.xserver.libinput.enable = true;
 
   # Enable CUPS to print documents.
@@ -213,6 +176,12 @@
     }
   ];
 
+  ## enable fingerprint reader
+  #services.fprintd.enable = true;
+  #security.pam.services.login.fprintAuth = true;
+  ##security.pam.services.xscreensaver.fprintAuth = true;
+  #security.pam.services.sudo.fprintAuth = true;
+
   # set up virtualization with virtualbox
   virtualisation.virtualbox.host.enable = true;
   # I'm gonna keep this disabled for the sake of my sanity
@@ -232,7 +201,6 @@
     ripgrep
     sshfs
     ncdu
-    scrot
     tldr
     unzip
     ncat
@@ -242,8 +210,6 @@
     screen
     moreutils
     file
-    ## automatic detection of display changes
-    autorandr
     ## audio management
     pavucontrol
     ## password management
@@ -278,7 +244,8 @@
     vscodium
     eclipses.eclipse-platform
     typora
-    firefox
+    firefox-wayland
+    torbrowser
     next
     rstudio
     ## time tracking
@@ -362,10 +329,6 @@
   services.udev.packages = [ pkgs.libu2f-host ];
   # for SAMBA file shares
   services.gvfs.enable = true;
-
-  # use redshift
-  services.redshift.enable = true;
-  services.redshift.temperature.night = 3500;
 
   # allow brightness control
   services.illum.enable = true;
