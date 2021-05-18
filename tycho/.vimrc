@@ -22,6 +22,7 @@ Plug 'https://github.com/scrooloose/nerdcommenter.git'
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'cespare/vim-toml', { 'for': 'toml' }
 Plug 'keith/swift.vim', { 'for': 'swift' }
+" Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
 
 Plug 'vim-syntastic/syntastic'
 Plug 'vim-airline/vim-airline'

@@ -22,6 +22,7 @@ Plug 'https://github.com/scrooloose/nerdcommenter.git'
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'cespare/vim-toml', { 'for': 'toml' }
 Plug 'keith/swift.vim', { 'for': 'swift' }
+Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
 
 Plug 'vim-syntastic/syntastic'
 Plug 'vim-airline/vim-airline'
@@ -42,6 +43,10 @@ Plug 'dense-analysis/ale'
 
 " Initialize plugin system
 call plug#end()
+
+" open fzf files in new tab instead of new buffer
+command! -bang -nargs=? -complete=dir Files
+    \ call fzf#vim#files(<q-args>, {'sink': 'tabedit', 'options': ['--info=inline', '--preview', '~/.vim/plugged/fzf.vim/bin/preview.sh {}']}, <bang>0)
 
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
@@ -70,6 +75,7 @@ au BufRead,BufNewFile *.ohuao       setfiletype json
 " nnoremap <C-H> <C-W><C-H><C-W>\|
 map <C-H> :tabp<Enter>
 map <C-L> :tabn<Enter>
+map <leader>f :Files<Enter>
 
 " fix auto-completion
 set wildmenu        " show a completion menu
