@@ -12,8 +12,8 @@ window#waybar {
 }
 
 #window {
-    font-weight: bold;
-    font-family: "Fira";
+    font-weight: normal;
+    font-family: "Fira Regular";
 }
 
 #workspaces {

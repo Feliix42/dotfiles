@@ -5,6 +5,7 @@ syntax on
 let g:ale_completion_enabled = 1
 " disable latex linting from ale as i've got my own plugin for that
 let g:ale_linters = { 'tex': []}
+let b:ale_fixers = {'haskell': ['hindent']}
 
 
 " Initialize plugin system
@@ -45,8 +46,8 @@ Plug 'dense-analysis/ale'
 call plug#end()
 
 " open fzf files in new tab instead of new buffer
-command! -bang -nargs=? -complete=dir Files
-    \ call fzf#vim#files(<q-args>, {'sink': 'tabedit', 'options': ['--info=inline', '--preview', '~/.vim/plugged/fzf.vim/bin/preview.sh {}']}, <bang>0)
+"command! -bang -nargs=? -complete=dir Files
+    "\ call fzf#vim#files(<q-args>, {'sink': 'tabedit', 'options': ['--info=inline', '--preview', '~/.vim/plugged/fzf.vim/bin/preview.sh {}']}, <bang>0)
 
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
@@ -73,9 +74,12 @@ au BufRead,BufNewFile *.ohuao       setfiletype json
 " nnoremap <C-K> <C-W><C-K><C-W>_
 " nnoremap <C-L> <C-W><C-L><C-W>\|
 " nnoremap <C-H> <C-W><C-H><C-W>\|
-map <C-H> :tabp<Enter>
-map <C-L> :tabn<Enter>
+map <leader>h :tabp<Enter>
+map <leader>l :tabn<Enter>
+map <C-H> :bprevious<Enter>
+map <C-L> :bnext<Enter>
 map <leader>f :Files<Enter>
+map <leader>bl :Buffers<Enter>
 
 " fix auto-completion
 set wildmenu        " show a completion menu

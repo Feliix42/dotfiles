@@ -6,7 +6,7 @@
     // Choose the order of the modules
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["sway/window"],
-    "modules-right": ["pulseaudio", "network", "cpu", "memory", "battery", "tray", "clock"],
+    "modules-right": ["custom/mail", "pulseaudio", "network", "cpu", "memory", "battery", "tray", "clock"],
     "sway/workspaces": {
         "disable-scroll-wraparound": true,
         "all-outputs": false
@@ -72,6 +72,14 @@
             "default": ["", ""]
         },
         "on-click": "pavucontrol"
+    },
+    "custom/mail": {
+        "format": " {}",
+        "max-length": 10,
+        "interval": 60,
+        "exec": "notmuch count tag:unread",
+        "exec-if": "[ $(notmuch count tag:unread) != 0 ]",
+        "on-click": "alacritty -e neomutt"
     }
     //"custom/spotify": {
     //    "format": " {}",

@@ -5,6 +5,6 @@ profile office {
 }
 
 profile home {
-    output eDP-1 mode 3840x2160 position 1920,0 scale 2
-    output "Acer Technologies V233H LGT0C0224020" mode 1920x1080 position 0,0
+    output eDP-1 mode 3840x2160 position 0,0 scale 2
+    output "Acer Technologies V233H LGT0C0224020" mode 1920x1080 position 1920,0
 }

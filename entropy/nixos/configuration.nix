@@ -276,6 +276,7 @@
     mpv
     streamlink
     ffmpeg-full
+    musikcube
     ## messenger
     tdesktop
     signal-desktop
@@ -340,6 +341,22 @@
     config = '' config /home/felix/.config/vpn/TUD.ovpn '';
     autoStart = false; #true;
     updateResolvConf = true;
+  };
+
+  # periodic automated mail fetching
+  systemd.user.services.mailfetch = {
+    enable = true;
+    description = "Automatically fetches for new mail when the network is up";
+    after = [ "network-online.target" ];
+    wantedBy = [ "network-online.target" ];
+    serviceConfig = {
+      Restart = "always";
+      RestartSec = "60";
+    };
+    path = with pkgs; [ bash notmuch isync ];
+    script = ''
+      mbsync -a && /home/felix/.config/neomutt/notmuch-hook.sh
+    '';
   };
 
   # Open ports in the firewall.
