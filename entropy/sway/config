@@ -227,6 +227,12 @@ bindsym XF86AudioRaiseVolume exec 'pactl set-sink-volume @DEFAULT_SINK@ +5%'
 bindsym XF86AudioLowerVolume exec 'pactl set-sink-volume @DEFAULT_SINK@ -5%'
 bindsym XF86AudioMute exec 'pactl set-sink-mute @DEFAULT_SINK@ toggle'
 
+# automatically float windows that are intended to do so
+for_window [title="Picture-in-Picture" app_id="firefox"] floating enable
+for_window [title="Firefox — Sharing Indicator" app_id="firefox"] floating enable
+# those frickin' zoom popups
+for_window [title="zoom"] floating enable
+
 
 #
 # Status Bar:
