@@ -58,9 +58,17 @@
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-  # enable hardware-accelerated graphics
-  nixpkgs.config.packageOverrides = pkgs: {
-    vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
+  nixpkgs.config = {
+    # enable hardware-accelerated graphics
+    packageOverrides = pkgs: {
+      vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
+      # add nixpkgs for unstable package sources
+      #unstable = import <nixpkgs> {
+        #config = config.nixpkgs.config;
+      #};
+    };
+    # allow unfree licenced packges
+    allowUnfree = true;
   };
   hardware.opengl = {
     enable = true;
@@ -227,6 +235,7 @@
     cargo-watch
     # python3
     stack
+    haskellPackages.haskell-language-server
     gcc
     binutils-unwrapped
     gnumake
@@ -278,13 +287,14 @@
     ffmpeg-full
     musikcube
     ## messenger
+    slack
     tdesktop
     signal-desktop
     (weechat.override {
       configure = { availablePlugins, ... }: {
         scripts = with pkgs.weechatScripts; [
           wee-slack
-          weechat-matrix
+          # weechat-matrix
         ];
       };
       # extraBuildInputs = [ python38Packages.Logbook ];
@@ -347,8 +357,8 @@
   systemd.user.services.mailfetch = {
     enable = true;
     description = "Automatically fetches for new mail when the network is up";
-    after = [ "network-online.target" ];
-    wantedBy = [ "network-online.target" ];
+    wantedBy = [ "graphical-session.target" ];
+    after = [ "graphical-session.target" ];
     serviceConfig = {
       Restart = "always";
       RestartSec = "60";
@@ -365,11 +375,6 @@
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
-  # allow unfree licenced packges
-  nixpkgs.config.allowUnfree = true;
-
-  # tmp workaround for rpy2
-  # nixpkgs.config.allowBroken = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

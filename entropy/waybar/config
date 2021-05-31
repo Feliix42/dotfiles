@@ -79,7 +79,7 @@
         "interval": 60,
         "exec": "notmuch count tag:unread",
         "exec-if": "[ $(notmuch count tag:unread) != 0 ]",
-        "on-click": "alacritty -e neomutt"
+        "on-click": "alacritty -e neomutt -f 'notmuch://?query=tag:unread'"
     }
     //"custom/spotify": {
     //    "format": " {}",

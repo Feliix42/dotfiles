@@ -4,8 +4,9 @@ syntax on
 " enable autocompletion of ale
 let g:ale_completion_enabled = 1
 " disable latex linting from ale as i've got my own plugin for that
-let g:ale_linters = { 'tex': []}
-let b:ale_fixers = {'haskell': ['hindent']}
+let g:ale_linters = { 'tex': [], 'haskell': ['hls', 'hindent'], 'rust': ['rls'] }
+"let g:ale_fixers = {'haskell': ['hindent']}
+let g:ale_fixers = { 'haskell': ['hls', 'hindent'], 'rust': ['rls'] }
 
 
 " Initialize plugin system
@@ -90,6 +91,7 @@ set wildignore=*.o,*~,*.pyc,*.aux,*.bbl,*.blg,*-blx.bib,*.log,*.out,*.run.xml,
 
 " automatically reload files changed on disk but not in buffer
 set autoread
+set hidden
 
 " tex configuration
 let g:tex_flavor='latex'
