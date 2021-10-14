@@ -16,6 +16,7 @@
       ./modules/sway.nix
       # old i3 compositor
       # ./modules/i3.nix
+      ./modules/backup.nix
     ];
 
   # set up LUKS discovery
@@ -33,7 +34,10 @@
   #powerManagement.powertop.enable = true;
 
   networking.hostName = "entropy"; # Define your hostname.
-  networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  networking.wireless = {
+    enable = true;  # Enables wireless support via wpa_supplicant.
+    interfaces = [ "wlp0s20f3" ];
+  };
 
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
@@ -153,7 +157,7 @@
     enable = true;
     package = pkgs.bluezFull;
     # enable A2DP
-    config = {
+    settings = {
       General = {
         Enable = "Source,Sink,Media"; 
         Disable = "Socket";
@@ -197,12 +201,24 @@
   # virtualisation.virtualbox.host.enableExtensionPack = true;
   users.extraGroups.vboxusers.members = [ "felix" ];
 
+  # enable docker on-demand
+  virtualisation.docker.enable = true;
+  virtualisation.docker.enableOnBoot = false;
+  users.extraGroups.docker.members = [ "felix" ];
+
+  # add overlay for the LF IDE
+  #nixpkgs.overlays = [
+    #(self: super: {
+      #lingua-franca-ide = super.callPackage ./overlays/lf-eclipse.nix { };
+    #})
+  #];
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     ## basic command line tooling
     wget
     vim
+    emacs
     w3m
     htop
     bat
@@ -224,6 +240,8 @@
     ## password management
     pass
     pinentry-curses
+    ## admin foo
+    ansible
     ## mail
     isync
     msmtp
@@ -235,28 +253,32 @@
     cargo-watch
     # python3
     stack
-    haskellPackages.haskell-language-server
+    haskell-language-server
     gcc
     binutils-unwrapped
     gnumake
     cmake
     gdb
+    ccls
     valgrind
     heaptrack
+    #lingua-franca-ide 
     ## I heard you like man pages?
     man-pages
     ## git and friends
     git
     gitAndTools.delta
     gitAndTools.gitui
+    ## GitHub actions
+    act
     ## terminal, browsers, text editing
     kitty
     vscodium
     eclipses.eclipse-platform
     typora
     firefox-wayland
-    torbrowser
-    next
+    # torbrowser
+    #next
     rstudio
     ## time tracking
     watson
@@ -290,18 +312,16 @@
     slack
     tdesktop
     signal-desktop
-    (weechat.override {
-      configure = { availablePlugins, ... }: {
-        scripts = with pkgs.weechatScripts; [
-          wee-slack
-          # weechat-matrix
-        ];
-      };
-      # extraBuildInputs = [ python38Packages.Logbook ];
-    })
+    weechat
     ## networking
     openconnect
+
+    ## maybe screensharing???
+    pipewire
+    xdg-desktop-portal-wlr
   ];
+
+  #services.emacs.enable = true;
 
   # install fonts
   fonts.fonts = with pkgs; [
@@ -309,6 +329,7 @@
     fira
     fira-code
     fira-code-symbols
+    iosevka
     roboto
     roboto-mono
     roboto-slab
@@ -356,7 +377,7 @@
   # periodic automated mail fetching
   systemd.user.services.mailfetch = {
     enable = true;
-    description = "Automatically fetches for new mail when the network is up";
+    description = "Automatically fetches new mails.";
     wantedBy = [ "graphical-session.target" ];
     after = [ "graphical-session.target" ];
     serviceConfig = {
@@ -382,7 +403,7 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "20.09"; # Did you read the comment?
+  system.stateVersion = "21.05"; # Did you read the comment?
 
 }
 

@@ -18,7 +18,8 @@ set $term alacritty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu dmenu_path | dmenu | xargs swaymsg exec --
+#set $menu dmenu_path | dmenu | xargs swaymsg exec --
+set $menu bemenu-run --monitor=all | xargs swaymsg exec --
 
 ### Output configuration
 #
@@ -38,12 +39,19 @@ output * bg ~/Pictures/wall.jpg fill
 # Example configuration:
 #
 exec swayidle -w \
-         timeout 300 'swaylock -f -c 99999960' \
-         timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-         before-sleep 'swaylock -f -c 99999960'
+         timeout 300 'swaylock -f -c 000000ff' \
+         before-sleep 'swaylock -f -c 000000ff'
+#exec swayidle -w \
+         #timeout 300 'swaylock -f -c 99999960' \
+         #timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+         #before-sleep 'swaylock -f -c 99999960'
 
 # though not necessary, I want to ensure the right deamon is running.
 exec mako
+
+# management of external monitors
+exec kanshi
+
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -221,6 +229,11 @@ bindsym $mod+r mode "resize"
 
 # Screenshots
 bindsym $mod+c exec grimshot --notify save area 
+
+# quick access to mail
+bindsym $mod+m exec 'alacritty -e neomutt -f "notmuch://?query=tag:unread"'
+
+bindsym $mod+x exec 'swaylock -f -c 000000ff'
 
 # Volume
 bindsym XF86AudioRaiseVolume exec 'pactl set-sink-volume @DEFAULT_SINK@ +5%'

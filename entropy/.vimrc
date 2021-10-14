@@ -15,7 +15,8 @@ call plug#begin('~/.vim/plugged')
 " Make sure you use single quotes
 
 " Shorthand notation; fetches https://github.com/morhetz/gruvbox
-Plug 'morhetz/gruvbox'
+"Plug 'morhetz/gruvbox'
+Plug 'dkasak/gruvbox'
 
 " Any valid git URL is allowed
 Plug 'https://github.com/scrooloose/nerdcommenter.git'
@@ -26,6 +27,9 @@ Plug 'cespare/vim-toml', { 'for': 'toml' }
 Plug 'keith/swift.vim', { 'for': 'swift' }
 Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
 
+" Lingua Franca
+Plug 'lf-lang/lingua-franca.vim'
+
 Plug 'vim-syntastic/syntastic'
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-fugitive'
@@ -35,6 +39,9 @@ Plug 'lervag/vimtex'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'LnL7/vim-nix'
 Plug 'preservim/nerdtree'
+
+" wayland clipboard
+Plug 'jasonccox/vim-wayland-clipboard'
 
 " Plugin outside ~/.vim/plugged with post-update hook
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -53,6 +60,15 @@ call plug#end()
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
+
+" set haskell highlighting
+let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
+let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
+let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
+let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
+let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
+let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
+let g:haskell_backpack = 1                " to enable highlighting of backpack keywords
 
 " possible setting as alternative for easymotion
 " let g:sneak#label = 1

@@ -49,6 +49,9 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.c
 ln -s $PWD/.vimrc ~/.vimrc
 vim -c "PlugInstall"
 
+# set up emacs
+printf "\033[33m[info] Setting up emacs\033[39m"
+git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 
 # set up mail
 printf "\033[33m[info] Configuring Neomutt - your GPG password may be required.\033[39m"

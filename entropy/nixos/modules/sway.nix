@@ -12,7 +12,8 @@
       wl-clipboard
       mako # notification daemon
       alacritty # Alacritty is the default terminal in the config
-      dmenu # Dmenu is the default in the config but i recommend wofi since its wayland native
+      #dmenu # Dmenu is the default in the config but i recommend wofi since its wayland native
+      bemenu
       kanshi # replacement for autorandr
       sway-contrib.grimshot
       imv # image viewer
@@ -25,6 +26,8 @@
       # Fix for some Java AWT applications (e.g. Android Studio),
       # use this if they aren't displayed properly:
       export _JAVA_AWT_WM_NONREPARENTING=1
+      # firefox x11 <-> wayland interoperability
+      export MOZ_DBUS_REMOTE=1
     '';
   };
 
@@ -59,10 +62,22 @@
 
   # use gdm for authentication
   services.xserver.enable = true;
-  services.xserver.displayManager.gdm = {
+  #services.xserver.displayManager.gdm = {
+    #enable = true;
+    #wayland = true;
+  #};
+  services.xserver.displayManager.sddm = {
     enable = true;
-    wayland = true;
   };
+
+  services.xserver.desktopManager.plasma5 = {
+    enable = true;
+  };
+  #environment.variables = {
+    #GDK_SCALE = "2";
+    #GDK_DPI_SCALE = "0.5";
+    #_JAVA_OPTIONS = "-Dsun.java2d.uiScale=2";
+  #};
 
   services.redshift = {
     enable = true;
