@@ -10,6 +10,14 @@
         lazyeval
       ];
     };
+    rstudioEnv = rstudioWrapper.override {
+      packages = with rPackages; [
+        ggplot2
+        tidyverse
+        rlang
+        lazyeval
+      ];
+    };
   in
-    [ R-with-my-packages ];
+    [ R-with-my-packages rstudioEnv ];
 }

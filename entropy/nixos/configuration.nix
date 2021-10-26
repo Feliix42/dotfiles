@@ -212,6 +212,7 @@
       #lingua-franca-ide = super.callPackage ./overlays/lf-eclipse.nix { };
     #})
   #];
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -279,7 +280,7 @@
     firefox-wayland
     # torbrowser
     #next
-    rstudio
+    # rstudio
     ## time tracking
     watson
     ## file managers
