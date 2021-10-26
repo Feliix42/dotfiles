@@ -4,6 +4,12 @@ profile office {
     output "Dell Inc. DELL U2419HC 879JSS2" mode 1920x1080 position 3840,0
 }
 
+profile home-docked {
+    output eDP-1 mode 3840x2160 position 0,0 scale 2
+    output "Hewlett Packard HP ZR2440w CN43361P27" mode 1920x1200 position 1920,0
+    output "Hewlett Packard HP ZR2440w CN43361P3M" mode 1920x1200 position 3840,0
+}
+
 profile home {
     output eDP-1 mode 3840x2160 position 0,0 scale 2
     output "Acer Technologies V233H LGT0C0224020" mode 1920x1080 position 1920,0
