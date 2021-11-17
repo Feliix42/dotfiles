@@ -31,7 +31,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'justinmk/vim-sneak'
 Plug 'lervag/vimtex'
 Plug 'editorconfig/editorconfig-vim'
-" Plug 'LnL7/vim-nix'
+Plug 'LnL7/vim-nix'
 Plug 'preservim/nerdtree'
 
 " Plugin outside ~/.vim/plugged with post-update hook
@@ -45,8 +45,8 @@ Plug 'dense-analysis/ale'
 call plug#end()
 
 " open fzf files in new tab instead of new buffer
-command! -bang -nargs=? -complete=dir Files
-    \ call fzf#vim#files(<q-args>, {'sink': 'tabedit', 'options': ['--info=inline', '--preview', '~/.vim/plugged/fzf.vim/bin/preview.sh {}']}, <bang>0)
+"command! -bang -nargs=? -complete=dir Files
+    "\ call fzf#vim#files(<q-args>, {'sink': 'tabedit', 'options': ['--info=inline', '--preview', '~/.vim/plugged/fzf.vim/bin/preview.sh {}']}, <bang>0)
 
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
@@ -73,9 +73,12 @@ au BufRead,BufNewFile *.ohuao       setfiletype json
 " nnoremap <C-K> <C-W><C-K><C-W>_
 " nnoremap <C-L> <C-W><C-L><C-W>\|
 " nnoremap <C-H> <C-W><C-H><C-W>\|
-map <C-H> :tabp<Enter>
-map <C-L> :tabn<Enter>
+map <leader>h :tabp<Enter>
+map <leader>l :tabn<Enter>
+map <C-H> :bprevious<Enter>
+map <C-L> :bnext<Enter>
 map <leader>f :Files<Enter>
+map <leader>bl :Buffers<Enter>
 
 " fix auto-completion
 set wildmenu        " show a completion menu
@@ -86,6 +89,8 @@ set wildignore=*.o,*~,*.pyc,*.aux,*.bbl,*.blg,*-blx.bib,*.log,*.out,*.run.xml,
 
 " automatically reload files changed on disk but not in buffer
 set autoread
+" hide buffers on switch
+set hidden
 
 " tex configuration
 let g:tex_flavor='latex'
