@@ -8,47 +8,39 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+
+      ./modules/audio.nix
+      ./modules/video.nix
+      ./modules/virtualisation.nix
+
+      # Desktop configuration
+      ./modules/sway.nix
+      ./modules/kde.nix
+      # old i3 compositor
+      # ./modules/i3.nix
+
+      ./modules/printing.nix
+      ./modules/backup.nix
+
       # include and configure R
       ./modules/r.nix
       # python with modules
       ./modules/python.nix
-      # Wayland
-      ./modules/sway.nix
-      # old i3 compositor
-      # ./modules/i3.nix
-      ./modules/backup.nix
     ];
 
   # set up LUKS discovery
   boot.initrd.luks.devices.cryptlvm.device = "/dev/disk/by-uuid/f382cd01-9048-4b1b-8a73-48e1f61e6c08";
 
-  # make the screen usable
-  #hardware.video.hidpi.enable = true;
-  #services.xserver.dpi = 180;
-
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # enable powertop for saving power
-  #powerManagement.powertop.enable = true;
-
+  # ------------ networking ---------------------------------------------------
   networking.hostName = "entropy"; # Define your hostname.
   networking.wireless = {
     enable = true;  # Enables wireless support via wpa_supplicant.
     interfaces = [ "wlp0s20f3" ];
   };
-
-  # Set your time zone.
-  time.timeZone = "Europe/Berlin";
-
-  # geoclue2 does not yield a location at home, so I'll make the manual configuration the default
-  # location.provider = "geoclue2";
-  location.provider = "manual";
-  # using the location of the cafe ascii should be good enough
-  location.latitude = 51.0250869;
-  location.longitude = 13.7210005;
-
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
   # Per-interface useDHCP will be mandatory in the future, so this generated config
   # replicates the default behaviour.
@@ -58,31 +50,26 @@
   networking.interfaces.enp0s20f0u2u1.useDHCP = true;
   networking.interfaces.wlp0s20f3.useDHCP = true;
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+  # enable OpenVPN for connecting to the TUD network
+  services.openvpn.servers.tud = {
+    config = '' config /home/felix/.config/vpn/TUD.ovpn '';
+    autoStart = false; #true;
+    updateResolvConf = true;
+  };
 
-  nixpkgs.config = {
-    # enable hardware-accelerated graphics
-    packageOverrides = pkgs: {
-      vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
-      # add nixpkgs for unstable package sources
-      #unstable = import <nixpkgs> {
-        #config = config.nixpkgs.config;
-      #};
-    };
-    # allow unfree licenced packges
-    allowUnfree = true;
-  };
-  hardware.opengl = {
-    enable = true;
-    extraPackages = with pkgs; [
-      intel-media-driver # LIBVA_DRIVER_NAME=iHD
-      vaapiIntel         # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
-      vaapiVdpau
-      libvdpau-va-gl
-    ];
-  };
+  # for SAMBA file shares
+  services.gvfs.enable = true;
+
+
+  # ------------ time, location & input ---------------------------------------
+  # Set your time zone.
+  time.timeZone = "Europe/Berlin";
+  # geoclue2 does not yield a location at home, so I'll make the manual configuration the default
+  # location.provider = "geoclue2";
+  location.provider = "manual";
+  # using the location of the cafe ascii should be good enough
+  location.latitude = 51.0250869;
+  location.longitude = 13.7210005;
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
@@ -100,75 +87,8 @@
   # enable touchpad support
   services.xserver.libinput.enable = true;
 
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-  services.printing.drivers = [
-    pkgs.gutenprint
-    pkgs.epson-escpr
-  ];
 
-  # set up my printer at home
-  hardware.printers.ensurePrinters = [
-    {
-      description = "My private printer";
-      deviceUri = "https://192.168.178.30:631/ipp/print";
-      location = "Home";
-      model = "epson-inkjet-printer-escpr/Epson-XP-322_323_325_Series-epson-escpr-en.ppd";
-      name = "Home";
-    }
-  ];
-
-  # setup the printers at work
-  #hardware.printers.ensurePrinters = [
-    #{
-      #description = "CC printer";
-      #deviceUri = "";
-      #location = "BAR/III51";
-      #model = "Ricoh-MP_C307_PS.ppd";
-      #name = "CC_small";
-    #}
-    #{
-      #description = "PD printer (A3)";
-      #deviceUri = "";
-      #location = "BAR/III71B";
-      #model = "Ricoh-MP_C3004_PS.ppd";
-      #name = "PD_Chair";
-    #}
-  #];
-
-  # Enable sound.
-  sound.enable = true;
-  # configure pulseaudio to work with bluetooth headsets using aptx
-  hardware.pulseaudio = {
-    enable = true;
-    extraModules = [ pkgs.pulseaudio-modules-bt ];
-    # the full package is necessary for BT support
-    package = pkgs.pulseaudioFull;
-    # switch to bluetooth automatically if they are connected
-    extraConfig = "
-      load-module module-switch-on-connect
-      load-module module-bluetooth-policy auto_switch=2
-    ";
-  };
-  nixpkgs.config.pulseaudio = true;
-
-  # enable bluetooth in general and add a simple tool for connecting devices
-  hardware.bluetooth = {
-    enable = true;
-    package = pkgs.bluezFull;
-    # enable A2DP
-    settings = {
-      General = {
-        Enable = "Source,Sink,Media"; 
-        Disable = "Socket";
-      };
-    };
-  };
-  services.blueman.enable = true;
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
+  # ------------ security -----------------------------------------------------
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.felix = {
     createHome = true;
@@ -189,36 +109,29 @@
     }
   ];
 
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+    pinentryFlavor = "curses";
+  };
+
+  services.udev.packages = [ pkgs.libu2f-host ];
+
   ## enable fingerprint reader
   #services.fprintd.enable = true;
   #security.pam.services.login.fprintAuth = true;
   ##security.pam.services.xscreensaver.fprintAuth = true;
   #security.pam.services.sudo.fprintAuth = true;
 
-  # set up virtualization with virtualbox
-  virtualisation.virtualbox.host.enable = true;
-  # I'm gonna keep this disabled for the sake of my sanity
-  # virtualisation.virtualbox.host.enableExtensionPack = true;
-  users.extraGroups.vboxusers.members = [ "felix" ];
 
-  # enable docker on-demand
-  virtualisation.docker.enable = true;
-  virtualisation.docker.enableOnBoot = false;
-  users.extraGroups.docker.members = [ "felix" ];
+  # ------------ programs -----------------------------------------------------
+  programs.fish.enable = true;
+  programs.vim.defaultEditor = true;
 
-  # add overlay for the LF IDE
-  #nixpkgs.overlays = [
-    #(self: super: {
-      #lingua-franca-ide = super.callPackage ./overlays/lf-eclipse.nix { };
-    #})
-  #];
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
+  # List of packages installed in system profile.
   environment.systemPackages = with pkgs; [
     ## basic command line tooling
     wget
-    vim
     emacs
     w3m
     htop
@@ -276,11 +189,10 @@
     kitty
     vscodium
     eclipses.eclipse-platform
-    typora
+    # typora # aged electron?
     firefox-wayland
     # torbrowser
     #next
-    # rstudio
     ## time tracking
     watson
     ## file managers
@@ -322,8 +234,6 @@
     xdg-desktop-portal-wlr
   ];
 
-  #services.emacs.enable = true;
-
   # install fonts
   fonts.fonts = with pkgs; [
     font-awesome
@@ -341,40 +251,6 @@
     })
   ];
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-  programs.fish.enable = true;
-  programs.vim.defaultEditor = true;
-
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
-    pinentryFlavor = "curses";
-  };
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-
-  services.udev.packages = [ pkgs.libu2f-host ];
-  # for SAMBA file shares
-  services.gvfs.enable = true;
-
-  # allow brightness control
-  services.illum.enable = true;
-
-  # enable OpenVPN for connecting to the TUD network
-  services.openvpn.servers.tud = {
-    config = '' config /home/felix/.config/vpn/TUD.ovpn '';
-    autoStart = false; #true;
-    updateResolvConf = true;
-  };
-
   # periodic automated mail fetching
   systemd.user.services.mailfetch = {
     enable = true;
@@ -390,13 +266,6 @@
       mbsync -a && /home/felix/.config/neomutt/notmuch-hook.sh
     '';
   };
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
-
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

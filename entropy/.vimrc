@@ -26,6 +26,7 @@ Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'cespare/vim-toml', { 'for': 'toml' }
 Plug 'keith/swift.vim', { 'for': 'swift' }
 Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
+Plug 'jalvesaq/Nvim-R', {'branch': 'stable', 'for': 'r'}
 
 " Lingua Franca
 Plug 'lf-lang/lingua-franca.vim'
