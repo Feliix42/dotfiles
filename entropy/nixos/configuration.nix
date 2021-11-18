@@ -146,7 +146,6 @@
     bind
     inetutils
     usbutils
-    screen
     moreutils
     file
     ## audio management
@@ -165,7 +164,6 @@
     rustup
     cargo-flamegraph
     cargo-watch
-    # python3
     stack
     haskell-language-server
     gcc
@@ -188,23 +186,15 @@
     ## terminal, browsers, text editing
     kitty
     vscodium
-    eclipses.eclipse-platform
-    # typora # aged electron?
     firefox-wayland
-    # torbrowser
-    #next
     ## time tracking
     watson
     ## file managers
     ranger
     xfce.thunar
     ## document viewers
-    mupdf
     pdfpc
     zathura
-    ## PDF manipulation
-    podofo
-    poppler_utils
     ## image manipulation
     gimp
     inkscape
