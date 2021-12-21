@@ -83,7 +83,7 @@
 
   # Configure keymap in X11
   services.xserver.layout = "gb";
-  services.xserver.xkbOptions = "eurosign:e,ctrl:nocaps,compose:prsc";
+  services.xserver.xkbOptions = "eurosign:e,ctrl:nocaps,compose:ralt";
   # enable touchpad support
   services.xserver.libinput.enable = true;
 

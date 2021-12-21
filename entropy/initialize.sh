@@ -82,6 +82,7 @@ printf "\033[33m[info] Linking config files\033[39m"
 ln -s $PWD/kitty/ ~/.config/kitty
 ln -s $PWD/alacritty ~/.config/alacritty
 ln -s $PWD/nyxt/ ~/.config/next
+ln -s $PWD/mako/ ~/.config/mako
 ln -s $PWD/.urlview ~/.urlview
 ln -s $PWD/.gitconfig ~/.gitconfig
 ln -s $PWD/git-commit-template.txt ~/.gitcommit_template

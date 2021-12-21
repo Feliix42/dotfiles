@@ -74,7 +74,7 @@ exec kanshi
 # default to gb keymap
 input * {
     xkb_layout "gb,de"
-    xkb_options "eurosign:e,ctrl:nocaps,compose:prsc"
+    xkb_options "eurosign:e,ctrl:nocaps,compose:ralt"
 }
 
 input "2:7:SynPS/2_Synaptics_TouchPad" {
