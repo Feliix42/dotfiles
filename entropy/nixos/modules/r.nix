@@ -8,6 +8,7 @@
         ggplot2
         rlang
         lazyeval
+        patchwork
       ];
     };
     rstudioEnv = rstudioWrapper.override {
@@ -16,6 +17,7 @@
         tidyverse
         rlang
         lazyeval
+        patchwork
       ];
     };
   in

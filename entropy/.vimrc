@@ -4,9 +4,9 @@ syntax on
 " enable autocompletion of ale
 let g:ale_completion_enabled = 1
 " disable latex linting from ale as i've got my own plugin for that
-let g:ale_linters = { 'tex': [], 'haskell': ['hls', 'hindent'], 'rust': ['rls'] }
+let g:ale_linters = { 'tex': [], 'haskell': ['hls', 'hindent'], 'rust': ['analyzer'] }
 "let g:ale_fixers = {'haskell': ['hindent']}
-let g:ale_fixers = { 'haskell': ['hls', 'hindent'], 'rust': ['rls'] }
+"let g:ale_fixers = { 'haskell': ['hls', 'hindent'], 'rust': ['analyzer'] }
 
 
 " Initialize plugin system

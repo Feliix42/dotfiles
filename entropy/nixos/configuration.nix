@@ -4,6 +4,12 @@
 
 { config, pkgs, ... }:
 
+let
+  # use unstable nixpkgs for some specific packages that are still in-dev: 
+  # sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos-unstable
+  # sudo nix-channel --update
+  unstable = import <nixos-unstable> { config = config.nixpkgs.config; };
+in
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -11,6 +17,7 @@
 
       ./modules/audio.nix
       ./modules/video.nix
+      #./modules/v4l2loopback.nix
       ./modules/virtualisation.nix
 
       # Desktop configuration
@@ -34,6 +41,9 @@
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+
+  # ------------ hardware -----------------------------------------------------
+  hardware.keyboard.zsa.enable = true;
 
   # ------------ networking ---------------------------------------------------
   networking.hostName = "entropy"; # Define your hostname.
@@ -148,6 +158,8 @@
     usbutils
     moreutils
     file
+    ## firmware tool for keyboard
+    wally-cli
     ## audio management
     pavucontrol
     ## password management
@@ -160,10 +172,15 @@
     msmtp
     neomutt urlview
     notmuch
-    ## programming languages and compilers
+    ## Rust
     rustup
     cargo-flamegraph
     cargo-watch
+
+    unstable.rust-analyzer
+    unstable.helix
+ 
+    ## other programming languages and compilers
     stack
     haskell-language-server
     gcc
@@ -192,6 +209,8 @@
     ## file managers
     ranger
     xfce.thunar
+    ## file sharing
+    nextcloud-client
     ## document viewers
     pdfpc
     zathura
@@ -211,6 +230,8 @@
     streamlink
     ffmpeg-full
     musikcube
+    obs-studio
+    obs-studio-plugins.wlrobs
     ## messenger
     slack
     tdesktop
@@ -218,11 +239,23 @@
     weechat
     ## networking
     openconnect
-
-    ## maybe screensharing???
-    pipewire
-    xdg-desktop-portal-wlr
   ];
+
+  xdg.portal = {
+    #enable = true;
+    gtkUsePortal = true;
+    wlr = {
+      enable = true;
+      settings = {
+        screencast = {
+          output_name = "eDP-1";
+          max_fps = 30;
+          chooser_type = "simple";
+          chooser_cmd = "${pkgs.slurp}/bin/slurp -f %o -or";
+        };
+      };
+    };
+  };
 
   # install fonts
   fonts.fonts = with pkgs; [
