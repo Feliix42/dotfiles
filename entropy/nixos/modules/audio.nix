@@ -3,6 +3,11 @@
 {
   # Enable sound.
   sound.enable = true;
+
+  environment.systemPackages = with pkgs; [
+    pavucontrol
+  ];
+
   # configure pulseaudio to work with bluetooth headsets using aptx
   hardware.pulseaudio = {
     enable = true;

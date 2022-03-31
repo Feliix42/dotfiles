@@ -15,6 +15,9 @@ in
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
 
+      # Hardware support for Moonlander & U2F
+      ./modules/hardware.nix
+
       ./modules/audio.nix
       ./modules/video.nix
       #./modules/v4l2loopback.nix
@@ -41,9 +44,6 @@ in
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-
-  # ------------ hardware -----------------------------------------------------
-  hardware.keyboard.zsa.enable = true;
 
   # ------------ networking ---------------------------------------------------
   networking.hostName = "entropy"; # Define your hostname.
@@ -125,15 +125,6 @@ in
     pinentryFlavor = "curses";
   };
 
-  services.udev.packages = [ pkgs.libu2f-host ];
-
-  ## enable fingerprint reader
-  #services.fprintd.enable = true;
-  #security.pam.services.login.fprintAuth = true;
-  ##security.pam.services.xscreensaver.fprintAuth = true;
-  #security.pam.services.sudo.fprintAuth = true;
-
-
   # ------------ programs -----------------------------------------------------
   programs.fish.enable = true;
   programs.vim.defaultEditor = true;
@@ -158,10 +149,6 @@ in
     usbutils
     moreutils
     file
-    ## firmware tool for keyboard
-    wally-cli
-    ## audio management
-    pavucontrol
     ## password management
     pass
     pinentry-curses
@@ -200,10 +187,11 @@ in
     gitAndTools.gitui
     ## GitHub actions
     act
-    ## terminal, browsers, text editing
-    kitty
+    ## terminal, browsers, text editing, note taking
+    alacritty
     vscodium
     firefox-wayland
+    obsidian
     ## time tracking
     watson
     ## file managers
