@@ -227,13 +227,6 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-# Screenshots
-bindsym $mod+c exec grimshot --notify save area 
-
-# quick access to mail
-bindsym $mod+m exec 'alacritty -e neomutt -f "notmuch://?query=tag:unread"'
-
-bindsym $mod+x exec 'swaylock -f -c 000000ff'
 
 # Volume
 bindsym XF86AudioRaiseVolume exec 'pactl set-sink-volume @DEFAULT_SINK@ +5%'
@@ -246,6 +239,19 @@ for_window [title="Firefox — Sharing Indicator" app_id="firefox"] floating ena
 for_window [title="Extension: (Tree Style Tab).*" app_id="firefox"] floating enable
 # those frickin' zoom popups
 for_window [title="zoom"] floating enable
+
+# custom keybinds
+
+# Screenshots
+bindsym $mod+c exec grimshot --notify save area 
+
+# quick access to mail
+bindsym $mod+m exec 'alacritty -e neomutt -f "notmuch://?query=tag:unread"'
+
+bindsym $mod+x exec 'swaylock -f -c 000000ff'
+
+bindsym $mod+n exec firefox
+bindsym $mod+o exec obsidian
 
 
 #

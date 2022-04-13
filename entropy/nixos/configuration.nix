@@ -129,11 +129,15 @@ in
   programs.fish.enable = true;
   programs.vim.defaultEditor = true;
 
+  services.emacs = {
+    install = true;
+    enable = false;
+  };
+
   # List of packages installed in system profile.
   environment.systemPackages = with pkgs; [
     ## basic command line tooling
     wget
-    emacs
     w3m
     htop
     bat
@@ -169,7 +173,7 @@ in
  
     ## other programming languages and compilers
     stack
-    haskell-language-server
+    unstable.haskell-language-server
     gcc
     binutils-unwrapped
     gnumake
