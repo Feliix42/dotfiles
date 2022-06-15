@@ -34,7 +34,7 @@
 
   services.redshift = {
     enable = true;
-    package = pkgs.redshift-wlr;
+    package = pkgs.gammastep;
     temperature.night = 3500;
   };
 

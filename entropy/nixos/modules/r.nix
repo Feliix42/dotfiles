@@ -6,6 +6,7 @@
     R-with-my-packages = rWrapper.override {
       packages = with rPackages; [
         ggplot2
+        tidyverse
         rlang
         lazyeval
         patchwork
@@ -21,5 +22,6 @@
       ];
     };
   in
-    [ R-with-my-packages rstudioEnv ];
+    #[ R-with-my-packages rstudioEnv ];
+    [ R-with-my-packages ];
 }

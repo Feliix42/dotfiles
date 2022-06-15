@@ -101,7 +101,6 @@
   # configure pulseaudio to work with bluetooth headsets using aptx
   hardware.pulseaudio = {
     enable = true;
-    extraModules = [ pkgs.pulseaudio-modules-bt ];
     # the full package is necessary for BT support
     package = pkgs.pulseaudioFull;
     # switch to bluetooth automatically if they are connected

@@ -38,6 +38,7 @@ in
       ./modules/python.nix
     ];
 
+
   # set up LUKS discovery
   boot.initrd.luks.devices.cryptlvm.device = "/dev/disk/by-uuid/f382cd01-9048-4b1b-8a73-48e1f61e6c08";
 
@@ -147,7 +148,6 @@ in
     ncdu
     tldr
     unzip
-    ncat
     bind
     inetutils
     usbutils
