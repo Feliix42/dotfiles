@@ -62,6 +62,19 @@ set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 
+" window switching by #
+let g:airline_section_c = '[%{winnr()}] %t'
+nnoremap <space>1 1<C-w>w
+nnoremap <space>2 2<C-w>w
+nnoremap <space>3 3<C-w>w
+nnoremap <space>4 4<C-w>w
+nnoremap <space>5 5<C-w>w
+nnoremap <space>6 6<C-w>w
+nnoremap <space>7 7<C-w>w
+nnoremap <space>8 8<C-w>w
+nnoremap <space>9 9<C-w>w
+nnoremap <space>0 10<C-w>w
+
 " set haskell highlighting
 let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
 let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
