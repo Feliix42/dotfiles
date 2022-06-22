@@ -27,6 +27,9 @@
       export _JAVA_AWT_WM_NONREPARENTING=1
       # firefox x11 <-> wayland interoperability
       export MOZ_DBUS_REMOTE=1
+
+      # override VA-API driver
+      export LIBVA_DRIVER_NAME=iHD
     '';
   };
 
@@ -40,13 +43,27 @@
 
 
   # ------------ Display Manager ----------------------------------------------
-  # use sddm for authentication
-  services.xserver.enable = true;
+  services.xserver = {
+    # under protest
+    enable = true;
+
+    # graphics
+    #videoDrivers = [ "modesetting" ];
+    useGlamor = true;
+
+    # use sddm for authentication
+    displayManager.sddm.enable = true;
+  };
+  #services.xserver.videoDrivers = [
+    #"intel"
+    #"amdgpu"
+    #"radeon"
+    #"nouveau"
+    #"modesetting"
+    #"fbdev"
+  #];
   #services.xserver.displayManager.gdm = {
     #enable = true;
     #wayland = true;
   #};
-  services.xserver.displayManager.sddm = {
-    enable = true;
-  };
 }
