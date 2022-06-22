@@ -79,10 +79,6 @@ set backspace=indent,eol,start
 " map the leader key to ,
 let mapleader=","
 
-" set filetypes
-au BufRead,BufNewFile *.ohuac       setfiletype rust
-au BufRead,BufNewFile *.ohuao       setfiletype json
-
 " Cycling through windows and tabs -- made by Pius :D
 " nnoremap j <C-W><C-J>
 " nnoremap k <C-W><C-K>
@@ -121,6 +117,9 @@ set relativenumber
 set tabstop=4
 set shiftwidth=4
 set expandtab
+
+" keep 5 lines of context above/below the cursor (if possible)
+set scrolloff=5
 
 " Search
 set hlsearch                        " Highlight all search results
