@@ -4,7 +4,8 @@ syntax on
 " enable autocompletion of ale
 let g:ale_completion_enabled = 1
 " disable latex linting from ale as i've got my own plugin for that
-let g:ale_linters = { 'tex': []}
+let g:ale_linters = {'rust': ['analyzer'], 'tex': []}
+let g:ale_fixers = {'c': ['clang-format']}
 
 
 " Initialize plugin system
@@ -32,6 +33,7 @@ Plug 'justinmk/vim-sneak'
 Plug 'lervag/vimtex'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'LnL7/vim-nix'
+Plug 'xevz/vim-squirrel'
 Plug 'preservim/nerdtree'
 
 " Plugin outside ~/.vim/plugged with post-update hook
@@ -50,7 +52,20 @@ call plug#end()
 
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
+"let g:airline_powerline_fonts = 1
+
+" window switching by #
+let g:airline_section_c = '[%{winnr()}] %t'
+nnoremap <space>1 1<C-w>w
+nnoremap <space>2 2<C-w>w
+nnoremap <space>3 3<C-w>w
+nnoremap <space>4 4<C-w>w
+nnoremap <space>5 5<C-w>w
+nnoremap <space>6 6<C-w>w
+nnoremap <space>7 7<C-w>w
+nnoremap <space>8 8<C-w>w
+nnoremap <space>9 9<C-w>w
+nnoremap <space>0 10<C-w>w
 
 " possible setting as alternative for easymotion
 " let g:sneak#label = 1
@@ -59,10 +74,6 @@ set backspace=indent,eol,start
 
 " map the leader key to ,
 let mapleader=","
-
-" set filetypes
-au BufRead,BufNewFile *.ohuac       setfiletype rust
-au BufRead,BufNewFile *.ohuao       setfiletype json
 
 " Cycling through windows and tabs -- made by Pius :D
 " nnoremap j <C-W><C-J>
@@ -103,6 +114,9 @@ set relativenumber
 set tabstop=4
 set shiftwidth=4
 set expandtab
+
+" keep 5 lines of context above/below the cursor (if possible)
+set scrolloff=5
 
 " Search
 set hlsearch                        " Highlight all search results

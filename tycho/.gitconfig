@@ -1,7 +1,7 @@
 [user]
 	name = Felix Wittwer
 	email = dev@felixwittwer.de
-	signingkey = EA0E8A99
+	signingkey = F8634A1CFF7D61608503A70B24363525EA0E8A99
 [push]
 	default = simple
 [commit]

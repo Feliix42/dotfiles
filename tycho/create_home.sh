@@ -49,7 +49,7 @@ sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.serve
 
 
 printf "\033[33m[info] Linking config files\033[39m"
-ln -s $pwd/.gitconfig ~/.gitconfig
+ln -s $PWD/.gitconfig ~/.gitconfig
 ln -s $PWD/.global_gitignore ~/.global_gitignore
 ln -s $PWD/git-commit-template.txt ~/.gitcommit_template
 
@@ -74,30 +74,32 @@ if test ! $(which nix-env); then
     curl -L https://nixos.org/nix/install | sh
 fi
 
+# TODO: Need to source?
+nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixpkgs
+nix-channel --update
 
 printf "\033[33m[info] Installing some basic binaries\033[39m"
 brew install fish
+sudo echo "/usr/local/bin/fish" >> /etc/shells
 chsh -s /usr/local/bin/fish
 
 binaries=(
     pass
-    python
     git
+    keepingyouawake
+    alacritty
+    starship
+    lsd
+    bat
+    homebrew/cask-fonts/font-hack-nerd-font
+    homebrew/cask-versions/firefox-nightly
 )
 
 brew install ${binaries[@]}
 
-apps=(
-    kitty
-    font-hack-nerd-font
-    keepingyouawake
-)
-
-brew cask install ${apps[@]}
-
 
 printf "\033[33m[info] Cloning password store\033[39m"
-git clone felix@decima:~/pass-backup ~/.password_store
+git clone felix@decima:~/pass-backup ~/.password-store
 
 
 printf "\033[33m[info] Setting up neomutt\033[39m"

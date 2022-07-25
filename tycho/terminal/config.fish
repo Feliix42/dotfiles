@@ -11,13 +11,8 @@ export LC_ALL="en_GB.UTF-8"
 
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:/Library/TeX/texbin:$HOME/.cargo/bin:$HOME/.local/bin:$HOME/Library/Python/3.8/bin"
 
-export GOPATH="/Users/felix/.gostuff"
-
-# FUCK configuration
-thefuck --alias | source
-
 # kitty terminal emulator auto completion
-kitty + complete setup fish | source
+# kitty + complete setup fish | source
 
 # fancier ls
 alias ls="lsd"
@@ -29,7 +24,7 @@ alias code="codium"
 alias fsrpass="env PASSWORD_STORE_DIR=/Users/felix/fsr/passwords pass"
 
 ## some aliases taken from old zshrc
-alias full-update="brew update; brew upgrade; brew cleanup; apm update --confirm false; rustup self update; rustup update"
+alias full-update="brew update; brew upgrade; brew cleanup; rustup self update; rustup update"
 alias l="lsd -la"
 alias calculator="python3 -i -c 'from math import *'"
 alias music="screen -dR music cmus"
@@ -66,4 +61,4 @@ end
 set fish_function_path $fish_function_path $HOME/.config/fish/plugin-foreign-env/functions
 
 # initialize nix
-fenv source '$HOME/.nix-profile/etc/profile.d/nix.sh' 
+fenv source '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'

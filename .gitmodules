@@ -7,3 +7,9 @@
 [submodule "entropy/mail/neomutt/themes/dracula"]
 	path = entropy/mail/neomutt/themes/dracula
 	url = https://github.com/dracula/mutt.git
+[submodule "tycho/mail/themes/powerline"]
+	path = tycho/mail/themes/powerline
+	url = git@github.com:sheoak/neomutt-powerline-nerdfonts.git
+[submodule "tycho/mail/neomutt/themes"]
+	path = tycho/mail/neomutt/themes
+	url = git@github.com:sheoak/neomutt-powerline-nerdfonts.git
