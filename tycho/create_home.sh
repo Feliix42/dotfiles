@@ -121,3 +121,11 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.c
 ln -s $PWD/.vimrc ~/.vimrc
 vim -c "PlugInstall"
 
+
+printf "\033[33m[info] Setting up vim\033[39m"
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+ln -s $PWD/nvim ~/.config/nvim
+nvim -c "PlugInstall"
+
+
