@@ -49,6 +49,13 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.c
 ln -s $PWD/.vimrc ~/.vimrc
 vim -c "PlugInstall"
 
+# set up nvim
+printf "\033[33m[info] Setting up nvim\033[39m"
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+ln -s $PWD/nvim ~/.config/nvim
+nvim -c "PlugInstall"
+
 # set up emacs
 printf "\033[33m[info] Setting up emacs\033[39m"
 git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d

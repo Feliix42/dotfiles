@@ -1,22 +1,22 @@
-filetype plugin indent on
-syntax on
+" this is enabled by default in nvim
+" filetype plugin indent on
+" syntax on
 
 " enable autocompletion of ale
 let g:ale_completion_enabled = 1
 " disable latex linting from ale as i've got my own plugin for that
-let g:ale_linters = { 'tex': [], 'haskell': ['hls', 'hindent'], 'rust': ['analyzer'] }
-"let g:ale_fixers = {'haskell': ['hindent']}
-"let g:ale_fixers = { 'haskell': ['hls', 'hindent'], 'rust': ['analyzer'] }
+let g:ale_linters = {'rust': ['analyzer'], 'haskell': ['hls', 'hindent'], 'tex': []}
+"let g:ale_fixers = {'c': ['clang-format']}
 
 
 " Initialize plugin system
-call plug#begin('~/.vim/plugged')
+call plug#begin(stdpath('data') . '/plugged')
 
 " Make sure you use single quotes
 
 " Shorthand notation; fetches https://github.com/morhetz/gruvbox
-"Plug 'morhetz/gruvbox'
-Plug 'dkasak/gruvbox'
+" Plug 'morhetz/gruvbox'
+Plug 'drewtempelmeyer/palenight.vim'
 
 " Any valid git URL is allowed
 Plug 'https://github.com/scrooloose/nerdcommenter.git'
@@ -27,6 +27,7 @@ Plug 'cespare/vim-toml', { 'for': 'toml' }
 Plug 'keith/swift.vim', { 'for': 'swift' }
 Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
 Plug 'jalvesaq/Nvim-R', {'branch': 'stable', 'for': 'r'}
+Plug 'rhysd/vim-llvm'
 
 " Lingua Franca
 Plug 'lf-lang/lingua-franca.vim'
@@ -92,7 +93,9 @@ set backspace=indent,eol,start
 " map the leader key to ,
 let mapleader=","
 
-" Cycling through windows and tabs -- made by Pius :D
+let $FZF_DEFAULT_COMMAND = 'rg --files --hidden'
+
+" Cycling through windows and tabs
 " nnoremap j <C-W><C-J>
 " nnoremap k <C-W><C-K>
 " nnoremap l <C-W><C-L>
@@ -106,7 +109,7 @@ map <leader>l :tabn<Enter>
 map <C-H> :bprevious<Enter>
 map <C-L> :bnext<Enter>
 map <leader>f :Files<Enter>
-map <leader>bl :Buffers<Enter>
+map <leader>b :Buffers<Enter>
 
 " fix auto-completion
 set wildmenu        " show a completion menu
@@ -117,12 +120,13 @@ set wildignore=*.o,*~,*.pyc,*.aux,*.bbl,*.blg,*-blx.bib,*.log,*.out,*.run.xml,
 
 " automatically reload files changed on disk but not in buffer
 set autoread
+" hide buffers on switch
 set hidden
 
 " tex configuration
 let g:tex_flavor='latex'
 " Optics
-colorscheme gruvbox
+colorscheme palenight "gruvbox
 set background=dark    " Setting dark mode
 
 set number

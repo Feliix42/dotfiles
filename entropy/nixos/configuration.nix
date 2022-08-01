@@ -197,8 +197,9 @@ in
     ## terminal, browsers, text editing, note taking
     alacritty
     vscodium
+    neovim
     firefox-wayland
-    obsidian
+    unstable.obsidian
     ## time tracking
     watson
     ## file managers
@@ -218,7 +219,7 @@ in
     ## the eternal pain continues
     libreoffice-fresh
     ## video and media applications
-    zoom-us
+    unstable.zoom-us
     teams
     youtube-dl
     mpv
@@ -237,7 +238,7 @@ in
   ];
 
   xdg.portal = {
-    #enable = true;
+    enable = true;
     gtkUsePortal = true;
     wlr = {
       enable = true;
