@@ -77,11 +77,9 @@ set backspace=indent,eol,start
 " map the leader key to ,
 let mapleader=","
 
-" set filetypes
-au BufRead,BufNewFile *.ohuac       setfiletype rust
-au BufRead,BufNewFile *.ohuao       setfiletype json
+let $FZF_DEFAULT_COMMAND = 'rg --files --hidden'
 
-" Cycling through windows and tabs -- made by Pius :D
+" Cycling through windows and tabs
 " nnoremap j <C-W><C-J>
 " nnoremap k <C-W><C-K>
 " nnoremap l <C-W><C-L>
