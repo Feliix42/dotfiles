@@ -18,6 +18,9 @@ in
       # Hardware support for Moonlander & U2F
       ./modules/hardware.nix
 
+      # Network & VPN configuration
+      ./modules/networking.nix
+
       ./modules/audio.nix
       ./modules/video.nix
       #./modules/v4l2loopback.nix
@@ -48,32 +51,6 @@ in
 
   # ------------ kernel -------------------------------------------------------
   boot.kernelPackages = pkgs.linuxKernel.packages.linux_5_10;
-
-  # ------------ networking ---------------------------------------------------
-  networking.hostName = "entropy"; # Define your hostname.
-  networking.wireless = {
-    enable = true;  # Enables wireless support via wpa_supplicant.
-    interfaces = [ "wlp0s20f3" ];
-  };
-  # The global useDHCP flag is deprecated, therefore explicitly set to false here.
-  # Per-interface useDHCP will be mandatory in the future, so this generated config
-  # replicates the default behaviour.
-  networking.useDHCP = false;
-  networking.interfaces.enp0s31f6.useDHCP = true;
-  # USB-C dock
-  networking.interfaces.enp0s20f0u2u1.useDHCP = true;
-  networking.interfaces.wlp0s20f3.useDHCP = true;
-
-  # enable OpenVPN for connecting to the TUD network
-  services.openvpn.servers.tud = {
-    config = '' config /home/felix/.config/vpn/TUD.ovpn '';
-    autoStart = false; #true;
-    updateResolvConf = true;
-  };
-
-  # for SAMBA file shares
-  services.gvfs.enable = true;
-
 
   # ------------ time, location & input ---------------------------------------
   # Set your time zone.

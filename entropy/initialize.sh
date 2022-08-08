@@ -76,11 +76,14 @@ ln -s $PWD/mail/.notmuch-config ~/.notmuch-config
 mkdir -p ~/.mail/tu-dresden
 notmuch new
 
-# set up openvpn connection
+# set up vpn connections
 printf "\033[33m[info] Configuring OpenVPN\033[39m"
 cd vpn
 pass mail/tud-user | head -1 >> credentials.txt
 pass mail/tud | head -1 >> credentials.txt
+pass mail/tud | head -1 > openconnect.txt
+chmod 600 credentials.txt
+chmod 600 openconnect.txt
 cd ..
 ln -s $PWD/vpn ~/.config/vpn
 

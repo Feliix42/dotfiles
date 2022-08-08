@@ -22,6 +22,6 @@
       ];
     };
   in
-    #[ R-with-my-packages rstudioEnv ];
-    [ R-with-my-packages ];
+    [ R-with-my-packages rstudioEnv ];
+    #[ R-with-my-packages ];
 }
