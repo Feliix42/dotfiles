@@ -93,7 +93,7 @@ set backspace=indent,eol,start
 " map the leader key to ,
 let mapleader=","
 
-let $FZF_DEFAULT_COMMAND = 'rg --files --hidden'
+let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --iglob "!.git/*"'
 
 " Cycling through windows and tabs
 " nnoremap j <C-W><C-J>

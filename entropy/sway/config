@@ -34,6 +34,11 @@ set $menu bemenu-run --monitor=all | xargs swaymsg exec --
 
 output * bg ~/Pictures/wall.jpg fill
 
+# announce a running sway session to systemd
+exec systemctl --user import-environment XDG_SESSION_TYPE XDG_CURRENT_DESKTOP
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+#exec dbus-update-activation-environment WAYLAND_DISPLAY
+
 ### Idle configuration
 #
 # Example configuration:
