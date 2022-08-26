@@ -100,6 +100,11 @@ in
     }
   ];
 
+  security.pam.u2f = {
+    enable = true;
+    cue = true;
+  };
+
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
