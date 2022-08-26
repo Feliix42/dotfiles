@@ -10,7 +10,8 @@
       numpy
       pylint
       # rpy2
-      jupyter
+      # NOTE(feliix42): due to security vulnerability in the naughty zone for now.
+      #jupyter
     ]; 
     python-with-my-packages = python3.withPackages my-python-packages;
   in

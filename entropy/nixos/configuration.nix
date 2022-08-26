@@ -138,6 +138,8 @@ in
     usbutils
     moreutils
     file
+    mosh
+    tmux
     ## password management
     pass
     pinentry-curses
@@ -174,13 +176,13 @@ in
     git
     gitAndTools.delta
     gitAndTools.gitui
-    ## GitHub actions
-    act
     ## terminal, browsers, text editing, note taking
     alacritty
     vscodium
     neovim
     firefox-wayland
+    # temporary
+    brave
     unstable.obsidian
     ## time tracking
     watson
@@ -198,6 +200,8 @@ in
     libheif
     ## LaTeX
     texlive.combined.scheme-full
+    ## Citation management
+    zotero
     ## the eternal pain continues
     libreoffice-fresh
     ## video and media applications
@@ -208,8 +212,6 @@ in
     streamlink
     ffmpeg-full
     musikcube
-    obs-studio
-    obs-studio-plugins.wlrobs
     ## messenger
     slack
     tdesktop
