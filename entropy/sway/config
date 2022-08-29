@@ -39,6 +39,9 @@ exec systemctl --user import-environment XDG_SESSION_TYPE XDG_CURRENT_DESKTOP
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 #exec dbus-update-activation-environment WAYLAND_DISPLAY
 
+# Set up GTK properly
+exec configure-gtk
+
 ### Idle configuration
 #
 # Example configuration:
