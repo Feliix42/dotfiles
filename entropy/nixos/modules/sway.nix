@@ -55,8 +55,6 @@ in
       waybar
       wl-clipboard
       mako # notification daemon
-      #dmenu # Dmenu is the default in the config but i recommend wofi since its wayland native
-      bemenu
       kanshi # replacement for autorandr
       sway-contrib.grimshot
       imv # image viewer
@@ -65,6 +63,12 @@ in
       #zafiro-icons
       dracula-theme
       paper-icon-theme
+      # xdotool type application for inserting keypresses
+      wtype
+
+      # wofi as application runner
+      wofi
+      wofi-emoji
     ];
     extraSessionCommands = ''
       export SDL_VIDEODRIVER=wayland

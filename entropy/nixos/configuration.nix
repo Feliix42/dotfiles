@@ -12,7 +12,8 @@ let
 in
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [ <nixos-hardware/lenovo/thinkpad/t14>
+      # Include the results of the hardware scan.
       ./hardware-configuration.nix
 
       # Hardware support for Moonlander & U2F
@@ -140,6 +141,7 @@ in
     file
     mosh
     tmux
+    libqalculate
     ## password management
     pass
     pinentry-curses
@@ -186,6 +188,7 @@ in
     unstable.obsidian
     ## time tracking
     watson
+    hledger hledger-ui hledger-web
     ## file managers
     ranger
     xfce.thunar
