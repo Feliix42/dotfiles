@@ -50,8 +50,8 @@ eval (starship init fish)
 ## easily share small files via my uberspace
 function share
     scp -q $argv gibbs:~/html/share/
-    echo "https://share.felixwittwer.de/"$argv
-    echo "https://share.felixwittwer.de/"$argv | pbcopy
+    echo "https://share.felixsuchert.de/"$argv
+    echo "https://share.felixsuchert.de/"$argv | pbcopy
 end
 
 ###### Nix Setup ######
