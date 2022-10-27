@@ -125,6 +125,8 @@ set hidden
 
 " tex configuration
 let g:tex_flavor='latex'
+let g:vimtex_view_method = 'zathura'
+
 " Optics
 colorscheme palenight "gruvbox
 set background=dark    " Setting dark mode

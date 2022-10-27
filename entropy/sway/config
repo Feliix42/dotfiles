@@ -19,7 +19,9 @@ set $term alacritty
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 #set $menu dmenu_path | dmenu | xargs swaymsg exec --
-set $menu bemenu-run --monitor=all | xargs swaymsg exec --
+#set $menu bemenu-run --monitor=all | xargs swaymsg exec --
+set $menu wofi --show drun --allow-images
+set $termmenu wofi --show run
 
 ### Output configuration
 #
@@ -109,6 +111,7 @@ input "2:7:SynPS/2_Synaptics_TouchPad" {
 
     # Start your launcher
     bindsym $mod+d exec $menu
+    bindsym $mod+slash exec $termmenu
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -237,9 +240,9 @@ bindsym $mod+r mode "resize"
 
 
 # Volume
-bindsym XF86AudioRaiseVolume exec 'pactl set-sink-volume @DEFAULT_SINK@ +5%'
-bindsym XF86AudioLowerVolume exec 'pactl set-sink-volume @DEFAULT_SINK@ -5%'
-bindsym XF86AudioMute exec 'pactl set-sink-mute @DEFAULT_SINK@ toggle'
+bindsym --locked XF86AudioRaiseVolume exec 'pactl set-sink-volume @DEFAULT_SINK@ +5%'
+bindsym --locked XF86AudioLowerVolume exec 'pactl set-sink-volume @DEFAULT_SINK@ -5%'
+bindsym --locked XF86AudioMute exec 'pactl set-sink-mute @DEFAULT_SINK@ toggle'
 
 # automatically float windows that are intended to do so
 for_window [title="Picture-in-Picture" app_id="firefox"] floating enable
@@ -261,6 +264,7 @@ bindsym $mod+x exec 'swaylock -f -c 000000ff'
 bindsym $mod+n exec firefox
 bindsym $mod+o exec obsidian
 
+bindsym $mod+Ctrl+Space exec wofi-emoji
 
 #
 # Status Bar:

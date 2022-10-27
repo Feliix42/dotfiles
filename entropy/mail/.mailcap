@@ -1,7 +1,7 @@
 # Images
-image/jpeg; feh %s
-image/pjpeg; feh %s
-image/png; feh %s
+image/jpeg; imv %s
+image/pjpeg; imv %s
+image/png; imv %s
 image/gif; firefox %s
 
 # PDF
