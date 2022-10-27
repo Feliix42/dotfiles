@@ -1,8 +1,8 @@
 # vim: syntax=muttrc textwidth=100
 
-# felix.wittwer1@tu-dresden.de
+# felix.suchert@tu-dresden.de
 
-set from                = felix.wittwer1@tu-dresden.de
+set from                = felix.suchert@tu-dresden.de
 set folder              = "~/.mail/tu-dresden/"
 set spoolfile           = "~/.mail/tu-dresden/Inbox"
 set postponed           = =Drafts

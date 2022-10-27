@@ -11,7 +11,7 @@ account        tud
 host           msx.tu-dresden.de
 port           587
 auth           login
-from           felix.wittwer1@tu-dresden.de
+from           felix.suchert@tu-dresden.de
 user           {{USER}}
 passwordeval   "pass mail/tud | head -1"
 

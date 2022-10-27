@@ -29,9 +29,9 @@ path=/home/felix/.mail
 # address to which the original email was addressed.
 #
 [user]
-name=Felix Wittwer
-primary_email=felix.wittwer1@tu-dresden.de
-other_email=felix.wittwer1@mailbox.tu-dresden.de;s6525655@msx.tu-dresden.de;
+name=Felix Suchert
+primary_email=felix.suchert@tu-dresden.de
+other_email=felix.wittwer1@tu-dresden.de;felix.wittwer1@mailbox.tu-dresden.de;s6525655@msx.tu-dresden.de;
 
 # Configuration for "notmuch new"
 #

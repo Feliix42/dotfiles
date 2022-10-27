@@ -114,7 +114,7 @@ source ~/.config/neomutt/themes/powerline/powerline.neomuttrc
 ## Basic Sending Options
 set sendmail = "msmtp"
 set use_from = yes
-set realname = "Felix Wittwer"
+set realname = "Felix Suchert"
 set reverse_name        # set the sender mail address to whomever it was originally sent
 set envelope_from = yes
 
@@ -133,7 +133,7 @@ set crypt_replyencrypt = yes
 set crypt_replysign = yes
 set crypt_replysignencrypted = yes
 # set default key and encrypt to self
-set smime_default_key = 0x39DDEFF5
+set smime_default_key = 0xEEC27484
 set smime_self_encrypt = yes
 
 
