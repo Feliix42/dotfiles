@@ -175,7 +175,9 @@ in
     ## I heard you like man pages?
     man-pages
     ## git and friends
-    git
+    #git
+    #git-doc
+    gitAndTools.gitFull
     gitAndTools.delta
     gitAndTools.gitui
     ## terminal, browsers, text editing, note taking
