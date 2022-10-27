@@ -32,6 +32,8 @@ Plug 'rhysd/vim-llvm'
 " Lingua Franca
 Plug 'lf-lang/lingua-franca.vim'
 
+Plug 'anekos/hledger-vim'
+
 Plug 'vim-syntastic/syntastic'
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-fugitive'
@@ -58,6 +60,9 @@ call plug#end()
 " open fzf files in new tab instead of new buffer
 "command! -bang -nargs=? -complete=dir Files
     "\ call fzf#vim#files(<q-args>, {'sink': 'tabedit', 'options': ['--info=inline', '--preview', '~/.vim/plugged/fzf.vim/bin/preview.sh {}']}, <bang>0)
+
+" hledger file type support
+autocmd FileType hledger setlocal omnifunc=hledger#complete#omnifunc
 
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
