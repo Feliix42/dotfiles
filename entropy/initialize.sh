@@ -94,6 +94,7 @@ ln -s $PWD/alacritty ~/.config/alacritty
 ln -s $PWD/nyxt/ ~/.config/next
 ln -s $PWD/mako/ ~/.config/mako
 ln -s $PWD/.urlview ~/.urlview
+ln -s $PWD/.tmux.conf ~/.tmux.conf
 ln -s $PWD/.gitconfig ~/.gitconfig
 ln -s $PWD/git-commit-template.txt ~/.gitcommit_template
 mkdir -p ~/.config/fish/
