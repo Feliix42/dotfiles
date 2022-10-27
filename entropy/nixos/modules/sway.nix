@@ -82,7 +82,7 @@ in
       export MOZ_DBUS_REMOTE=1
 
       # override VA-API driver
-      export LIBVA_DRIVER_NAME=iHD
+      # export LIBVA_DRIVER_NAME=iHD
     '';
   };
 
