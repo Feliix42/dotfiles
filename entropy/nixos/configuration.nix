@@ -79,6 +79,35 @@ in
   # enable touchpad support
   services.xserver.libinput.enable = true;
 
+  # ------------ Nix Config ---------------------------------------------------
+  nix =  {
+    package = pkgs.nixFlakes;
+	 # the builders-use-substitutes is optional; useful when the builder has a faster internet connection than yours
+    extraOptions = ''
+      experimental-features = nix-command flakes
+	   builders-use-substitutes = true
+    '';
+    buildMachines = [{
+	 hostName = "elm";
+    sshUser = "builder";
+	 system = "x86_64-linux";
+	 # if the builder supports building for multiple architectures, 
+	 # replace the previous line by, e.g.,
+	 # systems = ["x86_64-linux" "aarch64-linux"];
+	 maxJobs = 1;
+	 speedFactor = 2;
+	 supportedFeatures = [ "big-parallel" "kvm" ];
+	 mandatoryFeatures = [ ];
+     publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSUNXTk9oL3ozQjZmSXRGd2lTenlqeDBUTnIveUl6bHNsazdEeEtNcE5sdmwgcm9vdEBlbG0K";
+     sshKey = "/home/felix/.ssh/id_ed25519";
+	}] ;
+
+    distributedBuilds = true;
+    settings.trusted-users = [
+      "root"
+      "@wheel"
+    ];
+  };
 
   # ------------ security -----------------------------------------------------
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -130,7 +159,7 @@ in
     bat
     lsd
     ripgrep
-    sshfs
+    #sshfs
     ncdu
     tldr
     unzip
@@ -142,6 +171,8 @@ in
     mosh
     tmux
     libqalculate
+    ## shell extras
+    nushell
     ## password management
     pass
     pinentry-curses
@@ -212,12 +243,11 @@ in
     ## video and media applications
     unstable.zoom-us
     teams
-    youtube-dl
     mpv
-    streamlink
     ffmpeg-full
     musikcube
     ## messenger
+    #unstable.ferdium
     slack
     tdesktop
     signal-desktop
@@ -229,7 +259,6 @@ in
   services.dbus.enable = true;
   xdg.portal = {
     enable = true;
-    gtkUsePortal = true;
     extraPortals = with pkgs; [
       xdg-desktop-portal-wlr
       xdg-desktop-portal-kde

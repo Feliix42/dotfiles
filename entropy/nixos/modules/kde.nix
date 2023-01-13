@@ -14,9 +14,6 @@
 
     # I'd like a log please
     logFile = "/var/log/Xorg.0.log";
-
-    # graphics
-    useGlamor = true;
   };
 
   environment.etc."X11/xinit/xinitrc".text = ''
