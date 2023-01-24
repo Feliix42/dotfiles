@@ -12,7 +12,7 @@ let
 in
 {
   imports =
-    [ <nixos-hardware/lenovo/thinkpad/t14>
+    [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
 
@@ -203,6 +203,10 @@ in
     valgrind
     heaptrack
     #lingua-franca-ide 
+
+    # provided by my own overlay
+    mlir
+
     ## I heard you like man pages?
     man-pages
     ## git and friends
