@@ -7,11 +7,15 @@
   outputs = { self, nixpkgs }:
     let
 
+      # git revision to use (for version and git pull
+      gitRevision = "49caf7012170422afa84868598063818f9344228";
+
       # to work with older version of flakes
       lastModifiedDate = self.lastModifiedDate or self.lastModified or "19700101";
 
       # Generate a user-friendly version number.
       version = builtins.substring 0 8 lastModifiedDate;
+      # version = gitRevision;
 
       # System types to support.
       supportedSystems = [ "x86_64-linux" ]; #"x86_64-darwin" "aarch64-linux" "aarch64-darwin" ];
@@ -45,7 +49,7 @@
           src = fetchFromGitHub {
             owner = "llvm";
             repo = "llvm-project";
-            rev = "49caf7012170422afa84868598063818f9344228";
+            rev = gitRevision;
             sha256 = "sha256-j+ladpx8NfJGszj17oRkgvb4U2race+2DTKLtRZGeUM=";
           };
 
