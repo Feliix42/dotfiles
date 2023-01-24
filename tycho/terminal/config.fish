@@ -39,10 +39,6 @@ alias alles="all"
 alias sauber="clean"
 alias renne="run"
 
-# custom temporary aliases
-alias underrail="wine start 'C:\Program Files\Steam\steamapps\common\Underrail\underrail.exe'"
-alias underrail-steam="wine start 'C:\Program Files\Steam\steam.exe' steam://run/250520 -no-cef-sandbox"
-
 
 # initialize starship
 eval (starship init fish)
@@ -53,6 +49,9 @@ function share
     echo "https://share.felixsuchert.de/"$argv
     echo "https://share.felixsuchert.de/"$argv | pbcopy
 end
+
+# set up GPG pinentry
+set -gx GPG_TTY (tty)
 
 ###### Nix Setup ######
 # include this plugin so nix will work

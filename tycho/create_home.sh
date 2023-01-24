@@ -55,6 +55,8 @@ ln -s $PWD/git-commit-template.txt ~/.gitcommit_template
 
 mkdir -p ~/.config/alacritty
 ln -s $PWD/terminal/alacritty.yml ~/.config/alacritty/alacritty.yml
+# enable font smoothing in alacritty
+defaults write -g AppleFontSmoothing -int 0
 
 ln -s $PWD/kitty/ ~/.config/kitty
 
