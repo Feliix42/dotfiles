@@ -49,7 +49,7 @@ in
     enable = true;
     wrapperFeatures.gtk = true; # so that gtk works properly
     extraPackages = with pkgs; [
-      swaylock
+      swaylock-effects
       swayidle
       xwayland # for legacy apps
       waybar
@@ -91,6 +91,7 @@ in
   services.redshift = {
     enable = true;
     package = pkgs.gammastep;
+    executable = "/bin/gammastep";
     temperature.night = 3500;
   };
 
@@ -107,38 +108,9 @@ in
 
   environment.etc."greetd/environments".text = ''
     ${pkgs.sway}/bin/sway
-    startx
+    ${pkgs.xorg.xinit}/bin/startx
     ${pkgs.libsForQt5.plasma-workspace}/bin/startplasma-wayland
     ${pkgs.fish}/bin/fish
   '';
 
-  #environment.etc."greetd/gtkgreet.css".text = ''
-    #window {
-        #background-image: url("file://${pkgs.nixos-artwork.wallpapers.stripes-logo.gnomeFilePath}");
-        #background-size: cover;
-        #background-position: center;
-    #}
-  #'';
-
-  #services.xserver = {
-    ## under protest
-    #enable = true;
-
-    ## graphics
-    ##videoDrivers = [ "modesetting" ];
-    #useGlamor = true;
-
-    ## use sddm for authentication
-    ##displayManager.sddm.enable = true;
-    #displayManager.lightdm = {
-      #enable = true;
-      #greeters.enso = {
-        #enable = true;
-        #theme = {
-          #name = "Dracula";
-          #package = pkgs.dracula-theme;
-        #};
-      #};
-    #};
-  #};
 }
