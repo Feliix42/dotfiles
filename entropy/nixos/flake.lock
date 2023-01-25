@@ -8,12 +8,12 @@
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-MVU3QhAFlsLS5OmVonuYhubfqX5/47eG5QbNC5KDW1E=",
-        "path": "/nix/store/2fkslr44jwmmwjgymg3hks9rcjpcg9f6-source/entropy/nixos/mlir",
+        "narHash": "sha256-aKkWcnDgBrVE0XwU+i2w44gbGKR7OFQdh0RYuMIW9YM=",
+        "path": "/nix/store/nf5bkjpbkf4sch75b6q8jba66imbv8w3-source/entropy/nixos/mlir",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/2fkslr44jwmmwjgymg3hks9rcjpcg9f6-source/entropy/nixos/mlir",
+        "path": "/nix/store/nf5bkjpbkf4sch75b6q8jba66imbv8w3-source/entropy/nixos/mlir",
         "type": "path"
       }
     },

@@ -200,9 +200,8 @@ in
     cmake
     gdb
     ccls
-    valgrind
-    heaptrack
-    #lingua-franca-ide 
+    # valgrind
+    # heaptrack
 
     # provided by my own overlay
     mlir
@@ -219,12 +218,12 @@ in
     alacritty
     vscodium
     neovim
+    ghostwriter
     firefox-wayland
-    # temporary
-    brave
+    vimb
     unstable.obsidian
     ## time tracking
-    watson
+    # watson
     hledger hledger-ui hledger-web
     ## file managers
     ranger
