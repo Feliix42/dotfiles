@@ -89,9 +89,11 @@
             # inst will be our installation prefix
             #"-DCMAKE_INSTALL_PREFIX=../inst"
             # "-DLLVM_INSTALL_TOOLCHAIN_ONLY=ON"
+            # install tools like FileCheck
+            "-DLLVM_INSTALL_UTILS=ON"
             # change this to enable the projects you need
             "-DLLVM_ENABLE_PROJECTS=mlir"
-            "-DLLVM_BUILD_EXAMPLES=ON"
+            # "-DLLVM_BUILD_EXAMPLES=ON"
             # this makes llvm only to produce code for the current platform, this saves CPU time, change it to what you need
             "-DLLVM_TARGETS_TO_BUILD=X86"
 #            -DLLVM_TARGETS_TO_BUILD="X86;NVPTX;AMDGPU" \
