@@ -9,7 +9,7 @@
       #inputs.nixpkgs.follows = "nixpkgs";
     #};
     mlir = {
-      url = "./mlir";
+      url = "github:Feliix42/mlir.nix/main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
