@@ -265,7 +265,7 @@ bindsym $mod+c exec grimshot --notify save area
 # quick access to mail
 bindsym $mod+m exec 'alacritty -e neomutt -f "notmuch://?query=tag:unread"'
 
-bindsym $mod+x exec 'swaylock -f -c 000000ff'
+bindsym $mod+x exec 'swaylock --screenshots --effect-blur 5x5 --effect-greyscale --fade-in 0.5'
 
 bindsym $mod+n exec firefox
 bindsym $mod+o exec obsidian
