@@ -51,7 +51,7 @@ in
   boot.loader.efi.canTouchEfiVariables = true;
 
   # ------------ kernel -------------------------------------------------------
-  boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_0;
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_1;
 
   # ------------ time, location & input ---------------------------------------
   # Set your time zone.
