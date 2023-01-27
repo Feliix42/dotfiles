@@ -88,18 +88,32 @@ in
 	   builders-use-substitutes = true
     '';
     buildMachines = [{
-	 hostName = "elm";
-    sshUser = "builder";
-	 system = "x86_64-linux";
-	 # if the builder supports building for multiple architectures, 
-	 # replace the previous line by, e.g.,
-	 # systems = ["x86_64-linux" "aarch64-linux"];
-	 maxJobs = 1;
-	 speedFactor = 2;
-	 supportedFeatures = [ "big-parallel" "kvm" ];
-	 mandatoryFeatures = [ ];
-     publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSUNXTk9oL3ozQjZmSXRGd2lTenlqeDBUTnIveUl6bHNsazdEeEtNcE5sdmwgcm9vdEBlbG0K";
-     sshKey = "/home/felix/.ssh/id_ed25519";
+	  hostName = "ada";
+      sshUser = "builder";
+	  system = "x86_64-linux";
+	  # if the builder supports building for multiple architectures, 
+	  # replace the previous line by, e.g.,
+	  # systems = ["x86_64-linux" "aarch64-linux"];
+	  maxJobs = 2;
+	  speedFactor = 2;
+	  supportedFeatures = [ "big-parallel" "kvm" ];
+	  mandatoryFeatures = [ ];
+      publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSUNXTk9oL3ozQjZmSXRGd2lTenlqeDBUTnIveUl6bHNsazdEeEtNcE5sdmwgcm9vdEBlbG0K";
+      sshKey = "/home/felix/.ssh/id_ed25519";
+    # }
+    # {
+	#   hostName = "elm";
+    #   sshUser = "builder";
+	#   system = "x86_64-linux";
+	#   # if the builder supports building for multiple architectures, 
+	#   # replace the previous line by, e.g.,
+	#   # systems = ["x86_64-linux" "aarch64-linux"];
+	#   maxJobs = 1;
+	#   speedFactor = 1;
+	#   supportedFeatures = [ "big-parallel" "kvm" ];
+	#   mandatoryFeatures = [ ];
+    #   publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSUNXTk9oL3ozQjZmSXRGd2lTenlqeDBUTnIveUl6bHNsazdEeEtNcE5sdmwgcm9vdEBlbG0K";
+    #   sshKey = "/home/felix/.ssh/id_ed25519";
 	}] ;
 
     distributedBuilds = true;
