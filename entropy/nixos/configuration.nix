@@ -98,7 +98,7 @@ in
 	  speedFactor = 2;
 	  supportedFeatures = [ "big-parallel" "kvm" ];
 	  mandatoryFeatures = [ ];
-      publicHostKey = "SHA256:SfJsD3fGfj+XIrbvC8BSc4hB4q81NIfEKmJjErEhMdA";
+      publicHostKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIISpV7qRTdGWVZX4YHNqXepX66T+E5tgBnp0NRNNkJo7 root@ada";
       sshKey = "/home/felix/.ssh/id_ed25519";
     # }
     # {
