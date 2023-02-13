@@ -88,7 +88,8 @@ in
 	   builders-use-substitutes = true
     '';
     buildMachines = [{
-	  hostName = "ada";
+      # hostName = "ada";
+	  hostName = "141.30.52.34";
       sshUser = "builder";
 	  system = "x86_64-linux";
 	  # if the builder supports building for multiple architectures, 
