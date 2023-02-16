@@ -268,7 +268,7 @@ bindsym $mod+m exec 'alacritty -e neomutt -f "notmuch://?query=tag:unread"'
 bindsym $mod+x exec 'swaylock --screenshots --effect-blur 5x5 --effect-greyscale --fade-in 0.5'
 
 bindsym $mod+n exec firefox
-bindsym $mod+o exec obsidian --enable-features=UseOzonePlatform,WaylandWindowDecorations,WebRTCPipeWireCapturer --ozone-platform=wayland
+bindsym $mod+o exec 'obsidian --enable-features=UseOzonePlatform,WaylandWindowDecorations,WebRTCPipeWireCapturer --ozone-platform=wayland'
 
 bindsym $mod+Ctrl+Space exec wofi-emoji
 

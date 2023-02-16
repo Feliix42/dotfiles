@@ -20,14 +20,17 @@ macro index c "<change-vfolder>?" "Change to vfolder overview"
 macro index \\\\ "<vfolder-from-query>" "Search mailbox"
 
 # # open a different virtual folder
-#bind index,pager X change-vfolder
-# # read entire thread of the current message
-# bind index,pager + entire-thread
+# bind index,pager X change-vfolder
+# read entire thread of the current message
+bind index,pager + entire-thread
 # # generate virtual folder from query
 #bind index,pager \CX vfolder-from-query
 # generate virtual folder from query with time window
 bind index < vfolder-window-backward
 bind index > vfolder-window-forward
+
+bind index , modify-labels
+bind index . modify-tags
 
 
 
