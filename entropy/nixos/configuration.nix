@@ -99,7 +99,8 @@ in
 	  speedFactor = 2;
 	  supportedFeatures = [ "big-parallel" "kvm" ];
 	  mandatoryFeatures = [ ];
-      publicHostKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIISpV7qRTdGWVZX4YHNqXepX66T+E5tgBnp0NRNNkJo7 root@ada";
+      # base64 -w0 /etc/ssh/ssh_host_ed25519_key.pub
+      publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSUlTcFY3cVJUZEdXVlpYNFlITnFYZXBYNjZUK0U1dGdCbnAwTlJOTmtKbzcgcm9vdEBhZGEK";
       sshKey = "/home/felix/.ssh/id_ed25519";
     # }
     # {
@@ -186,6 +187,8 @@ in
     mosh
     tmux
     libqalculate
+    ## xdg-open
+    xdg-utils
     ## shell extras
     nushell
     ## password management
