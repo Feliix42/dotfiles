@@ -185,7 +185,8 @@ in
     moreutils
     file
     mosh
-    tmux
+    #tmux
+    zellij
     libqalculate
     ## xdg-open
     xdg-utils
