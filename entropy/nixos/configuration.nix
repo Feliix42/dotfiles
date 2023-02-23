@@ -222,6 +222,10 @@ in
     # valgrind
     # heaptrack
 
+    ## nix-community/comma
+    comma
+    nix-output-monitor
+
     # provided by my own overlay
     mlir
 
