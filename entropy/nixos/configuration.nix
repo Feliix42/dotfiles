@@ -264,7 +264,7 @@ in
     libreoffice-fresh
     ## video and media applications
     unstable.zoom-us
-    teams
+    unstable.teams
     mpv
     ffmpeg-full
     musikcube
