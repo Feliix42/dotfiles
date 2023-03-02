@@ -5,7 +5,7 @@
 " enable autocompletion of ale
 let g:ale_completion_enabled = 1
 " disable latex linting from ale as i've got my own plugin for that
-let g:ale_linters = {'rust': ['analyzer'], 'haskell': ['hls', 'hindent'], 'tex': []}
+let g:ale_linters = {'rust': ['analyzer'], 'nix': ['nil'], 'haskell': ['hls', 'hindent'], 'tex': []}
 "let g:ale_fixers = {'c': ['clang-format']}
 
 

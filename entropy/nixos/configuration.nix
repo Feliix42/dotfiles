@@ -5,7 +5,7 @@
 { config, pkgs, ... }:
 
 let
-  # use unstable nixpkgs for some specific packages that are still in-dev: 
+  # use unstable nixpkgs for some specific packages that are still in-dev:
   # sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos-unstable
   # sudo nix-channel --update
   unstable = import <nixos-unstable> { config = config.nixpkgs.config; };
@@ -82,41 +82,41 @@ in
   # ------------ Nix Config ---------------------------------------------------
   nix =  {
     package = pkgs.nixFlakes;
-	 # the builders-use-substitutes is optional; useful when the builder has a faster internet connection than yours
+    # the builders-use-substitutes is optional; useful when the builder has a faster internet connection than yours
     extraOptions = ''
       experimental-features = nix-command flakes
-	   builders-use-substitutes = true
+      builders-use-substitutes = true
     '';
     buildMachines = [{
       # hostName = "ada";
-	  hostName = "141.30.52.34";
+      hostName = "141.30.52.34";
       sshUser = "builder";
-	  system = "x86_64-linux";
-	  # if the builder supports building for multiple architectures, 
-	  # replace the previous line by, e.g.,
-	  # systems = ["x86_64-linux" "aarch64-linux"];
-	  maxJobs = 2;
-	  speedFactor = 2;
-	  supportedFeatures = [ "big-parallel" "kvm" ];
-	  mandatoryFeatures = [ ];
+      system = "x86_64-linux";
+      # if the builder supports building for multiple architectures,
+      # replace the previous line by, e.g.,
+      # systems = ["x86_64-linux" "aarch64-linux"];
+      maxJobs = 2;
+      speedFactor = 2;
+      supportedFeatures = [ "big-parallel" "kvm" ];
+      mandatoryFeatures = [ ];
       # base64 -w0 /etc/ssh/ssh_host_ed25519_key.pub
       publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSUlTcFY3cVJUZEdXVlpYNFlITnFYZXBYNjZUK0U1dGdCbnAwTlJOTmtKbzcgcm9vdEBhZGEK";
       sshKey = "/home/felix/.ssh/id_ed25519";
     # }
     # {
-	#   hostName = "elm";
+    #   hostName = "elm";
     #   sshUser = "builder";
-	#   system = "x86_64-linux";
-	#   # if the builder supports building for multiple architectures, 
-	#   # replace the previous line by, e.g.,
-	#   # systems = ["x86_64-linux" "aarch64-linux"];
-	#   maxJobs = 1;
-	#   speedFactor = 1;
-	#   supportedFeatures = [ "big-parallel" "kvm" ];
-	#   mandatoryFeatures = [ ];
+    #   system = "x86_64-linux";
+    #   # if the builder supports building for multiple architectures,
+    #   # replace the previous line by, e.g.,
+    #   # systems = ["x86_64-linux" "aarch64-linux"];
+    #   maxJobs = 1;
+    #   speedFactor = 1;
+    #   supportedFeatures = [ "big-parallel" "kvm" ];
+    #   mandatoryFeatures = [ ];
     #   publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSUNXTk9oL3ozQjZmSXRGd2lTenlqeDBUTnIveUl6bHNsazdEeEtNcE5sdmwgcm9vdEBlbG0K";
     #   sshKey = "/home/felix/.ssh/id_ed25519";
-	}] ;
+    }] ;
 
     distributedBuilds = true;
     settings.trusted-users = [
@@ -209,7 +209,7 @@ in
 
     unstable.rust-analyzer
     unstable.helix
- 
+
     ## other programming languages and compilers
     stack
     unstable.haskell-language-server
@@ -225,6 +225,8 @@ in
     ## nix-community/comma
     comma
     nix-output-monitor
+    nix-index
+    nil
 
     # provided by my own overlay
     mlir
@@ -268,7 +270,7 @@ in
     libreoffice-fresh
     ## video and media applications
     unstable.zoom-us
-    unstable.teams
+    #unstable.teams
     mpv
     ffmpeg-full
     musikcube
