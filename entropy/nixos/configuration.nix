@@ -230,6 +230,7 @@ in
 
     # provided by my own overlay
     mlir
+    circt
 
     ## I heard you like man pages?
     man-pages
@@ -241,7 +242,9 @@ in
     gitAndTools.gitui
     ## terminal, browsers, text editing, note taking
     alacritty
-    vscodium
+    # doesn't support the MLIR tooling from the marketplace :(
+    #unstable.vscodium
+    vscode
     neovim
     ghostwriter
     firefox-wayland
