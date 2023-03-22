@@ -244,7 +244,8 @@ in
     alacritty
     # doesn't support the MLIR tooling from the marketplace :(
     #unstable.vscodium
-    vscode
+    # TODO(feliix42): Fix at some point!
+    vscode.fhs
     neovim
     ghostwriter
     firefox-wayland

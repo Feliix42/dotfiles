@@ -95,6 +95,9 @@ in
     temperature.night = 3500;
   };
 
+  # fixes vs code for wayland
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
 
   # ------------ Display Manager ----------------------------------------------
   services.greetd = {
