@@ -175,6 +175,7 @@ in
     bat
     lsd
     ripgrep
+    fzf
     #sshfs
     ncdu
     tldr

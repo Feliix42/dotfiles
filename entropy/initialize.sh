@@ -97,8 +97,11 @@ ln -s $PWD/.urlview ~/.urlview
 ln -s $PWD/.tmux.conf ~/.tmux.conf
 ln -s $PWD/.gitconfig ~/.gitconfig
 ln -s $PWD/git-commit-template.txt ~/.gitcommit_template
+ln -s $PWD/.bashrc ~/.bashrc
 mkdir -p ~/.config/fish/
-ln -s $PWD/config.fish ~/.config/fish/config.fish
+ln -s $PWD/fish/config.fish ~/.config/fish/config.fish
+mkdir -p ~/.config/fish/functions
+ln -s $PWD/fish/fish_user_key_bindings.fish ~/.config/fish/functions/fish_user_key_bindings.fish
 ## i3 things
 ln -s $PWD/i3 ~/.config/i3
 ln -s $PWD/i3status-rust ~/.config/i3status-rust
