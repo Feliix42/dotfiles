@@ -48,7 +48,7 @@ Plug 'preservim/nerdtree'
 Plug 'jasonccox/vim-wayland-clipboard'
 
 " Plugin outside ~/.vim/plugged with post-update hook
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
 " ale language server client
