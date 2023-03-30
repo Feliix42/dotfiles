@@ -11,12 +11,26 @@ set virtual_spoolfile
 ## Notmuch configuration
 set nm_default_uri = "notmuch:///home/felix/.mail"
 virtual-mailboxes "Combined Inbox" "notmuch://?query=tag:inbox"
-virtual-mailboxes "All Unread Messages" "notmuch://?query=tag:unread"
+virtual-mailboxes "Inbox (Unread)" "notmuch://?query=tag:inbox and tag:unread"
+virtual-mailboxes "EVEREST" "notmuch://?query=tag:everest"
+virtual-mailboxes "Reactors" "notmuch://?query=tag:lingua-franca"
+virtual-mailboxes "Reading Suggestions" "notmuch://?query=tag:reading"
+virtual-mailboxes "Admin" "notmuch://?query=tag:admin"
 virtual-mailboxes "Archive" "notmuch://?query=tag:archive"
+virtual-mailboxes "All Unread Messages" "notmuch://?query=tag:unread"
+virtual-mailboxes "Spam" "notmuch://?query=tag:spam"
 virtual-mailboxes "Sent" "notmuch://?query=tag:sent"
 
-macro index A "<modify-labels>+archive -unread -inbox\\n" "Archive message"
-macro index c "<change-vfolder>?" "Change to vfolder overview"
+# modify (notmuch/imap) tags
+bind index . modify-labels
+
+macro index,pager ,a "<modify-labels>+archive -unread -inbox\n" "Archive message"
+macro index,pager ,s "<modify-labels>!spam !inbox\n" "Toggle spam classification"
+macro index,pager ,r "<modify-labels>+reading -inbox\n" "Move to reading suggestions"
+macro index,pager ,e "<modify-labels>+everest -inbox\n" "Move to EVEREST pile"
+
+
+macro index,pager c "<change-vfolder>?" "Change to vfolder overview"
 macro index \\\\ "<vfolder-from-query>" "Search mailbox"
 
 # # open a different virtual folder
@@ -29,8 +43,6 @@ bind index,pager + entire-thread
 bind index < vfolder-window-backward
 bind index > vfolder-window-forward
 
-bind index , modify-labels
-bind index . modify-tags
 
 
 
@@ -101,9 +113,9 @@ set attach_keyword = "\\<(anhängen|angehängt|anhang|anhänge|hängt an|anhäng
 
 ## Sidebar
 source ~/.config/neomutt/sidebar.muttrc
-bind index,pager \CO sidebar-open
-bind index,pager \CN sidebar-next
-bind index,pager \CP sidebar-prev
+bind index,pager \CL sidebar-open
+bind index,pager \CJ sidebar-next
+bind index,pager \CK sidebar-prev
 bind index,pager B sidebar-toggle-visible
 
 
