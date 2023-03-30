@@ -1,8 +1,5 @@
 entropy/mail/.mbsyncrc
 entropy/mail/.msmtprc
-entropy/mail/neomutt/signature.txt
-entropy/mail/neomutt/notmuch-hook.sh
-entropy/mail/neomutt/whoami.muttrc
 entropy/vpn/credentials.txt
 entropy/vpn/openconnect.txt
 

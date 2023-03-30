@@ -1,0 +1,1 @@
+mailsettings/notmuch-hook.sh

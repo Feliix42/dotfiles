@@ -203,6 +203,7 @@ in
     msmtp
     neomutt urlview
     notmuch
+    aspell # spell checking in mail
     ## Rust
     rustup
     cargo-flamegraph

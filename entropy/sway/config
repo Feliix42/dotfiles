@@ -263,7 +263,7 @@ for_window [title="zoom"] floating enable
 bindsym $mod+c exec grimshot --notify save area 
 
 # quick access to mail
-bindsym $mod+m exec 'alacritty -e neomutt -f "notmuch://?query=tag:unread"'
+bindsym $mod+m exec 'alacritty -e neomutt -f "notmuch://?query=tag:unread and tag:inbox"'
 
 bindsym $mod+x exec 'swaylock --screenshots --effect-blur 5x5 --effect-greyscale --fade-in 0.5'
 

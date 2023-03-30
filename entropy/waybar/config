@@ -77,7 +77,7 @@
         "format": " {}",
         "max-length": 10,
         "interval": 60,
-        "exec": "notmuch count tag:unread",
+        "exec": "notmuch count tag:unread and tag:inbox",
         "exec-if": "[ $(notmuch count tag:unread) != 0 ]",
         "on-click": "alacritty -e neomutt -f 'notmuch://?query=tag:unread'"
     }

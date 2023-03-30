@@ -12,7 +12,7 @@ set record              = =Sent
 # NOTE: disabled for notmuch
 # mailboxes "=Inbox" "=Trash" "=Sent" "=Drafts" 
 
-macro index \CS "<shell-escape>mbsync tu-dresden<enter>"
+macro index \CS "<shell-escape>mbsync -a; ~/.config/neomutt/notmuch-hook.sh<enter>"
 
 set signature           = "~/.config/neomutt/signature.txt"
 

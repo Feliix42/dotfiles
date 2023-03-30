@@ -13,3 +13,6 @@
 [submodule "tycho/mail/neomutt/themes"]
 	path = tycho/mail/neomutt/themes
 	url = git@github.com:sheoak/neomutt-powerline-nerdfonts.git
+[submodule "entropy/mail/neomutt/mailsettings"]
+	path = entropy/mail/neomutt/mailsettings
+	url = git@code.dummyco.de:feliix42/mailsettings.git
