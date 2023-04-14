@@ -30,7 +30,7 @@
       user = "s6525655@vpn-cfaed-cpb-ma";
       protocol = "anyconnect";
       gateway = "vpn2.zih.tu-dresden.de";
-      passwordFile = /home/felix/.config/vpn/openconnect.txt;
+      passwordFile = "/home/felix/.config/vpn/openconnect.txt";
       extraOptions = {
         authgroup = "A-Tunnel-TU-Networks";
         compression = "stateless";

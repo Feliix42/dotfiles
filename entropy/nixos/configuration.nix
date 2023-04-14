@@ -2,14 +2,14 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, unstable, ... }:
 
-let
+#let
   # use unstable nixpkgs for some specific packages that are still in-dev:
   # sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos-unstable
   # sudo nix-channel --update
-  unstable = import <nixos-unstable> { config = config.nixpkgs.config; };
-in
+  #unstable = import <nixos-unstable> { config = config.nixpkgs.config; };
+#in
 {
   imports =
     [
@@ -49,6 +49,11 @@ in
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+
+  boot.plymouth = {
+    enable = true;
+    theme = "breeze";
+  };
 
   # ------------ kernel -------------------------------------------------------
   boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_1;
