@@ -237,7 +237,7 @@
 
     # provided by my own overlay
     mlir
-    circt
+    #circt
 
     ## I heard you like man pages?
     man-pages
