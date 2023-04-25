@@ -8,6 +8,11 @@ let g:ale_completion_enabled = 1
 let g:ale_linters = {'rust': ['analyzer'], 'nix': ['nil'], 'haskell': ['hls', 'hindent'], 'tex': []}
 "let g:ale_fixers = {'c': ['clang-format']}
 
+" settings for neovide
+if exists("g:neovide")
+    set guifont=Iosevka\ Medium:h9
+endif
+
 
 " Initialize plugin system
 call plug#begin(stdpath('data') . '/plugged')
@@ -15,8 +20,8 @@ call plug#begin(stdpath('data') . '/plugged')
 " Make sure you use single quotes
 
 " Shorthand notation; fetches https://github.com/morhetz/gruvbox
-" Plug 'morhetz/gruvbox'
-Plug 'drewtempelmeyer/palenight.vim'
+Plug 'morhetz/gruvbox'
+" Plug 'drewtempelmeyer/palenight.vim'
 
 " Any valid git URL is allowed
 Plug 'https://github.com/scrooloose/nerdcommenter.git'
@@ -133,8 +138,8 @@ let g:tex_flavor='latex'
 let g:vimtex_view_method = 'zathura'
 
 " Optics
-colorscheme palenight "gruvbox
 set background=dark    " Setting dark mode
+colorscheme gruvbox "palenight 
 
 set number
 set relativenumber
