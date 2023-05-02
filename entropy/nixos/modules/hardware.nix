@@ -7,6 +7,8 @@
   # Enable support for flashing new firmware onto my Moonlander
   hardware.keyboard.zsa.enable = true;
 
+  hardware.nvidia.open = true;
+
   services.udev.packages = [ pkgs.libu2f-host ];
 
   # automount usb drives
