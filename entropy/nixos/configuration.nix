@@ -166,10 +166,10 @@
   programs.fish.enable = true;
   programs.vim.defaultEditor = true;
 
-  services.emacs = {
-    install = true;
-    enable = false;
-  };
+  # services.emacs = {
+  #   install = true;
+  #   enable = false;
+  # };
 
   # List of packages installed in system profile.
   environment.systemPackages = with pkgs; [
