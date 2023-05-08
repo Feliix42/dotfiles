@@ -58,6 +58,8 @@
   # ------------ kernel -------------------------------------------------------
   boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_2;
 
+  services.fwupd.enable = true;
+
   # ------------ time, location & input ---------------------------------------
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
@@ -224,6 +226,7 @@
     binutils-unwrapped
     gnumake
     cmake
+    ninja
     gdb
     ccls
     # valgrind
@@ -238,6 +241,9 @@
     # provided by my own overlay
     mlir
     #circt
+    llvmPackages_15.clang
+    llvmPackages_15.bintools
+    lit
 
     ## I heard you like man pages?
     man-pages
