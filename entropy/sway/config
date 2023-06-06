@@ -111,6 +111,7 @@ input "2:7:SynPS/2_Synaptics_TouchPad" {
 
     # Start your launcher
     bindsym $mod+d exec $menu
+    bindsym $mod+space exec $menu
     bindsym $mod+slash exec $termmenu
 
     # Drag floating windows by holding down $mod and left mouse button.
