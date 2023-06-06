@@ -58,23 +58,23 @@
 
 " window switching by #
 "let g:airline_section_c = '[%{winnr()}] %t'
-nnoremap <space>1 1<C-w>w
-nnoremap <space>2 2<C-w>w
-nnoremap <space>3 3<C-w>w
-nnoremap <space>4 4<C-w>w
-nnoremap <space>5 5<C-w>w
-nnoremap <space>6 6<C-w>w
-nnoremap <space>7 7<C-w>w
-nnoremap <space>8 8<C-w>w
-nnoremap <space>9 9<C-w>w
-nnoremap <space>0 10<C-w>w
+"nnoremap <space>1 1<C-w>w
+"nnoremap <space>2 2<C-w>w
+"nnoremap <space>3 3<C-w>w
+"nnoremap <space>4 4<C-w>w
+"nnoremap <space>5 5<C-w>w
+"nnoremap <space>6 6<C-w>w
+"nnoremap <space>7 7<C-w>w
+"nnoremap <space>8 8<C-w>w
+"nnoremap <space>9 9<C-w>w
+"nnoremap <space>0 10<C-w>w
 
 " possible setting as alternative for easymotion
 " let g:sneak#label = 1
 
-set backspace=indent,eol,start
+"set backspace=indent,eol,start
 
-let $FZF_DEFAULT_COMMAND = 'rg --files --hidden'
+"let $FZF_DEFAULT_COMMAND = 'rg --files --hidden'
 
 " Cycling through windows and tabs
 " nnoremap j <C-W><C-J>
@@ -85,42 +85,42 @@ let $FZF_DEFAULT_COMMAND = 'rg --files --hidden'
 " nnoremap <C-K> <C-W><C-K><C-W>_
 " nnoremap <C-L> <C-W><C-L><C-W>\|
 " nnoremap <C-H> <C-W><C-H><C-W>\|
-map <leader>h :tabp<Enter>
-map <leader>l :tabn<Enter>
-map <C-H> :bprevious<Enter>
-map <C-L> :bnext<Enter>
-map <leader>f :Files<Enter>
-map <leader>bl :Buffers<Enter>
+"map <leader>h :tabp<Enter>
+"map <leader>l :tabn<Enter>
+"map <C-H> :bprevious<Enter>
+"map <C-L> :bnext<Enter>
+"map <leader>f :Files<Enter>
+"map <leader>bl :Buffers<Enter>
 
 " fix auto-completion
-set wildmenu        " show a completion menu
-set wildignorecase
-set wildignore=*.o,*~,*.pyc,*.aux,*.bbl,*.blg,*-blx.bib,*.log,*.out,*.run.xml,
-    \*.toc,*.nav,*.snm  " ignore auxiliary files
+"set wildmenu        " show a completion menu
+"set wildignorecase
+"set wildignore=*.o,*~,*.pyc,*.aux,*.bbl,*.blg,*-blx.bib,*.log,*.out,*.run.xml,
+    "\*.toc,*.nav,*.snm  " ignore auxiliary files
 " set completeopt-=preview
 
 " automatically reload files changed on disk but not in buffer
-set autoread
+"set autoread
 " hide buffers on switch
-set hidden
+"set hidden
 
 " tex configuration
-let g:tex_flavor='latex'
+"let g:tex_flavor='latex'
 " Optics
 "colorscheme palenight "gruvbox
 "set background=dark    " Setting dark mode
 
-set number
-set relativenumber
-set tabstop=4
-set shiftwidth=4
-set expandtab
+"set number
+"set relativenumber
+"set tabstop=4
+"set shiftwidth=4
+"set expandtab
 
 " keep 5 lines of context above/below the cursor (if possible)
-set scrolloff=5
+"set scrolloff=5
 
-" Search
-set hlsearch                        " Highlight all search results
-set smartcase                       " Enable smart-case search
-set ignorecase                      " Always case-insensitive
-set incsearch                       " Searches for strings incrementally
+"" Search
+"set hlsearch                        " Highlight all search results
+"set smartcase                       " Enable smart-case search
+"set ignorecase                      " Always case-insensitive
+"set incsearch                       " Searches for strings incrementally
