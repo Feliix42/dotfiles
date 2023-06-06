@@ -18,6 +18,9 @@
   #networking.interfaces.enp0s20f0u2u1.useDHCP = true;
   #networking.interfaces.wlp0s20f3.useDHCP = true;
 
+  # statistics
+  services.vnstat.enable = true;
+
   # enable OpenVPN for connecting to the TUD network
   services.openvpn.servers.tud = {
     config = '' config /home/felix/.config/vpn/TUD.ovpn '';
