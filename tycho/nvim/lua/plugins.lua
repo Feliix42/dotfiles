@@ -15,6 +15,12 @@ return require('packer').startup(function(use)
   use 'scrooloose/nerdcommenter'
   use 'sbdchd/neoformat'
 
+  use {
+      'stevearc/oil.nvim',
+      requires = 'nvim-tree/nvim-web-devicons',
+      config = function() require('oil').setup() end
+  }
+
   -- fuzzy file finder
   use { 'junegunn/fzf', run = function() vim.fn['fzf#install'](0) end }
   use 'junegunn/fzf.vim'
