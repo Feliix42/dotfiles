@@ -3,61 +3,61 @@
 " syntax on
 
 " enable autocompletion of ale
-let g:ale_completion_enabled = 1
+"let g:ale_completion_enabled = 1
 " disable latex linting from ale as i've got my own plugin for that
-let g:ale_linters = {'rust': ['analyzer'], 'tex': []}
-let g:ale_fixers = {'c': ['clang-format']}
+"let g:ale_linters = {'rust': ['analyzer'], 'tex': []}
+"let g:ale_fixers = {'c': ['clang-format']}
 
 
-" Initialize plugin system
-call plug#begin(stdpath('data') . '/plugged')
+"" Initialize plugin system
+"call plug#begin(stdpath('data') . '/plugged')
 
-" Make sure you use single quotes
+"" Make sure you use single quotes
 
-" Shorthand notation; fetches https://github.com/morhetz/gruvbox
-" Plug 'morhetz/gruvbox'
-Plug 'drewtempelmeyer/palenight.vim'
+"" Shorthand notation; fetches https://github.com/morhetz/gruvbox
+"" Plug 'morhetz/gruvbox'
+"Plug 'drewtempelmeyer/palenight.vim'
 
-" Any valid git URL is allowed
-Plug 'https://github.com/scrooloose/nerdcommenter.git'
+"" Any valid git URL is allowed
+"Plug 'https://github.com/scrooloose/nerdcommenter.git'
 
-" On-demand loading for languages
-Plug 'rust-lang/rust.vim', { 'for': 'rust' }
-Plug 'cespare/vim-toml', { 'for': 'toml' }
-Plug 'keith/swift.vim', { 'for': 'swift' }
-" Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
+"" On-demand loading for languages
+"Plug 'rust-lang/rust.vim', { 'for': 'rust' }
+"Plug 'cespare/vim-toml', { 'for': 'toml' }
+"Plug 'keith/swift.vim', { 'for': 'swift' }
+"" Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
 
-Plug 'vim-syntastic/syntastic'
-Plug 'vim-airline/vim-airline'
-Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
-Plug 'justinmk/vim-sneak'
-Plug 'lervag/vimtex'
-Plug 'editorconfig/editorconfig-vim'
-Plug 'LnL7/vim-nix'
-Plug 'xevz/vim-squirrel'
-Plug 'preservim/nerdtree'
+"Plug 'vim-syntastic/syntastic'
+"Plug 'vim-airline/vim-airline'
+"Plug 'tpope/vim-fugitive'
+"Plug 'airblade/vim-gitgutter'
+"Plug 'justinmk/vim-sneak'
+"Plug 'lervag/vimtex'
+"Plug 'editorconfig/editorconfig-vim'
+"Plug 'LnL7/vim-nix'
+"Plug 'xevz/vim-squirrel'
+"Plug 'preservim/nerdtree'
 
-" Plugin outside ~/.vim/plugged with post-update hook
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+"" Plugin outside ~/.vim/plugged with post-update hook
+"Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+"Plug 'junegunn/fzf.vim'
 
-" ale language server client
-Plug 'dense-analysis/ale'
+"" ale language server client
+"Plug 'dense-analysis/ale'
 
-" Initialize plugin system
-call plug#end()
+"" Initialize plugin system
+"call plug#end()
 
 " open fzf files in new tab instead of new buffer
 "command! -bang -nargs=? -complete=dir Files
     "\ call fzf#vim#files(<q-args>, {'sink': 'tabedit', 'options': ['--info=inline', '--preview', '~/.vim/plugged/fzf.vim/bin/preview.sh {}']}, <bang>0)
 
-set laststatus=2
-let g:airline#extensions#tabline#enabled = 1
+"set laststatus=2
+"let g:airline#extensions#tabline#enabled = 1
 "let g:airline_powerline_fonts = 1
 
 " window switching by #
-let g:airline_section_c = '[%{winnr()}] %t'
+"let g:airline_section_c = '[%{winnr()}] %t'
 nnoremap <space>1 1<C-w>w
 nnoremap <space>2 2<C-w>w
 nnoremap <space>3 3<C-w>w
@@ -73,9 +73,6 @@ nnoremap <space>0 10<C-w>w
 " let g:sneak#label = 1
 
 set backspace=indent,eol,start
-
-" map the leader key to ,
-let mapleader=","
 
 let $FZF_DEFAULT_COMMAND = 'rg --files --hidden'
 
@@ -110,8 +107,8 @@ set hidden
 " tex configuration
 let g:tex_flavor='latex'
 " Optics
-colorscheme palenight "gruvbox
-set background=dark    " Setting dark mode
+"colorscheme palenight "gruvbox
+"set background=dark    " Setting dark mode
 
 set number
 set relativenumber
