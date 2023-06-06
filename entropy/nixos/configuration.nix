@@ -335,7 +335,7 @@
     open-sans
     overpass
     (nerdfonts.override {
-      fonts = [ "FiraCode" "DroidSansMono" "Hack" "SourceCodePro" "RobotoMono" "Ubuntu" "UbuntuMono" ];
+      fonts = [ "FiraCode" "DroidSansMono" "Hack" "SourceCodePro" "RobotoMono" "Ubuntu" "UbuntuMono" "Iosevka" "IosevkaTerm"];
     })
   ];
 
