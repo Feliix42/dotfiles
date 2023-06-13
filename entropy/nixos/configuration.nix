@@ -258,7 +258,7 @@
     # doesn't support the MLIR tooling from the marketplace :(
     #unstable.vscodium
     # TODO(feliix42): Fix at some point!
-    vscode.fhs
+    unstable.vscode.fhs
     neovim
     ghostwriter
     firefox-wayland
