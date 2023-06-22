@@ -241,8 +241,8 @@
     # provided by my own overlay
     mlir
     #circt
-    llvmPackages_15.clang
-    llvmPackages_15.bintools
+    llvmPackages_16.clang
+    llvmPackages_16.bintools
     lit
 
     ## I heard you like man pages?
