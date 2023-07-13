@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   # ------------ networking ---------------------------------------------------
@@ -47,6 +47,9 @@
 
   # for SAMBA file shares
   services.gvfs.enable = true;
-
+  # for manual mounting of SMB shares
+  environment.systemPackages = [
+    pkgs.cifs-utils
+  ];
 
 }
