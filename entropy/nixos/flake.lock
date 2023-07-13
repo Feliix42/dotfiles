@@ -7,11 +7,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1687437085,
-        "narHash": "sha256-eQU5x7Y22uoNiid9RHwpmrne17a8eHlBvbhrINFKpAo=",
+        "lastModified": 1689243291,
+        "narHash": "sha256-beD+uY2+Fn5bR1nWzzjikmCQGxnFDePWI0464zi+Dhg=",
         "owner": "Feliix42",
         "repo": "mlir.nix",
-        "rev": "4f01902213828e565b8c7fdb6886b0ccd3109b14",
+        "rev": "02a73472f18be570657a36a57e04244e32f4a471",
         "type": "github"
       },
       "original": {
