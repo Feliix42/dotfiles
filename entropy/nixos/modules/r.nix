@@ -10,6 +10,7 @@
         rlang
         lazyeval
         patchwork
+        tikzDevice
       ];
     };
     rstudioEnv = rstudioWrapper.override {
@@ -19,6 +20,7 @@
         rlang
         lazyeval
         patchwork
+        tikzDevice
       ];
     };
   in
