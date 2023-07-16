@@ -211,6 +211,8 @@
     neomutt urlview
     notmuch
     aspell # spell checking in mail
+    # personal mailing
+    thunderbirdPackages.thunderbird-115
     ## Rust
     rustup
     cargo-flamegraph
