@@ -281,6 +281,7 @@
     gimp
     inkscape
     libheif
+    imagemagick
     ## LaTeX
     texlive.combined.scheme-full
     ## Citation management
