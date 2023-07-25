@@ -62,7 +62,7 @@
 
   # ------------ time, location & input ---------------------------------------
   # Set your time zone.
-  time.timeZone = "Europe/Berlin";
+  time.timeZone = "Europe/Berlin"; # "US/Pacific"; 
   # geoclue2 does not yield a location at home, so I'll make the manual configuration the default
   # location.provider = "geoclue2";
   location.provider = "manual";
