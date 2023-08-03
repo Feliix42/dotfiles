@@ -183,6 +183,7 @@
     lsd
     ripgrep
     fzf
+    tokei
     #sshfs
     ncdu
     tldr
