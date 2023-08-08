@@ -10,8 +10,8 @@
       #inputs.nixpkgs.follows = "nixpkgs";
     #};
     mlir = {
-      url = "github:Feliix42/mlir.nix/main";
-      #url = "github:Feliix42/mlir.nix/circt";
+      #url = "github:Feliix42/mlir.nix/main";
+      url = "github:Feliix42/mlir.nix/circt";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
