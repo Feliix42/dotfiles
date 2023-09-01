@@ -265,7 +265,6 @@
     neovim
     ghostwriter
     firefox-wayland
-    vimb
     unstable.obsidian
     ## time tracking
     # watson
