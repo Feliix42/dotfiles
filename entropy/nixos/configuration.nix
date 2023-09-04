@@ -56,7 +56,7 @@
   };
 
   # ------------ kernel -------------------------------------------------------
-  boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_4;
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_5;
 
   services.fwupd.enable = true;
 
