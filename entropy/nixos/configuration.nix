@@ -243,7 +243,7 @@
 
     # provided by my own overlay
     mlir
-    #circt
+    circt
     llvmPackages_16.clang
     llvmPackages_16.bintools
     lit
