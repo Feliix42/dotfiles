@@ -181,6 +181,7 @@
     htop
     bat
     lsd
+    eza
     ripgrep
     fzf
     tokei
