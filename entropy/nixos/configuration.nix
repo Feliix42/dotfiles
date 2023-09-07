@@ -181,7 +181,7 @@
     htop
     bat
     lsd
-    eza
+    unstable.eza
     ripgrep
     fzf
     tokei
