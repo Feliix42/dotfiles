@@ -246,7 +246,13 @@
     mlir
     circt
     llvmPackages_16.clang
+    llvmPackages_16.libcxx
+    llvmPackages_16.libcxxabi
+    llvmPackages_16.libllvm
+    llvmPackages_16.llvm-manpages
+    llvmPackages_16.openmp
     llvmPackages_16.bintools
+    clang-tools_16
     lit
 
     ## I heard you like man pages?
@@ -264,6 +270,7 @@
     # TODO(feliix42): Fix at some point!
     unstable.vscode.fhs
     neovim
+    tree-sitter # for NVIM completions
     ghostwriter
     firefox-wayland
     unstable.obsidian
