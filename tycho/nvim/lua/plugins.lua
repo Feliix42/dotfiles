@@ -1,60 +1,63 @@
-return require('packer').startup(function(use)
-  -- Packer can manage itself
-  use 'wbthomason/packer.nvim'
-
+return require('lazy').setup({
   -- theme
   -- use {'morhetz/gruvbox', config = function() vim.cmd.colorscheme("gruvbox") end }
-  use {'luisiacc/gruvbox-baby', config = function() vim.cmd.colorscheme("gruvbox-baby") end }
+  {'luisiacc/gruvbox-baby', config = function() vim.cmd.colorscheme("gruvbox-baby") end },
   -- use 'drewtempelmeyer/palenight.vim'
-  use {
+  { 'stevedylandev/flexoki-nvim', as = 'flexoki', config = function() vim.cmd.colorscheme("flexoki") end, enabled = false },
+
+  -- utility plugins
+  { 'nvim-tree/nvim-web-devicons', lazy = true },
+  { "nvim-lua/plenary.nvim", lazy = true },
+
+  -- UI
+  {
     'nvim-lualine/lualine.nvim',
-    requires = { 'nvim-tree/nvim-web-devicons', opt = true }
-  }
-  use {'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons'}
+    dependencies = 'nvim-tree/nvim-web-devicons'
+  },
+  {'akinsho/bufferline.nvim', version = "*", dependencies = 'nvim-tree/nvim-web-devicons' },
 
-  use 'scrooloose/nerdcommenter'
-  use 'sbdchd/neoformat'
+  -- commenting and text formatting
+  'scrooloose/nerdcommenter',
+  'sbdchd/neoformat',
 
-  use {
+  -- directory editing
+  {
       'stevearc/oil.nvim',
-      requires = 'nvim-tree/nvim-web-devicons',
+      dependencies = 'nvim-tree/nvim-web-devicons',
       config = function() require('oil').setup() end
-  }
+  },
 
   -- fuzzy file finder
-  use { 'junegunn/fzf', run = function() vim.fn['fzf#install'](0) end }
-  use 'junegunn/fzf.vim'
+  { 'junegunn/fzf', build = function() vim.fn['fzf#install'](0) end },
+  'junegunn/fzf.vim',
 
-  -- -- On-demand loading for languages
-  use 'rust-lang/rust.vim'
-  -- use 'cespare/vim-toml
+  -- On-demand loading for languages
+  { 'rust-lang/rust.vim', ft = "rust" },
+  { 'cespare/vim-toml', ft = "toml" },
   -- use 'keith/swift.vim'
   -- use 'neovimhaskell/haskell-vim'
+  { 'Civitasv/cmake-tools.nvim', dependencies = "nvim-lua/plenary.nvim" },
+  { 'anekos/hledger-vim' },
 
-  -- Post-install/update hook with neovim command
-  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+  -- Treesitter
+  { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
   
   -- LSP plugins
-  use 'neovim/nvim-lspconfig'
-  use 'hrsh7th/cmp-nvim-lsp'
-  use 'hrsh7th/cmp-buffer'
-  use 'hrsh7th/cmp-path'
-  use 'hrsh7th/cmp-cmdline'
-  use 'hrsh7th/nvim-cmp'
+  'neovim/nvim-lspconfig',
+  'p00f/clangd_extensions.nvim',
+  'hrsh7th/cmp-nvim-lsp',
+  'hrsh7th/cmp-buffer',
+  'hrsh7th/cmp-path',
+  'hrsh7th/cmp-cmdline',
+  'hrsh7th/nvim-cmp',
+  'hrsh7th/cmp-nvim-lsp-signature-help',
   -- snippet engine
-  use 'hrsh7th/vim-vsnip'
+  'hrsh7th/vim-vsnip',
 
-  use 'tpope/vim-fugitive'
-  -- use 'vim-syntastic/syntastic'
-  -- use 'vim-airline/vim-airline'
-  -- use 'airblade/vim-gitgutter'
-  -- use 'justinmk/vim-sneak'
-  -- use 'lervag/vimtex'
-  -- use 'editorconfig/editorconfig-vim'
-  -- use 'LnL7/vim-nix'
-  -- use 'xevz/vim-squirrel'
-  -- use 'preservim/nerdtree'
-  -- 
-  -- -- ale language server client
-  -- use 'dense-analysis/ale'
-end)
+  'tpope/vim-fugitive',
+  'lervag/vimtex',
+  'editorconfig/editorconfig-vim',
+  'LnL7/vim-nix'
+
+  -- 'xevz/vim-squirrel'
+})

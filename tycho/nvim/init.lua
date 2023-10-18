@@ -1,13 +1,30 @@
-require('plugins')
+-- plugin manager
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
 
 -- comma as leader
 vim.g.mapleader = ","
+
+-- load plugins
+require('plugins')
 
 -- load legacy options
 vim.cmd([[
 	" so ~/.config/nvim/legacy.vim
     let $FZF_DEFAULT_COMMAND = 'rg --files --hidden'
     let g:tex_flavor='latex'
+    autocmd FileType hledger setlocal omnifunc=hledger#complete#omnifunc
+    autocmd FileType ledger setlocal omnifunc=hledger#complete#omnifunc
 ]])
 
 require('completion')
@@ -16,7 +33,7 @@ require('lsp-setup')
 -- nvim-treesitter
 require('nvim-treesitter.configs').setup {
     ensure_installed = {
-        "c", "lua", "vim", "help", "query",
+        "c", "lua", "vim", "query",
         "gitattributes", "gitcommit", "gitignore",
         "json", "markdown", "yaml", "toml",
         "make", "nix", "bash",
