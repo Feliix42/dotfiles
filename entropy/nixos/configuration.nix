@@ -293,7 +293,8 @@
     ## LaTeX
     texlive.combined.scheme-full
     ## Citation management
-    zotero
+    # TODO: fox this
+    #zotero
     ## the eternal pain continues
     libreoffice-fresh
     ## video and media applications
