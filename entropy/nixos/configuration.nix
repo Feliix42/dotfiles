@@ -246,6 +246,7 @@
     mlir
     circt
     llvmPackages_16.clang
+    llvmPackages_16.lldb
     llvmPackages_16.libcxx
     llvmPackages_16.libcxxabi
     llvmPackages_16.libllvm
@@ -286,14 +287,14 @@
     pdfpc
     zathura
     ## image manipulation
-    gimp
+    # gimp
     inkscape
     libheif
     imagemagick
     ## LaTeX
     texlive.combined.scheme-full
     ## Citation management
-    # TODO: fox this
+    # TODO: Enable again when CVE is fixed
     #zotero
     ## the eternal pain continues
     libreoffice-fresh
@@ -304,7 +305,6 @@
     ffmpeg-full
     musikcube
     ## messenger
-    #unstable.ferdium
     slack
     tdesktop
     signal-desktop
