@@ -11,7 +11,9 @@
       pylint
       # rpy2
       # NOTE(feliix42): due to security vulnerability in the naughty zone for now.
-      jupyter
+
+      # NOTE(feliix42): broken at the moment
+      # jupyter
 
       ## xDSL
       (
