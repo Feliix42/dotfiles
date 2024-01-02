@@ -42,6 +42,11 @@
       ./modules/python.nix
     ];
 
+  # OVERRIDES ##########################################################
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-25.9.0"
+  ];
+
 
   # set up LUKS discovery
   boot.initrd.luks.devices.cryptlvm.device = "/dev/disk/by-uuid/f382cd01-9048-4b1b-8a73-48e1f61e6c08";
