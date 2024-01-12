@@ -250,15 +250,15 @@
     # provided by my own overlay
     mlir
     circt
-    llvmPackages_16.clang
-    llvmPackages_16.lldb
-    llvmPackages_16.libcxx
-    llvmPackages_16.libcxxabi
-    llvmPackages_16.libllvm
-    llvmPackages_16.llvm-manpages
-    llvmPackages_16.openmp
-    llvmPackages_16.bintools
-    clang-tools_16
+    llvmPackages_17.clang
+    llvmPackages_17.lldb
+    llvmPackages_17.libcxx
+    llvmPackages_17.libcxxabi
+    llvmPackages_17.libllvm
+    llvmPackages_17.llvm-manpages
+    llvmPackages_17.openmp
+    llvmPackages_17.bintools
+    clang-tools_17
     lit
 
     ## I heard you like man pages?
@@ -340,7 +340,7 @@
   };
 
   # install fonts
-  fonts.fonts = with pkgs; [
+  fonts.packages = with pkgs; [
     font-awesome
     fira
     fira-code

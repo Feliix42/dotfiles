@@ -114,7 +114,7 @@
   # enable bluetooth in general and add a simple tool for connecting devices
   hardware.bluetooth = {
     enable = true;
-    package = pkgs.bluezFull;
+    package = pkgs.bluez;
     # enable A2DP
     settings = {
       General = {
