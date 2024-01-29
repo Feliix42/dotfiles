@@ -173,6 +173,8 @@
   programs.fish.enable = true;
   programs.vim.defaultEditor = true;
 
+  programs.ssh.setXAuthLocation = true;
+
   # services.emacs = {
   #   install = true;
   #   enable = false;
