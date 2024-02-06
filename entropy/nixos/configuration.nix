@@ -171,14 +171,39 @@
 
   # ------------ programs -----------------------------------------------------
   programs.fish.enable = true;
-  programs.vim.defaultEditor = true;
+
+  programs.vim.enable = true;
+  # programs.vim.defaultEditor = true;
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+  };
 
   programs.ssh.setXAuthLocation = true;
 
-  # services.emacs = {
-  #   install = true;
-  #   enable = false;
-  # };
+  programs.thunar = {
+    enable = true;
+    plugins = with pkgs.xfce; [ thunar-archive-plugin thunar-volman ];
+  };
+
+  programs.firefox = {
+    enable = true;
+    package = pkgs.firefox-wayland;
+  };
+
+  programs.git = {
+    enable = true;
+    package = pkgs.gitAndTools.gitFull;
+  };
+
+  programs.mosh.enable = true;
+
+  programs.nix-index = {
+    enable = true;
+    enableZshIntegration = true;
+    enableBashIntegration = true;
+    enableFishIntegration = true;
+  };
 
   # List of packages installed in system profile.
   environment.systemPackages = with pkgs; [
@@ -186,6 +211,7 @@
     wget
     w3m
     htop
+    btop
     bat
     lsd
     unstable.eza
@@ -201,7 +227,6 @@
     usbutils
     moreutils
     file
-    mosh
     #tmux
     zellij
     libqalculate
@@ -220,15 +245,13 @@
     neomutt urlview
     notmuch
     aspell # spell checking in mail
-    # personal mailing
-    thunderbirdPackages.thunderbird-115
     ## Rust
     rustup
     cargo-flamegraph
     cargo-watch
 
     unstable.rust-analyzer
-    unstable.helix
+    #unstable.helix
 
     ## other programming languages and compilers
     stack
@@ -246,7 +269,6 @@
     ## nix-community/comma
     comma
     nix-output-monitor
-    nix-index
     nil
 
     # provided by my own overlay
@@ -266,28 +288,17 @@
     ## I heard you like man pages?
     man-pages
     ## git and friends
-    #git
-    #git-doc
-    gitAndTools.gitFull
     gitAndTools.delta
     gitAndTools.gitui
     ## terminal, browsers, text editing, note taking
     alacritty
-    # doesn't support the MLIR tooling from the marketplace :(
-    #unstable.vscodium
     # TODO(feliix42): Fix at some point!
     unstable.vscode.fhs
-    neovim
     tree-sitter # for NVIM completions
     ghostwriter
-    firefox-wayland
     unstable.obsidian
-    ## time tracking
-    # watson
-    hledger hledger-ui hledger-web
     ## file managers
     ranger
-    xfce.thunar
     ## file sharing
     nextcloud-client
     ## document viewers
@@ -315,7 +326,6 @@
     slack
     tdesktop
     signal-desktop
-    weechat
     ## networking
     openconnect
   ];

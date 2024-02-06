@@ -51,7 +51,6 @@ in
     extraPackages = with pkgs; [
       swaylock-effects
       swayidle
-      xwayland # for legacy apps
       waybar
       wl-clipboard
       mako # notification daemon
@@ -87,6 +86,7 @@ in
   };
 
   programs.waybar.enable = true;
+  programs.xwayland.enable = true; # for legacy apps
 
   services.redshift = {
     enable = true;
