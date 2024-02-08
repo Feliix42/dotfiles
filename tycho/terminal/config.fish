@@ -9,7 +9,7 @@ export LC_NUMERIC="de_DE.UTF-8"
 export LC_TIME="de_DE.UTF-8"
 export LC_ALL="en_GB.UTF-8"
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:/Library/TeX/texbin:$HOME/.cargo/bin:$HOME/.local/bin:$HOME/Library/Python/3.8/bin"
+export PATH="/usr/local/opt/gnu-tar/libexec/gnubin:/usr/local/opt/gnu-sed/libexec/gnubin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:/Library/TeX/texbin:$HOME/.cargo/bin:$HOME/.local/bin:$HOME/Library/Python/3.8/bin"
 
 # kitty terminal emulator auto completion
 # kitty + complete setup fish | source

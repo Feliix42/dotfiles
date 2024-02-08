@@ -88,6 +88,20 @@ chsh -s /usr/local/bin/fish
 binaries=(
     pass
     git
+    ncdu
+    tldr
+    gnu-tar
+    gnu-sed
+    neomutt
+    msmtp
+    isync
+    notmuch
+    borgbackup
+    helix
+    rust-analyzer
+    git-delta
+    btop
+    neovim
     keepingyouawake
     alacritty
     starship
