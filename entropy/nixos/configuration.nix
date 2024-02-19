@@ -172,7 +172,6 @@
   # ------------ programs -----------------------------------------------------
   programs.fish.enable = true;
 
-  programs.vim.enable = true;
   # programs.vim.defaultEditor = true;
   programs.neovim = {
     enable = true;
@@ -204,6 +203,7 @@
     enableBashIntegration = true;
     enableFishIntegration = true;
   };
+  programs.command-not-found.enable = false;
 
   # List of packages installed in system profile.
   environment.systemPackages = with pkgs; [
@@ -218,6 +218,7 @@
     ripgrep
     fzf
     tokei
+    vim
     #sshfs
     ncdu
     tldr
@@ -317,7 +318,7 @@
     ## the eternal pain continues
     libreoffice-fresh
     ## video and media applications
-    unstable.zoom-us
+    zoom-us
     #unstable.teams
     mpv
     ffmpeg-full
