@@ -45,6 +45,7 @@
   # OVERRIDES ##########################################################
   nixpkgs.config.permittedInsecurePackages = [
     "electron-25.9.0"
+    "freeimage-unstable-2021-11-01"
   ];
 
 
@@ -86,8 +87,8 @@
   console.useXkbConfig = true;
 
   # Configure keymap in X11
-  services.xserver.layout = "gb";
-  services.xserver.xkbOptions = "eurosign:e,ctrl:nocaps,compose:ralt";
+  services.xserver.xkb.layout = "gb";
+  services.xserver.xkb.options = "eurosign:e,ctrl:nocaps,compose:ralt";
   # enable touchpad support
   services.xserver.libinput.enable = true;
 
@@ -243,7 +244,7 @@
     ## mail
     isync
     msmtp
-    neomutt urlview
+    neomutt urlscan
     notmuch
     aspell # spell checking in mail
     ## Rust
