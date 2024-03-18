@@ -13,7 +13,7 @@
     mlir = {
       #url = "github:Feliix42/mlir.nix/main";
       url = "github:Feliix42/mlir.nix/circt";
-      inputs.nixpkgs.follows = "nixpkgs";
+      # inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 

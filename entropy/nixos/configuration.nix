@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, unstable, ... }:
+{ config, pkgs, unstable, lib, ... }:
 
 #let
   # use unstable nixpkgs for some specific packages that are still in-dev:
@@ -167,7 +167,7 @@
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
-    pinentryFlavor = "curses";
+    pinentryPackage = lib.mkForce pkgs.pinentry-curses;
   };
 
   # ------------ programs -----------------------------------------------------
@@ -238,7 +238,6 @@
     nushell
     ## password management
     pass
-    pinentry-curses
     ## admin foo
     ansible
     ## mail
@@ -321,6 +320,7 @@
     ## video and media applications
     zoom-us
     #unstable.teams
+    spotify
     mpv
     ffmpeg-full
     musikcube
