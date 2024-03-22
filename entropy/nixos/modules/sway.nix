@@ -111,9 +111,11 @@ in
 
   environment.etc."greetd/environments".text = ''
     ${pkgs.sway}/bin/sway
-    ${pkgs.xorg.xinit}/bin/startx
-    ${pkgs.libsForQt5.plasma-workspace}/bin/startplasma-wayland
+    sway
+    startplasma-wayland
     ${pkgs.fish}/bin/fish
   '';
+    # ${pkgs.xorg.xinit}/bin/startx
+    # ${pkgs.libsForQt5.plasma-workspace}/bin/startplasma-wayland
 
 }

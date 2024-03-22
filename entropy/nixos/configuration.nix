@@ -44,8 +44,8 @@
 
   # OVERRIDES ##########################################################
   nixpkgs.config.permittedInsecurePackages = [
-    "electron-25.9.0"
-    "freeimage-unstable-2021-11-01"
+    #"electron-25.9.0"
+    #"freeimage-unstable-2021-11-01"
   ];
 
 
@@ -56,10 +56,11 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  boot.plymouth = {
-    enable = true;
-    theme = "breeze";
-  };
+  # NOTE(feliix42): Didn't work as I wanted it to so...
+  # boot.plymouth = {
+  #   enable = true;
+  #   theme = "breeze";
+  # };
 
   # ------------ kernel -------------------------------------------------------
   boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_7;
@@ -291,6 +292,7 @@
     ## git and friends
     gitAndTools.delta
     gitAndTools.gitui
+    difftastic
     ## terminal, browsers, text editing, note taking
     alacritty
     # TODO(feliix42): Fix at some point!

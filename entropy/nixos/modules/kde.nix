@@ -1,25 +1,27 @@
 { pkgs, ... }:
 
 {
-  services.xserver = {
-    enable = false;
-    autorun = false;
+  services.desktopManager.plasma6.enable = true;
 
-    desktopManager.plasma5 = {
-      enable = true;
-    };
+  # services.xserver = {
+  #   enable = false;
+  #   autorun = false;
 
-    # use startx to run plasma
-    displayManager.startx.enable = true;
+  #   desktopManager.plasma5 = {
+  #     enable = true;
+  #   };
 
-    # I'd like a log please
-    logFile = "/var/log/Xorg.0.log";
-  };
+  #   # use startx to run plasma
+  #   displayManager.startx.enable = true;
 
-  environment.etc."X11/xinit/xinitrc".text = ''
-    export DESKTOP_SESSION=plasma
-    exec ${pkgs.libsForQt5.plasma-workspace}/bin/startplasma-x11
-  '';
+  #   # I'd like a log please
+  #   logFile = "/var/log/Xorg.0.log";
+  # };
+
+  # environment.etc."X11/xinit/xinitrc".text = ''
+  #   export DESKTOP_SESSION=plasma
+  #   exec ${pkgs.libsForQt5.plasma-workspace}/bin/startplasma-x11
+  # '';
 
   #environment.variables = {
     #GDK_SCALE = "2";
