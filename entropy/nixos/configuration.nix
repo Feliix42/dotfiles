@@ -91,7 +91,7 @@
   services.xserver.xkb.layout = "gb";
   services.xserver.xkb.options = "eurosign:e,ctrl:nocaps,compose:ralt";
   # enable touchpad support
-  services.xserver.libinput.enable = true;
+  services.libinput.enable = true;
 
   # ------------ Nix Config ---------------------------------------------------
   nix =  {
