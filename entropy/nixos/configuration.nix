@@ -253,7 +253,7 @@
     cargo-watch
 
     unstable.rust-analyzer
-    #unstable.helix
+    helix
 
     ## other programming languages and compilers
     stack
