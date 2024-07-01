@@ -17,7 +17,7 @@
     # allow unfree licenced packges
     allowUnfree = true;
   };
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
     extraPackages = with pkgs; [
       intel-compute-runtime
