@@ -247,6 +247,7 @@
     neomutt urlscan
     notmuch
     aspell # spell checking in mail
+    thunderbird
     ## Rust
     rustup
     cargo-flamegraph
