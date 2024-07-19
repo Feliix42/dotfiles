@@ -2,7 +2,7 @@
 
 {
   # Enable sound.
-  sound.enable = true;
+  #sound.enable = true;
 
   environment.systemPackages = with pkgs; [
     pavucontrol
