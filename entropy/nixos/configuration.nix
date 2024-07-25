@@ -317,7 +317,7 @@
     texlive.combined.scheme-full
     ## Citation management
     # TODO: Enable again when CVE is fixed
-    #zotero
+    zotero
     ## the eternal pain continues
     libreoffice-fresh
     ## video and media applications
