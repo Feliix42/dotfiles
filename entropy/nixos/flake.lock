@@ -5,11 +5,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1722338194,
-        "narHash": "sha256-fA8Bo391rhIbgKUPZQorYVTeUvYx68UaPZwJ9uuksog=",
+        "lastModified": 1722354303,
+        "narHash": "sha256-TxIDL4orO9Gy1Uct9VQ+rinzQGN6891aJt4vJQE9QXk=",
         "owner": "Feliix42",
         "repo": "mlir.nix",
-        "rev": "280e2422c1df4de13e9404a19c76e2be4bf7a8c6",
+        "rev": "54bb99e4ebe56d589a76544c347bde16d1dee7d2",
         "type": "github"
       },
       "original": {
