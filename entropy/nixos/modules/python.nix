@@ -22,7 +22,7 @@
           version = "0.21.1";
           src = fetchPypi {
             inherit pname version;
-            sha256 = "095gg9bki5nk7a8xlplx3bs561px6327mshpb6mz3slhjwbsikr1";
+            sha256 = "058q124g7s1gr2sisjcc1n3v25lb21x0wv37icmjagnxnc5288y5";
           };
           doCheck = false;
           propagatedBuildInputs = [
