@@ -162,7 +162,7 @@
 
   security.pam.u2f = {
     enable = true;
-    cue = true;
+    settings.cue = true;
   };
 
   programs.gnupg.agent = {
@@ -296,13 +296,14 @@
     difftastic
     ## terminal, browsers, text editing, note taking
     alacritty
+    wezterm
     # TODO(feliix42): Fix at some point!
-    unstable.vscode.fhs
+    # unstable.vscode.fhs
     tree-sitter # for NVIM completions
     ghostwriter
     unstable.obsidian
     ## file managers
-    ranger
+    # lol
     ## file sharing
     nextcloud-client
     ## document viewers
@@ -316,13 +317,11 @@
     ## LaTeX
     texlive.combined.scheme-full
     ## Citation management
-    # TODO: Enable again when CVE is fixed
     zotero
     ## the eternal pain continues
     libreoffice-fresh
     ## video and media applications
     zoom-us
-    #unstable.teams
     spotify
     mpv
     ffmpeg-full
