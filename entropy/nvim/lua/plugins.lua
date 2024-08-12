@@ -1,7 +1,11 @@
 return require('lazy').setup({
   -- theme
   -- use {'morhetz/gruvbox', config = function() vim.cmd.colorscheme("gruvbox") end }
-  { 'luisiacc/gruvbox-baby', config = function() vim.cmd.colorscheme("gruvbox-baby") end },
+  { 'luisiacc/gruvbox-baby', config = function()
+      -- Enable transparent mode
+      vim.g.gruvbox_baby_transparent_mode = 1
+      vim.cmd.colorscheme("gruvbox-baby")
+  end },
   -- use 'drewtempelmeyer/palenight.vim'
   { 'stevedylandev/flexoki-nvim', name = 'flexoki', enabled = false, lazy = true},
   

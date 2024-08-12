@@ -57,10 +57,10 @@ require('nvim-treesitter.configs').setup {
 -- lualine theme
 require('lualine').setup {
     options = {
-        theme = 'gruvbox',
+        theme = 'gruvbox-baby',
         -- no separators between lualine elements
-        section_separators = '',
-        component_separators = ''
+        --section_separators = '',
+        --component_separators = ''
     }
 }
 
