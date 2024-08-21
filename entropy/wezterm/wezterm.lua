@@ -3,6 +3,8 @@ local wezterm = require 'wezterm'
 -- Creates a config object which we will be adding our config to
 local config = wezterm.config_builder()
 
+config.enable_wayland = true
+
 -- Find them here: https://wezfurlong.org/wezterm/colorschemes/index.html
 -- config.color_scheme = 'Ayu Dark (Gogh)'
 config.color_scheme = 'GruvboxDarkHard'
