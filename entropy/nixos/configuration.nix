@@ -63,13 +63,14 @@
   # };
 
   # ------------ kernel -------------------------------------------------------
-  boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_10;
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_11;
 
   services.fwupd.enable = true;
 
   # ------------ time, location & input ---------------------------------------
   # Set your time zone.
-  time.timeZone = "Europe/Berlin"; # "US/Pacific"; 
+  # time.timeZone = "Europe/Berlin"; # "US/Pacific"; 
+  time.timeZone = "America/New_York";
   # geoclue2 does not yield a location at home, so I'll make the manual configuration the default
   # location.provider = "geoclue2";
   location.provider = "manual";
@@ -297,6 +298,7 @@
     ## terminal, browsers, text editing, note taking
     alacritty
     wezterm
+    nautilus
     # TODO(feliix42): Fix at some point!
     # unstable.vscode.fhs
     tree-sitter # for NVIM completions
@@ -326,6 +328,7 @@
     mpv
     ffmpeg-full
     musikcube
+    playerctl
     ## messenger
     slack
     tdesktop

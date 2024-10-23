@@ -1,0 +1,9 @@
+/sys
+/proc
+/nix
+/home/felix/mnt
+/home/felix/.cargo/registry
+/home/*/.cache
+/home/*/.stack
+/home/**/.stack_work
+/home/felix/VirtualBox VMs/

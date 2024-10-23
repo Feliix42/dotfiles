@@ -88,6 +88,18 @@ in
   programs.waybar.enable = true;
   programs.xwayland.enable = true; # for legacy apps
 
+  # Hyprland! Experimental
+  programs.hyprland = {
+    enable = true;
+  };
+
+  environment.systemPackages = with pkgs; [
+    kitty
+    dunst
+    tela-circle-icon-theme
+    eww
+  ];
+
   services.redshift = {
     enable = true;
     package = pkgs.gammastep;
@@ -110,9 +122,12 @@ in
   };
 
   environment.etc."greetd/environments".text = ''
-    ${pkgs.sway}/bin/sway
+    Hyprland
     sway
     startplasma-wayland
+    fish
+    ${pkgs.sway}/bin/sway
+    ${pkgs.hyprland}/bin/Hyprland
     ${pkgs.fish}/bin/fish
   '';
     # ${pkgs.xorg.xinit}/bin/startx
