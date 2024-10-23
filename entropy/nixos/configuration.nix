@@ -96,7 +96,7 @@
 
   # ------------ Nix Config ---------------------------------------------------
   nix =  {
-    package = pkgs.nixFlakes;
+    package = pkgs.nixVersions.stable;
     # the builders-use-substitutes is optional; useful when the builder has a faster internet connection than yours
     extraOptions = ''
       experimental-features = nix-command flakes
