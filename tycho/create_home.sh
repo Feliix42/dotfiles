@@ -60,6 +60,8 @@ defaults write -g AppleFontSmoothing -int 0
 
 ln -s $PWD/kitty/ ~/.config/kitty
 
+ln -s $PWD/wezterm/ ~/.config/wezterm
+
 touch ~/.hushlogin
 ln -s $PWD/.yabairc ~/.yabairc
 
@@ -104,6 +106,7 @@ binaries=(
     neovim
     keepingyouawake
     alacritty
+    wezterm
     starship
     lsd
     bat
