@@ -376,20 +376,39 @@
   ];
 
   # periodic automated mail fetching
-  systemd.user.services.mailfetch = {
-    enable = true;
-    description = "Automatically fetches new mails.";
-    wantedBy = [ "graphical-session.target" ];
-    after = [ "graphical-session.target" ];
+  systemd.user.services.mbsync = {
+    description = "Automated mail fetch and tagging";
     serviceConfig = {
-      Restart = "always";
-      RestartSec = "60";
+      Type = "oneshot";
     };
-    path = with pkgs; [ bash notmuch isync ];
-    script = ''
-      mbsync -a && /home/felix/.config/neomutt/notmuch-hook.sh
-    '';
+    path = with pkgs; [ bash isync notmuch ];
+    script = "mbsync -a";
+    postStop = "/home/felix/.config/neomutt/notmuch-hook.sh";
   };
+
+  systemd.user.timers.mbsync = {
+    description = "Automated mail fetch and processing";
+    wantedBy = [ "timers.target" ];
+    timerConfig = {
+      OnBootSec = "10m";
+      OnUnitInactiveSec = "10m";
+    };
+  };
+
+  # systemd.user.services.mailfetch = {
+  #   enable = true;
+  #   description = "Automatically fetches new mails.";
+  #   wantedBy = [ "graphical-session.target" ];
+  #   after = [ "graphical-session.target" ];
+  #   serviceConfig = {
+  #     Restart = "always";
+  #     RestartSec = "60";
+  #   };
+  #   path = with pkgs; [ bash notmuch isync ];
+  #   script = ''
+  #     mbsync -a && /home/felix/.config/neomutt/notmuch-hook.sh
+  #   '';
+  # };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
