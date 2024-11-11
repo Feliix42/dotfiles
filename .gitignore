@@ -3,4 +3,7 @@ entropy/mail/.msmtprc
 entropy/vpn/credentials.txt
 entropy/vpn/openconnect.txt
 
+tycho/nvim/plugin
+pallas/nvim/plugin
+
 **/*.swp
