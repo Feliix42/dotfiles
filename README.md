@@ -9,7 +9,8 @@ Feel free to re-use and copy this if something catches your eye!
 ## Organization
 
 - [entropy](./entropy) contains the configuration for my work machine, running [NixOS](https://nixos.org)
-- [tycho](./tycho) contains the config files specific to my Mac (still WIP).
+- [tycho](./tycho) contains the config files specific to my Intel Mac (still WIP).
+- [pallas](./pallas) contains the config files specific to my M4 MacBook (still WIP).
 
 ## License
 
