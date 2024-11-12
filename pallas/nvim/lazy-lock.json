@@ -12,7 +12,7 @@
   "fzf.vim": { "branch": "master", "commit": "ec75ffbfd50630bf2b8d444d89487e149bacf7f3" },
   "gruvbox-baby": { "branch": "main", "commit": "bd52e62d8134647090108189e69c8b3cd18bdbbf" },
   "hledger-vim": { "branch": "master", "commit": "f9b4171f0ce2562dd804305a1ed087eaf6a4f028" },
-  "lazy.nvim": { "branch": "main", "commit": "1159bdccd8910a0fd0914b24d6c3d186689023d9" },
+  "lazy.nvim": { "branch": "main", "commit": "7967abe55752aa90532e6bb4bd4663fe27a264cb" },
   "lualine.nvim": { "branch": "master", "commit": "b431d228b7bbcdaea818bdc3e25b8cdbe861f056" },
   "neoformat": { "branch": "master", "commit": "d9d3311097eacdba9bd7a425b267d304b509e7ea" },
   "nerdcommenter": { "branch": "master", "commit": "3f860f2d981547c18f2c9599e3c358ea488c3be4" },

@@ -9,10 +9,9 @@ export LC_NUMERIC="de_DE.UTF-8"
 export LC_TIME="de_DE.UTF-8"
 export LC_ALL="en_GB.UTF-8"
 
-export PATH="/usr/local/opt/gnu-tar/libexec/gnubin:/usr/local/opt/gnu-sed/libexec/gnubin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:/Library/TeX/texbin:$HOME/.cargo/bin:$HOME/.local/bin:$HOME/Library/Python/3.8/bin"
+fish_add_path /opt/homebrew/bin
+#export PATH="/usr/local/opt/gnu-tar/libexec/gnubin:/usr/local/opt/gnu-sed/libexec/gnubin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:/Library/TeX/texbin:$HOME/.cargo/bin:$HOME/.local/bin:$HOME/Library/Python/3.8/bin"
 
-# kitty terminal emulator auto completion
-# kitty + complete setup fish | source
 
 # fancier ls
 alias ls="lsd"
@@ -53,11 +52,3 @@ end
 # set up GPG pinentry
 set -gx GPG_TTY (tty)
 
-###### Nix Setup ######
-# include this plugin so nix will work
-# https://github.com/NixOS/nix/issues/1512
-# https://github.com/oh-my-fish/plugin-foreign-env
-set fish_function_path $fish_function_path $HOME/.config/fish/plugin-foreign-env/functions
-
-# initialize nix
-fenv source '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'

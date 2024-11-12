@@ -68,11 +68,17 @@ xcode-select --install
 if test ! $(which brew); then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 fi
+echo >> /Users/felix/.zprofile
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/felix/.zprofile
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 printf "\033[33m[info] Installing some basic binaries\033[39m"
 brew install fish
-sudo echo "/usr/local/bin/fish" >> /etc/shells
-chsh -s /usr/local/bin/fish
+sudo echo "/opt/homebrew/bin/fish" >> /etc/shells
+chsh -s /opt/homebrew/bin/fish
+
+# required for Intel applications
+softwareupdate --install-rosetta --agree-to-license
 
 binaries=(
     pass
@@ -116,7 +122,6 @@ binaries=(
     tree
     tree-sitter
     tmux
-    sigtop
     ripgrep
     qrencode
     python
@@ -134,7 +139,7 @@ binaries=(
     audacity
     calibre
     discord
-    docker
+    homebrew/cask/docker
     dropbox
     firefox@nightly
     font-hack-nerd-font
@@ -152,9 +157,9 @@ binaries=(
     mactex
     magicavoxel
     mark-text
-    neovide
+    homebrew/cask/neovide
     obsidian
-    openttd
+    homebrew/cask/openttd
     signal
     spotify
     steam
@@ -175,6 +180,8 @@ binaries=(
 
 brew install ${binaries[@]}
 
+brew install --HEAD tbvdm/tap/sigtop
+
 
 printf "\033[33m[info] Cloning password store\033[39m"
 git clone git@code.dummyco.de:feliix42/pass.git ~/.password-store
@@ -194,7 +201,6 @@ ln -s $PWD/mail/neomutt ~/.config/neomutt
 printf "\033[33m[info] Setting up Fish Shell\033[39m"
 mkdir -p ~/.config/fish/
 ln -s $PWD/terminal/config.fish ~/.config/fish/config.fish
-git clone git@github.com:oh-my-fish/plugin-foreign-env.git ~/.config/fish/plugin-foreign-env
 
 printf "\033[33m[info] Setting up vim\033[39m"
 
