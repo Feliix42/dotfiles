@@ -69,17 +69,17 @@
 
   # ------------ time, location & input ---------------------------------------
   # Set your time zone.
-  # time.timeZone = "Europe/Berlin"; # "US/Pacific"; 
-  time.timeZone = "America/New_York";
+  time.timeZone = "Europe/Berlin"; # "US/Pacific"; 
+  # time.timeZone = "America/New_York";
   # geoclue2 does not yield a location at home, so I'll make the manual configuration the default
   # location.provider = "geoclue2";
   location.provider = "manual";
   # using the location of the cafe ascii should be good enough
-  # location.latitude = 51.0250869;
-  # location.longitude = 13.7210005;
+  location.latitude = 51.0250869;
+  location.longitude = 13.7210005;
   # RIT
-  location.latitude = 43.084902;
-  location.longitude = -77.678352;
+  # location.latitude = 43.084902;
+  # location.longitude = -77.678352;
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
