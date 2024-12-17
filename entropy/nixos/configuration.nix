@@ -373,9 +373,15 @@
     roboto-slab
     open-sans
     overpass
-    (nerdfonts.override {
-      fonts = [ "FiraCode" "DroidSansMono" "Hack" "SourceCodePro" "RobotoMono" "Ubuntu" "UbuntuMono" "Iosevka" "IosevkaTerm"];
-    })
+    nerd-fonts.ubuntu
+    nerd-fonts.ubuntu-mono
+    nerd-fonts.fira-code
+    nerd-fonts.droid-sans-mono
+    nerd-fonts.hack
+    nerd-fonts.sauce-code-pro
+    nerd-fonts.roboto-mono
+    nerd-fonts.iosevka
+    nerd-fonts.iosevka-term
   ];
 
   # periodic automated mail fetching
