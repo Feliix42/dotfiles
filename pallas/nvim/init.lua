@@ -38,7 +38,7 @@ require('nvim-treesitter.configs').setup {
         "json", "markdown", "yaml", "toml",
         "make", "nix", "bash",
         "php", "html", "css",
-        "python", "rust", 
+        "python", "rust", "tablegen",
     },
     highlight = {
         enable = true,
