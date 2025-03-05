@@ -305,7 +305,7 @@
     # TODO(feliix42): Fix at some point!
     # unstable.vscode.fhs
     tree-sitter # for NVIM completions
-    ghostwriter
+    kdePackages.ghostwriter
     unstable.obsidian
     ## file managers
     # lol
@@ -345,8 +345,8 @@
     enable = true;
     extraPortals = with pkgs; [
       xdg-desktop-portal-wlr
-      xdg-desktop-portal-kde
       xdg-desktop-portal-gtk
+      kdePackages.xdg-desktop-portal-kde
     ];
     wlr = {
       enable = true;
