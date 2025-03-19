@@ -63,23 +63,23 @@
   # };
 
   # ------------ kernel -------------------------------------------------------
-  boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_12;
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_13;
 
   services.fwupd.enable = true;
 
   # ------------ time, location & input ---------------------------------------
   # Set your time zone.
-  time.timeZone = "Europe/Berlin"; # "US/Pacific"; 
-  # time.timeZone = "America/New_York";
+  #time.timeZone = "Europe/Berlin"; # "US/Pacific"; 
+  time.timeZone = "America/New_York";
   # geoclue2 does not yield a location at home, so I'll make the manual configuration the default
   # location.provider = "geoclue2";
   location.provider = "manual";
   # using the location of the cafe ascii should be good enough
-  location.latitude = 51.0250869;
-  location.longitude = 13.7210005;
+  #location.latitude = 51.0250869;
+  #location.longitude = 13.7210005;
   # RIT
-  # location.latitude = 43.084902;
-  # location.longitude = -77.678352;
+  location.latitude = 43.084902;
+  location.longitude = -77.678352;
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
@@ -234,13 +234,12 @@
     usbutils
     moreutils
     file
-    #tmux
-    zellij
+    tmux
+    #zellij
     libqalculate
     ## xdg-open
     xdg-utils
-    ## shell extras
-    nushell
+
     ## password management
     pass
     ## admin foo
@@ -301,16 +300,17 @@
     ## terminal, browsers, text editing, note taking
     alacritty
     wezterm
+    ghostty
     nautilus
     # TODO(feliix42): Fix at some point!
     # unstable.vscode.fhs
     tree-sitter # for NVIM completions
-    kdePackages.ghostwriter
+    #kdePackages.ghostwriter
     unstable.obsidian
     ## file managers
     # lol
     ## file sharing
-    nextcloud-client
+    #nextcloud-client
     ## document viewers
     pdfpc
     zathura
