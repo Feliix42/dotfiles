@@ -279,7 +279,7 @@
 
     # provided by my own overlay
     mlir
-    circt
+    #circt
     llvmPackages_20.clang
     llvmPackages_20.lldb
     llvmPackages_20.libcxx
