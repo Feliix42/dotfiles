@@ -280,15 +280,15 @@
     # provided by my own overlay
     mlir
     circt
-    llvmPackages_18.clang
-    llvmPackages_18.lldb
-    llvmPackages_18.libcxx
-    #llvmPackages_18.libcxxabi
-    llvmPackages_18.libllvm
-    llvmPackages_18.llvm-manpages
-    llvmPackages_18.openmp
-    llvmPackages_18.bintools
-    clang-tools_18
+    llvmPackages_20.clang
+    llvmPackages_20.lldb
+    llvmPackages_20.libcxx
+    #llvmPackages_20.libcxxabi
+    llvmPackages_20.libllvm
+    llvmPackages_20.llvm-manpages
+    llvmPackages_20.openmp
+    llvmPackages_20.bintools
+    clang-tools_20
     lit
 
     ## I heard you like man pages?
