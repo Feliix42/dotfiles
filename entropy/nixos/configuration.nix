@@ -288,7 +288,7 @@
     llvmPackages_20.llvm-manpages
     llvmPackages_20.openmp
     llvmPackages_20.bintools
-    clang-tools_20
+    llvmPackages_20.clang-tools
     lit
 
     ## I heard you like man pages?

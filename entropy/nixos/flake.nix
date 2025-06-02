@@ -37,7 +37,7 @@
             ## arguments to home.nix
           #}
           ({ config, ... }: {
-              nixpkgs.overlays = [ mlir.overlay.default ];
+              nixpkgs.overlays = [ mlir.overlay ];
               _module.args = {
                 unstable = import inputs.unstable {
                   inherit (config.nixpkgs) config;
