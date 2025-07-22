@@ -93,6 +93,8 @@ in
     enable = true;
   };
 
+  programs.niri.enable = true;
+
   environment.systemPackages = with pkgs; [
     kitty
     dunst
@@ -123,6 +125,7 @@ in
 
   environment.etc."greetd/environments".text = ''
     Hyprland
+    niri
     sway
     startplasma-wayland
     fish
