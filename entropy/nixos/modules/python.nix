@@ -19,20 +19,26 @@
       (
         buildPythonPackage rec {
           pname = "xdsl";
-          version = "0.21.1";
+          version = "0.54.3";
           src = fetchPypi {
             inherit pname version;
-            sha256 = "sha256-oh618MGF7YmQ0Y8tl7IKSu7c1n0DnW+oRbx5eeDV18w=";
+            sha256 = "sha256-6a12CPvKAUWoy/Aa8MersUYqNfKv1jAdLd6eDMeFP6s=";
             #sha256 = lib.fakeSha256;
           };
           doCheck = false;
+          pyproject = true;
+          build-system = [ setuptools ];
           propagatedBuildInputs = [
             pkgs.python3Packages.pip
             pkgs.python3Packages.pytest
             pkgs.python3Packages.filecheck
+            pkgs.python3Packages.versioneer
             # pkgs.python3Packages.lit
             pkgs.lit
             pkgs.python3Packages.immutabledict
+            pkgs.python3Packages.ordered-set
+            pkgs.python3Packages.typing-extensions
+            pkgs.python3Packages.setuptools-scm
           ];
         }
       )

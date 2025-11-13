@@ -35,7 +35,7 @@ let
   gtkgreetSwayWrapper = pkgs.writeText "gtkgreet-sway" ''
     # `-l` activates layer-shell mode. Notice that `swaymsg exit` will run after gtkgreet.
     exec configure-gtk
-    exec "${pkgs.greetd.gtkgreet}/bin/gtkgreet -l -s ${greetstyleWrapper}; swaymsg exit"
+    exec "${pkgs.gtkgreet}/bin/gtkgreet -l -s ${greetstyleWrapper}; swaymsg exit"
     bindsym Mod4+shift+q exec swaynag \
         -t warning \
         -m 'What do you want to do?' \

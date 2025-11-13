@@ -63,7 +63,7 @@
   # };
 
   # ------------ kernel -------------------------------------------------------
-  boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_13;
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_17;
 
   services.fwupd.enable = true;
 
@@ -193,12 +193,11 @@
 
   programs.firefox = {
     enable = true;
-    package = pkgs.firefox-wayland;
   };
 
   programs.git = {
     enable = true;
-    package = pkgs.gitAndTools.gitFull;
+    package = pkgs.gitFull;
   };
 
   programs.mosh.enable = true;
@@ -239,6 +238,7 @@
     libqalculate
     ## xdg-open
     xdg-utils
+    nushell
 
     ## password management
     pass
@@ -294,8 +294,8 @@
     ## I heard you like man pages?
     man-pages
     ## git and friends
-    gitAndTools.delta
-    gitAndTools.gitui
+    delta
+    gitui
     difftastic
     ## terminal, browsers, text editing, note taking
     alacritty
@@ -307,6 +307,7 @@
     tree-sitter # for NVIM completions
     #kdePackages.ghostwriter
     unstable.obsidian
+    unstable.zed-editor
     ## file managers
     # lol
     ## file sharing
@@ -334,7 +335,7 @@
     playerctl
     ## messenger
     slack
-    tdesktop
+    telegram-desktop
     signal-desktop
     ## networking
     openconnect

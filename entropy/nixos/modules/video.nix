@@ -8,7 +8,7 @@
   nixpkgs.config = {
     # enable hardware-accelerated graphics
     packageOverrides = pkgs: {
-      vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
+      intel-vaapi-driver = pkgs.intel-vaapi-driver.override { enableHybridCodec = true; };
       # add nixpkgs for unstable package sources
       #unstable = import <nixpkgs> {
         #config = config.nixpkgs.config;
@@ -23,8 +23,8 @@
       intel-compute-runtime
       mesa
       intel-media-driver # LIBVA_DRIVER_NAME=iHD
-      vaapiIntel         # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
-      vaapiVdpau
+      intel-vaapi-driver # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
+      libva-vdpau-driver
       libvdpau-va-gl
     ];
   };
