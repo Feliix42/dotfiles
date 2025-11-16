@@ -34,16 +34,10 @@ end
 -- map buffer local keybindings when the language server attaches
 local servers = { 'clangd', 'rust_analyzer', 'nil_ls' }
 for _, lsp in pairs(servers) do
-  require('lspconfig')[lsp].setup {
-    on_attach = on_attach,
-    flags = {
-      -- This will be the default in neovim 0.7+
-      debounce_text_changes = 150,
-    }
-  }
+  vim.lsp.enable(lsp)
 end
 
-require('lspconfig').clangd.setup{
+vim.lsp.config('clangd', {
   on_attach = on_attach,
   cmd = {
     "clangd",
@@ -61,11 +55,11 @@ require('lspconfig').clangd.setup{
   filetypes = {"c", "cpp", "objc", "objcpp"},
   -- root_dir = utils.root_pattern("compile_commands.json", "compile_flags.txt", ".git")
   init_option = { fallbackFlags = {  "-std=c++2a"  } }
-}
+})
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-require('lspconfig').pyright.setup {
+vim.lsp.config('pyright', {
   on_attach = on_attach,
   capabilities = capabilities
-}
+})
