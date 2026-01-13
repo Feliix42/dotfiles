@@ -63,7 +63,7 @@
   # };
 
   # ------------ kernel -------------------------------------------------------
-  boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_17;
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_18;
 
   services.fwupd.enable = true;
 
@@ -271,6 +271,8 @@
     ccls
     # valgrind
     # heaptrack
+    # protobuf
+    # protobufc
 
     ## nix-community/comma
     comma

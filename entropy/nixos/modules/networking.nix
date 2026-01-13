@@ -3,15 +3,20 @@
 {
   # ------------ networking ---------------------------------------------------
   networking.hostName = "entropy"; # Define your hostname.
-  networking.wireless = {
-    enable = true;  # Enables wireless support via wpa_supplicant.
-    interfaces = [ "wlp0s20f3" ];
-  };
+  # networking.wireless = {
+  #   enable = true;  # Enables wireless support via wpa_supplicant.
+  #   interfaces = [ "wlp0s20f3" ];
+  # };
 
   # use network manager
   networking.networkmanager = {
     enable = true;
-    wifi.powersave = true;
+    wifi = {
+      backend = "wpa_supplicant";
+      powersave = true;
+    };
+    # necessary to allow eduVPN to function correctly
+    plugins = with pkgs; [ networkmanager-openvpn ];
   };
 
   users.users.felix.extraGroups = [ "networkmanager" ];
