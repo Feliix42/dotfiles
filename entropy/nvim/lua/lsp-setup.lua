@@ -33,17 +33,18 @@ end
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
 local servers = { 'clangd', 'rust_analyzer', 'nil_ls' }
-for _, lsp in pairs(servers) do
-  require('lspconfig')[lsp].setup {
-    on_attach = on_attach,
-    flags = {
-      -- This will be the default in neovim 0.7+
-      debounce_text_changes = 150,
-    }
-  }
-end
+vim.lsp.enable(servers)
+-- for _, lsp in pairs(servers) do
+--   require('lspconfig')[lsp].setup {
+--     on_attach = on_attach,
+--     flags = {
+--       -- This will be the default in neovim 0.7+
+--       debounce_text_changes = 150,
+--     }
+--   }
+-- end
 
-require('lspconfig').clangd.setup{
+vim.lsp.config('clangd', {
   on_attach = on_attach,
   cmd = {
     "clangd",
@@ -61,11 +62,36 @@ require('lspconfig').clangd.setup{
   filetypes = {"c", "cpp", "objc", "objcpp"},
   --root_dir = root_pattern("compile_commands.json", "compile_flags.txt", ".git"),
   init_option = { fallbackFlags = {  "-std=c++latest"  } }
-}
+})
+
+-- require('lspconfig').clangd.setup{
+--   on_attach = on_attach,
+--   cmd = {
+--     "clangd",
+--     --"--enable-config",
+--     "--background-index",
+--     "--pch-storage=memory",
+--     "--clang-tidy",
+--     "--all-scopes-completion",
+--     "--completion-style=detailed",
+--     "--pretty",
+--     "--header-insertion=never",
+--     --"-j=4",
+--     "--header-insertion-decorators",
+--   },
+--   filetypes = {"c", "cpp", "objc", "objcpp"},
+--   --root_dir = root_pattern("compile_commands.json", "compile_flags.txt", ".git"),
+--   init_option = { fallbackFlags = {  "-std=c++latest"  } }
+-- }
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-require('lspconfig').pyright.setup {
+vim.lsp.config('pyright', {
   on_attach = on_attach,
   capabilities = capabilities
-}
+})
+
+-- require('lspconfig').pyright.setup {
+--   on_attach = on_attach,
+--   capabilities = capabilities
+-- }
