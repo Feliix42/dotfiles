@@ -1,12 +1,26 @@
 return require('lazy').setup({
   -- theme
   -- use {'morhetz/gruvbox', config = function() vim.cmd.colorscheme("gruvbox") end }
-  {'luisiacc/gruvbox-baby', config = function()
+  {'luisiacc/gruvbox-baby',
+    enabled = false,
+    config = function()
       vim.g.gruvbox_baby_transparent_mode = 1
       vim.cmd.colorscheme("gruvbox-baby")
-  end },
+    end
+  },
   -- use 'drewtempelmeyer/palenight.vim'
   { 'stevedylandev/flexoki-nvim', as = 'flexoki', config = function() vim.cmd.colorscheme("flexoki") end, enabled = false },
+  { "savq/melange-nvim",
+    enabled = false,
+    config = function()
+      vim.cmd.colorscheme("melange")
+    end },
+  { 'Shatur/neovim-ayu',
+    as = 'ayu',
+    enabled = true,
+    config = function()
+	vim.cmd.colorscheme("ayu")
+    end },
 
   -- utility plugins
   { 'nvim-tree/nvim-web-devicons', lazy = true },
@@ -36,7 +50,7 @@ return require('lazy').setup({
   -- UI
   {
     'nvim-lualine/lualine.nvim',
-    dependencies = 'nvim-tree/nvim-web-devicons'
+    dependencies = 'nvim-tree/nvim-web-devicons',
   },
   {'akinsho/bufferline.nvim', version = "*", dependencies = 'nvim-tree/nvim-web-devicons' },
 
@@ -95,14 +109,16 @@ return require('lazy').setup({
     },
     config = function ()
       -- If you want icons for diagnostic errors, you'll need to define them somewhere:
-      vim.fn.sign_define("DiagnosticSignError",
-        {text = " ", texthl = "DiagnosticSignError"})
-      vim.fn.sign_define("DiagnosticSignWarn",
-        {text = " ", texthl = "DiagnosticSignWarn"})
-      vim.fn.sign_define("DiagnosticSignInfo",
-        {text = " ", texthl = "DiagnosticSignInfo"})
-      vim.fn.sign_define("DiagnosticSignHint",
-        {text = "󰌵", texthl = "DiagnosticSignHint"})
+      vim.diagnostic.config({
+        signs = {
+          text = {
+            [vim.diagnostic.severity.ERROR] = '',
+            [vim.diagnostic.severity.WARN] = '',
+            [vim.diagnostic.severity.INFO] = '',
+            [vim.diagnostic.severity.HINT] = '󰌵',
+          },
+        }
+      })
 
       require("neo-tree").setup({
         close_if_last_window = true, -- Close Neo-tree if it is the last window left in the tab
