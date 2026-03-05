@@ -93,13 +93,13 @@ in
     enable = true;
   };
 
-  programs.niri.enable = true;
-
   environment.systemPackages = with pkgs; [
     kitty
     dunst
     tela-circle-icon-theme
     eww
+    hyprpaper
+    ashell
   ];
 
   services.redshift = {
@@ -124,13 +124,12 @@ in
   };
 
   environment.etc."greetd/environments".text = ''
-    Hyprland
-    niri
+    start-hyprland
     sway
     startplasma-wayland
     fish
     ${pkgs.sway}/bin/sway
-    ${pkgs.hyprland}/bin/Hyprland
+    ${pkgs.hyprland}/bin/start-hyprland
     ${pkgs.fish}/bin/fish
   '';
     # ${pkgs.xorg.xinit}/bin/startx

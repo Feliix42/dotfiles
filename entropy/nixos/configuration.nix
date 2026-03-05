@@ -188,7 +188,7 @@
 
   programs.thunar = {
     enable = true;
-    plugins = with pkgs.xfce; [ thunar-archive-plugin thunar-volman ];
+    plugins = with pkgs; [ thunar-archive-plugin thunar-volman ];
   };
 
   programs.firefox = {
@@ -251,6 +251,7 @@
     notmuch
     aspell # spell checking in mail
     thunderbird
+    kdePackages.filelight
     ## Rust
     rustup
     cargo-flamegraph
@@ -280,7 +281,7 @@
     nil
 
     # provided by my own overlay
-    mlir
+    # mlir
     #circt
     llvmPackages_20.clang
     llvmPackages_20.lldb
