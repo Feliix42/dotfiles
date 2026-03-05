@@ -23,6 +23,7 @@
   environment.systemPackages = with pkgs; [
     # tool for flashing firmware
     wally-cli
+    keymapp
   ];
 
 }

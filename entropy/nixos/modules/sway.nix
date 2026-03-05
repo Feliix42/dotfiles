@@ -124,8 +124,8 @@ in
   };
 
   environment.etc."greetd/environments".text = ''
-    start-hyprland
     sway
+    start-hyprland
     startplasma-wayland
     fish
     ${pkgs.sway}/bin/sway
