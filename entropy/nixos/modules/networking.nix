@@ -35,30 +35,6 @@
   # statistics
   services.vnstat.enable = true;
 
-  # enable OpenVPN for connecting to the TUD network
-  services.openvpn.servers.tud = {
-    config = '' config /home/felix/.config/vpn/TUD.ovpn '';
-    autoStart = false; #true;
-    updateResolvConf = true;
-  };
-
-  networking.openconnect.interfaces = {
-    ccc = {
-      user = "s6525655@vpn-cfaed-cpb-ma";
-      protocol = "anyconnect";
-      gateway = "vpn2.zih.tu-dresden.de";
-      passwordFile = "/home/felix/.config/vpn/openconnect.txt";
-      extraOptions = {
-        authgroup = "A-Tunnel-TU-Networks";
-        compression = "stateless";
-        no-dtls = true;
-        no-http-keepalive = true;
-        pfs = true;
-      };
-      autoStart = false;
-    };
-  };
-
   # for SAMBA file shares
   services.gvfs.enable = true;
   # for manual mounting of SMB shares

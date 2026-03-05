@@ -154,16 +154,6 @@
     shell = pkgs.fish;
   };
 
-  # allow user felix to run openconnect without password
-  security.sudo.extraRules = [
-    {
-      users = [ "felix" ];
-      commands = [
-        { command = "${pkgs.openconnect}/bin/openconnect"; options = [ "NOPASSWD" ]; }
-      ];
-    }
-  ];
-
   security.pam.u2f = {
     enable = true;
     settings.cue = true;
@@ -302,7 +292,6 @@
     difftastic
     ## terminal, browsers, text editing, note taking
     alacritty
-    wezterm
     ghostty
     nautilus
     # TODO(feliix42): Fix at some point!
@@ -337,11 +326,8 @@
     musikcube
     playerctl
     ## messenger
-    slack
     telegram-desktop
     signal-desktop
-    ## networking
-    openconnect
   ];
 
   services.dbus.enable = true;
