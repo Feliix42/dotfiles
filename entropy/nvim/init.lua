@@ -1,3 +1,4 @@
+-- plugin manager
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -14,6 +15,7 @@ vim.opt.rtp:prepend(lazypath)
 -- comma as leader
 vim.g.mapleader = ","
 
+-- load plugins
 require('plugins')
 
 -- load legacy options
@@ -44,7 +46,7 @@ require('nvim-treesitter.configs').setup {
         "json", "markdown", "yaml", "toml",
         "make", "nix", "bash",
         "php", "html", "css",
-        "python", "rust", 
+        "python", "rust", "tablegen",
     },
     highlight = {
         enable = true,
@@ -133,4 +135,3 @@ vim.keymap.set("n", "<space>0", "10<C-w>w", { noremap = true })
 
 -- TODO:
 -- window number on editor buffer
--- hledger file type omnifunc like: autocmd FileType hledger setlocal omnifunc=hledger#complete#omnifunc
