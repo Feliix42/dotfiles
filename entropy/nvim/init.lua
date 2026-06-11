@@ -61,8 +61,8 @@ require('lualine').setup {
     options = {
         theme = 'gruvbox-baby',
         -- no separators between lualine elements
-        --section_separators = '',
-        --component_separators = ''
+        section_separators = '',
+        component_separators = ''
     }
 }
 
