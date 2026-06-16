@@ -46,3 +46,19 @@ theme = Ayu
 
 font-family = "Iosevka Medium"
 font-size = 9
+
+window-theme = ghostty
+#window-decoration = client
+
+# maybe questionable, we'll see
+# background-opacity = 0.95
+# background-blur = true
+
+# only notify when I'm not in the terminal session
+notify-on-command-finish = unfocused
+# send a notification rather than ringing the bell
+notify-on-command-finish-action = notify
+notify-on-command-finish-after = 2m
+
+# bind key for toggle_quick_terminal
+keybind = ctrl+shift+space=toggle_quick_terminal
