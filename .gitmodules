@@ -16,6 +16,3 @@
 [submodule "entropy/mail/neomutt/mailsettings"]
 	path = entropy/mail/neomutt/mailsettings
 	url = git@code.dummyco.de:feliix42/mailsettings.git
-[submodule "entropy/nixos/modules/tud-inventory"]
-	path = entropy/nixos/modules/tud-inventory
-	url = git@code.dummyco.de:work/tud-inventory.git
