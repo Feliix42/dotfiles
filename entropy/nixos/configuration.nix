@@ -19,6 +19,9 @@
       # Hardware support for Moonlander & U2F
       ./modules/hardware.nix
 
+      # TUD inventory
+      ./modules/tud-inventory/glpi.nix
+
       # Network & VPN configuration
       ./modules/networking.nix
 
