@@ -27,7 +27,6 @@
 
       ./modules/audio.nix
       ./modules/video.nix
-      #./modules/v4l2loopback.nix
       ./modules/virtualisation.nix
 
       # Desktop configuration
@@ -66,7 +65,7 @@
   # };
 
   # ------------ kernel -------------------------------------------------------
-  boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_18;
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_7_1;
 
   services.fwupd.enable = true;
 
@@ -286,6 +285,11 @@
     llvmPackages_20.bintools
     llvmPackages_20.clang-tools
     lit
+
+    # Let's give radicle a shot
+    radicle-node
+    radicle-tui
+    radicle-desktop
 
     ## I heard you like man pages?
     man-pages
