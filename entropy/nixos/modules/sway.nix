@@ -89,17 +89,19 @@ in
   programs.xwayland.enable = true; # for legacy apps
 
   # Hyprland! Experimental
-  programs.hyprland = {
-    enable = true;
-  };
+  # programs.hyprland = {
+  #   enable = true;
+  # };
 
   environment.systemPackages = with pkgs; [
-    kitty
-    dunst
-    tela-circle-icon-theme
     eww
-    hyprpaper
-    ashell
+    
+    ## hyprland-related:
+    # kitty
+    # dunst
+    # tela-circle-icon-theme
+    # hyprpaper
+    # ashell
   ];
 
   services.redshift = {
@@ -125,13 +127,13 @@ in
 
   environment.etc."greetd/environments".text = ''
     sway
-    start-hyprland
     startplasma-wayland
     fish
     ${pkgs.sway}/bin/sway
-    ${pkgs.hyprland}/bin/start-hyprland
     ${pkgs.fish}/bin/fish
   '';
+    # start-hyprland
+    # ${pkgs.hyprland}/bin/start-hyprland
     # ${pkgs.xorg.xinit}/bin/startx
     # ${pkgs.libsForQt5.plasma-workspace}/bin/startplasma-wayland
 

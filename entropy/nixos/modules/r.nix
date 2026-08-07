@@ -11,6 +11,7 @@
         lazyeval
         patchwork
         tikzDevice
+        viridis
       ];
     };
     rstudioEnv = rstudioWrapper.override {
@@ -21,6 +22,7 @@
         lazyeval
         patchwork
         tikzDevice
+        viridis
       ];
     };
   in

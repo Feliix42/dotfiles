@@ -20,7 +20,7 @@
       ./modules/hardware.nix
 
       # TUD inventory
-      ./modules/tud-inventory/glpi.nix
+      ./modules/glpi.nix
 
       # Network & VPN configuration
       ./modules/networking.nix
@@ -320,7 +320,7 @@
     libheif
     imagemagick
     ## LaTeX
-    texlive.combined.scheme-full
+    texliveFull
     ## Citation management
     zotero
     ## the eternal pain continues
@@ -370,6 +370,7 @@
     roboto-slab
     open-sans
     overpass
+    source-sans
     nerd-fonts.ubuntu
     nerd-fonts.ubuntu-mono
     nerd-fonts.fira-code
