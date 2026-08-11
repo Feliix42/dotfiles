@@ -16,3 +16,12 @@
 [submodule "entropy/mail/neomutt/mailsettings"]
 	path = entropy/mail/neomutt/mailsettings
 	url = git@code.dummyco.de:feliix42/mailsettings.git
+[submodule "assembly/mail/neomutt/themes/powerline"]
+	path = assembly/mail/neomutt/themes/powerline
+	url = git@github.com:sheoak/neomutt-powerline-nerdfonts.git
+[submodule "assembly/mail/neomutt/themes/dracula"]
+	path = assembly/mail/neomutt/themes/dracula
+	url = https://github.com/dracula/mutt.git
+[submodule "assembly/mail/neomutt/mailsettings"]
+	path = assembly/mail/neomutt/mailsettings
+	url = git@code.dummyco.de:feliix42/mailsettings.git

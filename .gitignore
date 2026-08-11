@@ -1,3 +1,7 @@
+assembly/mail/.mbsyncrc
+assembly/mail/.msmtprc
+assembly/vpn/credentials.txt
+assembly/vpn/openconnect.txt
 entropy/mail/.mbsyncrc
 entropy/mail/.msmtprc
 entropy/vpn/credentials.txt

@@ -1,0 +1,27 @@
+
+
+#                                  50 Chars ---->|
+#                                                   72 Characters ---->|
+
+# Type can be
+#    ✨  feat (new feature)
+#    🐛  fix (bug fix)
+#    📚  docs (changes to documentation)
+#    🌹  style (formatting, missing semi colons, etc; no code change)
+#    📝  refactor (refactoring production code)
+#    🔍  test (adding missing tests, refactoring tests; no production code change)
+#    💪  chore (updating grunt tasks etc; no production code change)
+#    🚢  ship (bump a version; release)
+# --------------------
+# Remember to
+#    Separate subject from body with a blank line
+#    Limit the subject line to 50 characters
+#    Capitalize the subject line
+#    Do not end the subject line with a period
+#    Use the imperative mood in the subject line
+#    Wrap the body at 72 characters
+#    Use the body to explain what and why vs. how
+#    Can use multiple lines with "-" for bullet points in body
+# --------------------
+# For more information about this template, check out
+# https://gist.github.com/adeekshith/cd4c95a064977cdc6c50
