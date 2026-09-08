@@ -90,6 +90,8 @@ in
   # programs.hyprland = {
   #   enable = true;
   # };
+  # more experiments
+  programs.niri.enable = true;
 
   environment.systemPackages = with pkgs; [
     eww
@@ -125,6 +127,7 @@ in
 
   environment.etc."greetd/environments".text = ''
     sway
+    niri
     startplasma-wayland
     fish
     ${pkgs.sway}/bin/sway
