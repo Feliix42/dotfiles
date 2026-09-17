@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 let
   # currently, there is some friction between sway and gtk:
@@ -124,6 +124,8 @@ in
       };
     };
   };
+
+  services.displayManager.defaultSession = lib.mkForce "sway";
 
   environment.etc."greetd/environments".text = ''
     sway
