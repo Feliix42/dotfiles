@@ -84,7 +84,7 @@ exec kanshi
 
 # default to gb keymap
 input * {
-    xkb_layout "gb,de"
+    xkb_layout "us,de"
     xkb_options "eurosign:e,ctrl:nocaps,compose:ralt"
 }
 
@@ -264,6 +264,7 @@ for_window [title="Firefox — Sharing Indicator" app_id="firefox"] floating ena
 for_window [title="Extension: (Tree Style Tab).*" app_id="firefox"] floating enable
 # those frickin' zoom popups
 for_window [title="zoom"] floating enable
+for_window [title="annotate_toolbar"] floating enable
 
 # custom keybinds
 
