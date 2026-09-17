@@ -360,7 +360,7 @@ return require('lazy').setup({
   { 'rust-lang/rust.vim', ft = "rust" },
   { 'cespare/vim-toml', ft = "toml" },
   { 'neovimhaskell/haskell-vim', ft = "haskell" },
-  { 'jalvesaq/Nvim-R', branch = "stable", ft = "r" },
+  --{ 'jalvesaq/Nvim-R', branch = "stable", ft = "r" },
   { 'rhysd/vim-llvm', ft = { "llvm", "tablegen" } },
   { 'Civitasv/cmake-tools.nvim', dependencies = "nvim-lua/plenary.nvim" },
   { 'lf-lang/lingua-franca.vim' },
@@ -370,7 +370,7 @@ return require('lazy').setup({
   { 'LnL7/vim-nix', ft = "nix" },
 
   -- Post-install/update hook with neovim command
-  { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
+  { 'nvim-treesitter/nvim-treesitter', lazy = false, build = ':TSUpdate' },
   
   -- LSP plugins
   'neovim/nvim-lspconfig',

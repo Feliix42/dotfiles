@@ -39,19 +39,27 @@ require('completion')
 require('lsp-setup')
 
 -- nvim-treesitter
-require('nvim-treesitter.configs').setup {
-    ensure_installed = {
-        "c", "lua", "vim", "query", "mlir",
-        "gitattributes", "gitcommit", "gitignore",
-        "json", "markdown", "yaml", "toml",
-        "make", "nix", "bash",
-        "php", "html", "css",
-        "python", "rust", "tablegen",
-    },
-    highlight = {
-        enable = true,
-    },
+require('nvim-treesitter').install {
+    "c", "lua", "vim", "query", "mlir",
+    "gitattributes", "gitcommit", "gitignore",
+    "json", "markdown", "yaml", "toml",
+    "make", "nix", "bash",
+    "php", "html", "css",
+    "python", "rust", "tablegen",
 }
+-- require('nvim-treesitter.configs').setup {
+--     ensure_installed = {
+--         "c", "lua", "vim", "query", "mlir",
+--         "gitattributes", "gitcommit", "gitignore",
+--         "json", "markdown", "yaml", "toml",
+--         "make", "nix", "bash",
+--         "php", "html", "css",
+--         "python", "rust", "tablegen",
+--     },
+--     highlight = {
+--         enable = true,
+--     },
+-- }
 
 -- editor theme
 --vim.cmd.colorscheme("flexoki")
